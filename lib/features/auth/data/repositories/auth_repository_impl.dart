@@ -33,14 +33,20 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   Stream<bool> isUserAuthenticated() {
-    // TODO: implement isUserAuthenticated
-    throw UnimplementedError();
+    return _firebaseAuth.userChanges().map((event) => event != null);
   }
 
   @override
-  Future<void> signInWithEmailAndPassword(SignInModel signInModel) {
-    // TODO: implement signInWithEmailAndPassword
-    throw UnimplementedError();
+  Future<void> signInWithEmailAndPassword(SignInModel signInModel) async {
+    try {
+      await _firebaseAuth.signInWithEmailAndPassword(email: signInModel.email, password: signInModel.password);
+    } on FirebaseAuthException catch (e) {
+      print(e);
+      throw FirebaseErrorMapper.mapFirebaseAuthException(e);
+    } catch (e) {
+      print(e);
+      throw AuthFailure(e.toString());
+    }
   }
 
   @override
