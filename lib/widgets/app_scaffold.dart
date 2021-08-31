@@ -1,8 +1,11 @@
+import 'package:flash/flash.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:squeezed_app/res/app_colors.dart';
 import 'package:squeezed_app/res/constants.dart';
+import 'package:squeezed_app/shared/base/base_store.dart';
+import 'package:squeezed_app/widgets/custom_snack_bar.dart';
 
 class AppScaffold<T extends Object> extends StatefulWidget {
   final String? title;
@@ -10,7 +13,7 @@ class AppScaffold<T extends Object> extends StatefulWidget {
   final bool isScrollable;
   final bool padding;
   final List<Widget>? actions;
-  final Store? controller;
+  final BaseStore? controller;
 
   const AppScaffold({
     Key? key,
@@ -33,6 +36,30 @@ class AppScaffold<T extends Object> extends StatefulWidget {
 }
 
 class _AppScaffoldState extends State<AppScaffold> {
+  ReactionDisposer? _disposer;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.controller != null) {
+      _disposer = reaction<String?>(
+        (_) => widget.controller!.errorMessage,
+        (errorMessage) {
+          if (errorMessage == null) return;
+          showFlash(
+            context: context,
+            duration: const Duration(seconds: 3),
+            builder: (context, controller) => CustomSnackBar.error(
+              message: errorMessage,
+              controller: controller,
+            ),
+          );
+        },
+        equals: (_, __) => false,
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return _buildScaffoldWidget();
@@ -74,5 +101,11 @@ class _AppScaffoldState extends State<AppScaffold> {
             child: widget.body,
           )
         : widget.body;
+  }
+
+  @override
+  void dispose() {
+    _disposer?.call();
+    super.dispose();
   }
 }

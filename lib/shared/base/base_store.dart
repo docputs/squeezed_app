@@ -1,7 +1,7 @@
 import 'package:mobx/mobx.dart';
 import 'package:squeezed_app/features/auth/core/errors/auth_failure.dart';
 
-part 'base_store.g.dart';
+part '../base_store.g.dart';
 
 class BaseStore = _BaseStore with _$BaseStore;
 
@@ -22,7 +22,7 @@ abstract class _BaseStore with Store {
       final result = await function();
       return result;
     } on AuthFailure catch (e) {
-      errorMessage = e.toString();
+      errorMessage = e.message;
     } catch (e) {
       errorMessage = e.toString();
     } finally {
