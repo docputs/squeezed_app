@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:squeezed_app/shared/utils/validators.dart';
 
 part 'sign_up_view_model.freezed.dart';
 
@@ -19,6 +20,6 @@ abstract class SignUpViewModel with _$SignUpViewModel {
       );
 
   bool isValid() {
-    return email.isNotEmpty && password.isNotEmpty && password.length >= 6 && confirmPassword == password;
+    return Validators.isValidEmailAddress(email) && Validators.isValidPassword(password) && confirmPassword == password;
   }
 }

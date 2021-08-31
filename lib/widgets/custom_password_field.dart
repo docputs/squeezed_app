@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:squeezed_app/res/app_colors.dart';
+import 'package:squeezed_app/shared/res/app_colors.dart';
 
 class CustomPasswordField extends StatefulWidget {
   final String? labelText;

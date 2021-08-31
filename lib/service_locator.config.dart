@@ -13,8 +13,9 @@ import 'features/auth/data/repositories/auth_repository_impl.dart' as _i6;
 import 'features/auth/domain/repositories/auth_repository.dart' as _i5;
 import 'features/auth/domain/usecases/sign_in_user.dart' as _i7;
 import 'features/auth/domain/usecases/sign_up_user.dart' as _i8;
-import 'features/auth/ui/sign_up/controller/sign_up_controller.dart' as _i9;
-import 'service_locator.dart' as _i10; // ignore_for_file: unnecessary_lambdas
+import 'features/auth/ui/sign_in/controllers/sign_in_controller.dart' as _i9;
+import 'features/auth/ui/sign_up/controller/sign_up_controller.dart' as _i10;
+import 'service_locator.dart' as _i11; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -31,9 +32,11 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i7.SignInUser(get<_i5.AuthRepository>()));
   gh.lazySingleton<_i8.SignUpUser>(
       () => _i8.SignUpUser(get<_i5.AuthRepository>()));
-  gh.lazySingleton<_i9.SignUpController>(
-      () => _i9.SignUpController(get<_i8.SignUpUser>()));
+  gh.lazySingleton<_i9.SignInController>(
+      () => _i9.SignInController(get<_i7.SignInUser>()));
+  gh.lazySingleton<_i10.SignUpController>(
+      () => _i10.SignUpController(get<_i8.SignUpUser>()));
   return get;
 }
 
-class _$RegisterModule extends _i10.RegisterModule {}
+class _$RegisterModule extends _i11.RegisterModule {}

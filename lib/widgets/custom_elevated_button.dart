@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:squeezed_app/res/app_colors.dart';
-
-import 'package:squeezed_app/res/constants.dart';
+import 'package:squeezed_app/shared/res/app_colors.dart';
+import 'package:squeezed_app/shared/res/constants.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   final String text;

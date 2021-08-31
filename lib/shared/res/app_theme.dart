@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:squeezed_app/res/constants.dart';
+import 'package:squeezed_app/shared/res/constants.dart';
 
 import 'app_colors.dart';
 

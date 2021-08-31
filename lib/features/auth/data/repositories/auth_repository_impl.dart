@@ -4,6 +4,7 @@ import 'package:squeezed_app/features/auth/core/errors/auth_failure.dart';
 import 'package:squeezed_app/features/auth/data/models/sign_in_model.dart';
 import 'package:squeezed_app/features/auth/data/models/register_model.dart';
 import 'package:squeezed_app/features/auth/domain/repositories/auth_repository.dart';
+import 'package:squeezed_app/shared/utils/firebase_error_mapper.dart';
 
 @LazySingleton(as: AuthRepository)
 class AuthRepositoryImpl implements AuthRepository {
@@ -17,10 +18,7 @@ class AuthRepositoryImpl implements AuthRepository {
       await _firebaseAuth.createUserWithEmailAndPassword(email: registerModel.email, password: registerModel.password);
     } on FirebaseAuthException catch (e) {
       print(e);
-      if (e.code == 'weak-password') {
-        throw AuthFailure.weakPassword();
-      }
-      throw AuthFailure(e.toString());
+      throw FirebaseErrorMapper.mapFirebaseAuthException(e);
     } catch (e) {
       print(e);
       throw AuthFailure(e.toString());

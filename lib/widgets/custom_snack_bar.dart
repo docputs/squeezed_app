@@ -1,6 +1,6 @@
 import 'package:flash/flash.dart';
 import 'package:flutter/material.dart';
-import 'package:squeezed_app/res/app_colors.dart';
+import 'package:squeezed_app/shared/res/app_colors.dart';
 
 class CustomSnackBar extends StatelessWidget {
   final String message;

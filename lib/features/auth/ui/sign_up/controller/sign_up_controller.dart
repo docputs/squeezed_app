@@ -2,7 +2,7 @@ import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
 import 'package:squeezed_app/features/auth/domain/usecases/sign_up_user.dart';
 import 'package:squeezed_app/features/auth/ui/sign_up/view_models/sign_up_view_model.dart';
-import 'package:squeezed_app/shared/base_store.dart';
+import 'package:squeezed_app/shared/base/base_store.dart';
 
 part 'sign_up_controller.g.dart';
 

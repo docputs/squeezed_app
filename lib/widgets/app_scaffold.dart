@@ -2,9 +2,9 @@ import 'package:flash/flash.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-import 'package:squeezed_app/res/app_colors.dart';
-import 'package:squeezed_app/res/constants.dart';
 import 'package:squeezed_app/shared/base/base_store.dart';
+import 'package:squeezed_app/shared/res/app_colors.dart';
+import 'package:squeezed_app/shared/res/constants.dart';
 import 'package:squeezed_app/widgets/custom_snack_bar.dart';
 
 class AppScaffold<T extends Object> extends StatefulWidget {
@@ -67,7 +67,7 @@ class _AppScaffoldState extends State<AppScaffold> {
 
   Scaffold _buildScaffoldWidget() {
     return Scaffold(
-      appBar: _buildAppBar(),
+      appBar: widget.title != null ? _buildAppBar() : null,
       body: widget.isScrollable ? SingleChildScrollView(child: _buildBody()) : _buildBody(),
     );
   }

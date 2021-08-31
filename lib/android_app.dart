@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:squeezed_app/app_router.gr.dart';
-import 'package:squeezed_app/res/app_theme.dart';
+import 'package:squeezed_app/shared/res/app_theme.dart';
 
 class AndroidApp extends StatelessWidget {
   final _appRouter = AppRouter();
