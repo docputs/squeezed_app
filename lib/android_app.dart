@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:squeezed_app/app_router.gr.dart';
+import 'package:squeezed_app/res/app_theme.dart';
 
 class AndroidApp extends StatelessWidget {
   final _appRouter = AppRouter();
@@ -9,17 +10,10 @@ class AndroidApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'Squeezed',
+      debugShowCheckedModeBanner: false,
       routeInformationParser: _appRouter.defaultRouteParser(),
       routerDelegate: AutoRouterDelegate(_appRouter),
+      theme: AppTheme(context).generate(),
     );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
