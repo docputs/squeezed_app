@@ -22,7 +22,12 @@ class CustomElevatedButton extends StatelessWidget {
     return SizedBox(
       width: horizontallyExpanded ? double.infinity : null,
       child: ElevatedButton(
-        onPressed: onPressed,
+        onPressed: onPressed != null
+            ? () {
+                _hideKeyboard(context);
+                onPressed!();
+              }
+            : null,
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(
             horizontal: Constants.defaultPadding,
@@ -40,5 +45,12 @@ class CustomElevatedButton extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _hideKeyboard(BuildContext context) {
+    final currentFocus = FocusScope.of(context);
+    if (currentFocus.hasFocus) {
+      currentFocus.unfocus();
+    }
   }
 }
