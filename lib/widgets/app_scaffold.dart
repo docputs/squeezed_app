@@ -94,9 +94,10 @@ class _AppScaffoldState extends State<AppScaffold> {
     final statusBarHeight = MediaQuery.of(context).padding.top;
     return widget.padding
         ? Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: Constants.defaultPadding,
-              vertical: statusBarHeight,
+            padding: EdgeInsets.only(
+              left: Constants.defaultPadding,
+              right: Constants.defaultPadding,
+              top: statusBarHeight,
             ),
             child: widget.body,
           )
