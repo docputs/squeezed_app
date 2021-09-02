@@ -11,6 +11,8 @@ class FirebaseErrorMapper {
       return AuthFailure.invalidEmailAddress();
     } else if (exception.code == 'operation-not-allowed') {
       return AuthFailure.operationNotAllowed();
+    } else if (exception.code == 'user-not-found') {
+      return AuthFailure.userNotFound();
     }
     return AuthFailure.serverFailure();
   }

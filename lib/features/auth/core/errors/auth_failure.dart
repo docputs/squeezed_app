@@ -7,6 +7,7 @@ part 'auth_failure.freezed.dart';
 class AuthFailure with _$AuthFailure {
   const factory AuthFailure(String message) = _AuthFailure;
 
+  factory AuthFailure.userNotFound() => const AuthFailure(Messages.userNotFound);
   factory AuthFailure.operationNotAllowed() => const AuthFailure(Messages.operationNotAllowed);
   factory AuthFailure.invalidEmailAddress() => const AuthFailure(Messages.invalidEmailAddress);
   factory AuthFailure.emailAlreadyInUse() => const AuthFailure(Messages.emailAlreadyInUse);

@@ -1,6 +1,7 @@
 class Messages {
   const Messages._();
 
+  static const userNotFound = 'Nenhum usuário com este e-mail foi encontrado';
   static const operationNotAllowed = 'Usuário não possui permissões';
   static const invalidEmailAddress = 'E-mail inválido';
   static const emailAlreadyInUse = 'E-mail já está em uso';
