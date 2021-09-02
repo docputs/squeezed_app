@@ -7,7 +7,7 @@ import 'package:squeezed_app/shared/res/app_colors.dart';
 import 'package:squeezed_app/shared/res/constants.dart';
 import 'package:squeezed_app/widgets/custom_snack_bar.dart';
 
-class AppScaffold<T extends Object> extends StatefulWidget {
+class AppScaffold extends StatefulWidget {
   final String? title;
   final Widget body;
   final bool isScrollable;
