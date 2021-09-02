@@ -14,7 +14,7 @@ class NavigationLink {
   });
 }
 
-const bottomNavLinks = [
+final bottomNavLinks = [
   NavigationLink(labelText: 'Home', icon: Icons.home, destination: HomePageRoute()),
   NavigationLink(labelText: 'Workout', icon: Icons.work, destination: WorkoutPageRoute()),
   NavigationLink(labelText: 'Statistics', icon: Icons.bar_chart, destination: StatisticsPageRoute()),

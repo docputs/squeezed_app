@@ -37,11 +37,7 @@ class AppTheme {
   }
 
   TextButtonThemeData _buildTextButtonTheme() {
-    return TextButtonThemeData(
-      style: ButtonStyle(
-        foregroundColor: MaterialStateProperty.all(AppColors.primary),
-      ),
-    );
+    return TextButtonThemeData(style: TextButton.styleFrom(primary: AppColors.primary));
   }
 
   InputDecorationTheme _buildInputDecorationTheme() {

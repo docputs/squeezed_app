@@ -162,13 +162,14 @@ class __$WorkoutPlanCopyWithImpl<$Res> extends _$WorkoutPlanCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WorkoutPlan implements _WorkoutPlan {
+class _$_WorkoutPlan extends _WorkoutPlan {
   _$_WorkoutPlan(
       {required this.id,
       required this.title,
       required this.daysOfWeek,
       required this.exercises,
-      required this.creationTimestamp});
+      required this.creationTimestamp})
+      : super._();
 
   @override
   final String id;
@@ -220,13 +221,14 @@ class _$_WorkoutPlan implements _WorkoutPlan {
       __$WorkoutPlanCopyWithImpl<_WorkoutPlan>(this, _$identity);
 }
 
-abstract class _WorkoutPlan implements WorkoutPlan {
+abstract class _WorkoutPlan extends WorkoutPlan {
   factory _WorkoutPlan(
       {required String id,
       required String title,
       required Set<int> daysOfWeek,
       required List<ExercisePlan> exercises,
       required DateTime creationTimestamp}) = _$_WorkoutPlan;
+  _WorkoutPlan._() : super._();
 
   @override
   String get id => throw _privateConstructorUsedError;

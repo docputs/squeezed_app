@@ -66,9 +66,9 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
         ),
         if (widget.showMinimumLengthWarning) ...[
           const SizedBox(height: 5),
-          Text(
+          const Text(
             'Mínimo de 6 caracteres',
-            style: TextStyle(color: AppColors.grey.withOpacity(.7), fontSize: 10),
+            style: TextStyle(color: AppColors.grey, fontSize: 10),
           ),
         ],
       ],

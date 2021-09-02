@@ -6,7 +6,9 @@ import 'package:squeezed_app/shared/res/constants.dart';
 import 'package:squeezed_app/shared/utils/date_time_generator.dart';
 
 class WeekdaySelector extends StatefulWidget {
-  const WeekdaySelector({Key? key}) : super(key: key);
+  final void Function(WeekdayViewModel)? onWeekdaySelected;
+
+  const WeekdaySelector({Key? key, this.onWeekdaySelected}) : super(key: key);
 
   @override
   _WeekdaySelectorState createState() => _WeekdaySelectorState();
@@ -33,6 +35,9 @@ class _WeekdaySelectorState extends State<WeekdaySelector> {
     return GestureDetector(
       onTap: () {
         setState(() => _selectedWeekday = weekday);
+        if (widget.onWeekdaySelected != null) {
+          widget.onWeekdaySelected!(_selectedWeekday);
+        }
       },
       child: Container(
         padding: const EdgeInsets.all(10),

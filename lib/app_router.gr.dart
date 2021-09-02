@@ -56,8 +56,10 @@ class AppRouter extends _i1.RootStackRouter {
         }),
     WorkoutPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
-        builder: (_) {
-          return const _i8.WorkoutPage();
+        builder: (data) {
+          final args = data.argsAs<WorkoutPageRouteArgs>(
+              orElse: () => const WorkoutPageRouteArgs());
+          return _i8.WorkoutPage(key: args.key);
         }),
     StatisticsPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -141,10 +143,17 @@ class HomePageRoute extends _i1.PageRouteInfo {
   static const String name = 'HomePageRoute';
 }
 
-class WorkoutPageRoute extends _i1.PageRouteInfo {
-  const WorkoutPageRoute() : super(name, path: 'workout-page');
+class WorkoutPageRoute extends _i1.PageRouteInfo<WorkoutPageRouteArgs> {
+  WorkoutPageRoute({_i2.Key? key})
+      : super(name, path: 'workout-page', args: WorkoutPageRouteArgs(key: key));
 
   static const String name = 'WorkoutPageRoute';
+}
+
+class WorkoutPageRouteArgs {
+  const WorkoutPageRouteArgs({this.key});
+
+  final _i2.Key? key;
 }
 
 class StatisticsPageRoute extends _i1.PageRouteInfo {
