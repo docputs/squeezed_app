@@ -12,9 +12,9 @@ class AuthController {
   void calculateInitialNavigation() {
     _authRepository.isUserAuthenticated().listen((isAuthenticated) {
       if (isAuthenticated) {
-        _router.replace(const BottomNavigationManagerRoute());
+        _router.replaceAll([const BottomNavigationManagerRoute()]);
       } else {
-        _router.replace(SignInPageRoute());
+        _router.replaceAll([SignInPageRoute()]);
       }
     });
   }
