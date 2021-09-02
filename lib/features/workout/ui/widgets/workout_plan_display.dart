@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:squeezed_app/features/workout/domain/entities/workout_plan.dart';
+import 'package:squeezed_app/features/workout/ui/widgets/exercise_plan_list_tile.dart';
 import 'package:squeezed_app/shared/res/app_colors.dart';
-import 'package:squeezed_app/widgets/custom_divider.dart';
 
 class WorkoutPlanDisplay extends StatelessWidget {
   final WorkoutPlan workout;
@@ -17,35 +17,14 @@ class WorkoutPlanDisplay extends StatelessWidget {
           child: Text(workout.title, style: const TextStyle(fontSize: 20)),
         ),
         const SizedBox(height: 20),
-        Column(
-          children: workout.exercises
-              .map(
-                (e) => Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 15),
-                      child: Row(
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(e.name),
-                              Text(
-                                e.targetMuscle,
-                                style: const TextStyle(color: AppColors.grey, fontSize: 13),
-                              ),
-                            ],
-                          ),
-                          const Spacer(),
-                          // Text(e.)
-                        ],
-                      ),
-                    ),
-                    const CustomDivider(),
-                  ],
-                ),
-              )
-              .toList(),
+        Expanded(
+          child: Theme(
+            data: ThemeData(accentColor: AppColors.primary),
+            child: ListView(
+              padding: const EdgeInsets.all(0),
+              children: workout.exercises.map((e) => ExercisePlanListTile(e)).toList(),
+            ),
+          ),
         ),
       ],
     );

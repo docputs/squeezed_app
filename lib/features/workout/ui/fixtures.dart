@@ -52,4 +52,64 @@ final exercises = const [
       ExerciseSet(load: 80, reps: RepsRange(6, 8)),
     ],
   ),
+  ExercisePlan(
+    id: '4',
+    exercise: ExerciseDetails(
+      id: '789',
+      name: 'Supino máquina',
+      targetMuscle: 'Peito',
+    ),
+    plannedSets: [
+      ExerciseSet(load: 80, reps: RepsRange(8, 10)),
+      ExerciseSet(load: 80, reps: RepsRange(6, 8)),
+    ],
+  ),
+  ExercisePlan(
+    id: '5',
+    exercise: ExerciseDetails(
+      id: '789',
+      name: 'Supino máquina',
+      targetMuscle: 'Peito',
+    ),
+    plannedSets: [
+      ExerciseSet(load: 80, reps: RepsRange(8, 10)),
+      ExerciseSet(load: 80, reps: RepsRange(6, 8)),
+    ],
+  ),
+  ExercisePlan(
+    id: '6',
+    exercise: ExerciseDetails(
+      id: '789',
+      name: 'Supino máquina',
+      targetMuscle: 'Peito',
+    ),
+    plannedSets: [
+      ExerciseSet(load: 80, reps: RepsRange(8, 10)),
+      ExerciseSet(load: 80, reps: RepsRange(6, 8)),
+    ],
+  ),
+  ExercisePlan(
+    id: '7',
+    exercise: ExerciseDetails(
+      id: '789',
+      name: 'Supino máquina',
+      targetMuscle: 'Peito',
+    ),
+    plannedSets: [
+      ExerciseSet(load: 80, reps: RepsRange(8, 10)),
+      ExerciseSet(load: 80, reps: RepsRange(6, 8)),
+    ],
+  ),
+  ExercisePlan(
+    id: '8',
+    exercise: ExerciseDetails(
+      id: '789',
+      name: 'Supino máquina',
+      targetMuscle: 'Peito',
+    ),
+    plannedSets: [
+      ExerciseSet(load: 80, reps: RepsRange(8, 10)),
+      ExerciseSet(load: 80, reps: RepsRange(6, 8)),
+    ],
+  ),
 ];

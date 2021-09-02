@@ -25,7 +25,9 @@ class _WorkoutPageState extends State<WorkoutPage> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return AppScaffold(
+      isScrollable: false,
       body: Column(
         children: [
           const SizedBox(height: 40),
@@ -39,10 +41,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
           const SizedBox(height: 40),
           WeekdaySelector(onWeekdaySelected: _controller.animateToSelectedWeekday),
           const SizedBox(height: 40),
-          ConstrainedBox(
-            constraints: const BoxConstraints(maxHeight: 300, minHeight: 100),
-            child: _calculateWorkoutDisplay(),
-          ),
+          Expanded(child: _calculateWorkoutDisplay()),
         ],
       ),
     );
