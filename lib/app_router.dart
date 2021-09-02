@@ -6,7 +6,7 @@ import 'package:squeezed_app/features/home/ui/home_page.dart';
 import 'package:squeezed_app/features/settings/settings_page.dart';
 import 'package:squeezed_app/features/splash/ui/splash_page.dart';
 import 'package:squeezed_app/features/statistics/statistics_page.dart';
-import 'package:squeezed_app/features/workout/workout_page.dart';
+import 'package:squeezed_app/features/workout/ui/workout_page.dart';
 
 @MaterialAutoRouter(routes: [
   AutoRoute(page: SplashPage, initial: true),

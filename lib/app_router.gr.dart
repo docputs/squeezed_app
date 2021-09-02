@@ -14,7 +14,7 @@ import 'features/home/ui/home_page.dart' as _i7;
 import 'features/settings/settings_page.dart' as _i10;
 import 'features/splash/ui/splash_page.dart' as _i3;
 import 'features/statistics/statistics_page.dart' as _i9;
-import 'features/workout/workout_page.dart' as _i8;
+import 'features/workout/ui/workout_page.dart' as _i8;
 
 class AppRouter extends _i1.RootStackRouter {
   AppRouter([_i2.GlobalKey<_i2.NavigatorState>? navigatorKey])

@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 class AppColors {
   const AppColors._();
 
-  static const primary = Color(0xFFD93D04);
+  static const primary = Color(0xFFDC5220);
   static const primaryLight = Color(0xFFF98F52);
   static const primaryDark = Color(0xFF9B2200);
 
