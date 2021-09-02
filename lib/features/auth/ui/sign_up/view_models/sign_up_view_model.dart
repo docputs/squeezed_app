@@ -4,7 +4,7 @@ import 'package:squeezed_app/shared/utils/validators.dart';
 part 'sign_up_view_model.freezed.dart';
 
 @freezed
-abstract class SignUpViewModel with _$SignUpViewModel {
+class SignUpViewModel with _$SignUpViewModel {
   const SignUpViewModel._();
 
   const factory SignUpViewModel({

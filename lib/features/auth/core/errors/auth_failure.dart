@@ -4,7 +4,7 @@ import 'package:squeezed_app/shared/res/messages.dart';
 part 'auth_failure.freezed.dart';
 
 @freezed
-abstract class AuthFailure with _$AuthFailure {
+class AuthFailure with _$AuthFailure {
   const factory AuthFailure(String message) = _AuthFailure;
 
   factory AuthFailure.operationNotAllowed() => const AuthFailure(Messages.operationNotAllowed);

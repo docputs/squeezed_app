@@ -1,7 +1,7 @@
 import 'package:mobx/mobx.dart';
 import 'package:squeezed_app/features/auth/core/errors/auth_failure.dart';
 
-part '../base_store.g.dart';
+part 'base_store.g.dart';
 
 class BaseStore = _BaseStore with _$BaseStore;
 
