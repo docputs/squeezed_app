@@ -11,6 +11,7 @@ class CustomPasswordField extends StatefulWidget {
   final void Function(String)? onChanged;
   final bool enabled;
   final TextInputAction? textInputAction;
+  final bool showMinimumLengthWarning;
 
   const CustomPasswordField({
     Key? key,
@@ -21,6 +22,7 @@ class CustomPasswordField extends StatefulWidget {
     this.onChanged,
     this.enabled = true,
     this.textInputAction,
+    this.showMinimumLengthWarning = false,
   }) : super(key: key);
 
   @override
@@ -62,6 +64,13 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
             ),
           ],
         ),
+        if (widget.showMinimumLengthWarning) ...[
+          const SizedBox(height: 5),
+          Text(
+            'Mínimo de 6 caracteres',
+            style: TextStyle(color: AppColors.grey.withOpacity(.7), fontSize: 10),
+          ),
+        ],
       ],
     );
   }

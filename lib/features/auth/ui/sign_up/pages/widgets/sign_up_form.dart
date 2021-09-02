@@ -22,6 +22,7 @@ class SignUpForm extends StatelessWidget {
         CustomPasswordField(
           labelText: 'Senha',
           onChanged: controller.changePassword,
+          showMinimumLengthWarning: true,
         ),
         const SizedBox(height: 20),
         CustomPasswordField(
@@ -31,7 +32,7 @@ class SignUpForm extends StatelessWidget {
         const SizedBox(height: 40),
         Observer(
           builder: (_) => CustomElevatedButton(
-            text: 'Salvar',
+            text: 'Criar conta',
             onPressed: controller.isFormValid && !controller.isLoading ? () => controller.submit() : null,
           ),
         ),

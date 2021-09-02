@@ -40,7 +40,7 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i10.AuthController>(() =>
       _i10.AuthController(get<_i6.AuthRepository>(), get<_i3.AppRouter>()));
   gh.lazySingleton<_i11.SignInController>(
-      () => _i11.SignInController(get<_i8.SignInUser>()));
+      () => _i11.SignInController(get<_i8.SignInUser>(), get<_i3.AppRouter>()));
   gh.lazySingleton<_i12.SignUpController>(
       () => _i12.SignUpController(get<_i9.SignUpUser>()));
   gh.lazySingleton<_i13.SplashController>(
