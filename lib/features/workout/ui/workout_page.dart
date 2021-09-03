@@ -25,7 +25,6 @@ class _WorkoutPageState extends State<WorkoutPage> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return AppScaffold(
       isScrollable: false,
       body: Column(
