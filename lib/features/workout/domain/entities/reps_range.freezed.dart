@@ -108,18 +108,13 @@ class __$RepsRangeCopyWithImpl<$Res> extends _$RepsRangeCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_RepsRange implements _RepsRange {
-  const _$_RepsRange(this.min, this.max);
+class _$_RepsRange extends _RepsRange {
+  const _$_RepsRange(this.min, this.max) : super._();
 
   @override
   final int min;
   @override
   final int max;
-
-  @override
-  String toString() {
-    return 'RepsRange(min: $min, max: $max)';
-  }
 
   @override
   bool operator ==(dynamic other) {
@@ -143,8 +138,9 @@ class _$_RepsRange implements _RepsRange {
       __$RepsRangeCopyWithImpl<_RepsRange>(this, _$identity);
 }
 
-abstract class _RepsRange implements RepsRange {
+abstract class _RepsRange extends RepsRange {
   const factory _RepsRange(int min, int max) = _$_RepsRange;
+  const _RepsRange._() : super._();
 
   @override
   int get min => throw _privateConstructorUsedError;

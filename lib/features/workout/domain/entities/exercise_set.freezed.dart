@@ -139,8 +139,8 @@ class __$ExerciseSetCopyWithImpl<$Res> extends _$ExerciseSetCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ExerciseSet implements _ExerciseSet {
-  const _$_ExerciseSet({this.load, this.reps, this.rpe});
+class _$_ExerciseSet extends _ExerciseSet {
+  const _$_ExerciseSet({this.load, this.reps, this.rpe}) : super._();
 
   @override
   final double? load;
@@ -179,9 +179,10 @@ class _$_ExerciseSet implements _ExerciseSet {
       __$ExerciseSetCopyWithImpl<_ExerciseSet>(this, _$identity);
 }
 
-abstract class _ExerciseSet implements ExerciseSet {
+abstract class _ExerciseSet extends ExerciseSet {
   const factory _ExerciseSet({double? load, RepsRange? reps, int? rpe}) =
       _$_ExerciseSet;
+  const _ExerciseSet._() : super._();
 
   @override
   double? get load => throw _privateConstructorUsedError;

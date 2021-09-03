@@ -19,6 +19,17 @@ class ExercisePlan with _$ExercisePlan {
   String get targetMuscle => exercise.targetMuscle;
 
   int get setsAmount => plannedSets.length;
+
+  bool everySetHasEqualRepsRange() {
+    final sampleRepsRange = plannedSets.first.reps;
+    return plannedSets.every((element) => element.reps == sampleRepsRange);
+  }
+
+  String? getRepsRange() {
+    if (everySetHasEqualRepsRange()) {
+      return plannedSets.first.reps.toString();
+    }
+  }
 }
 
 class ExercisePlanDTO {
