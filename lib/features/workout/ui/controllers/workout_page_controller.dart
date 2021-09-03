@@ -28,7 +28,7 @@ abstract class _WorkoutPageControllerBase extends BaseStore with Store {
   WorkoutPlan? _findWorkoutWithinWeekday(int weekdayNumber) {
     try {
       return allWorkoutPlans.firstWhere((workout) => workout.daysOfWeek.contains(weekdayNumber));
-    } on StateError catch (e) {
+    } on StateError {
       return null;
     }
   }
