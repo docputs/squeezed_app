@@ -41,7 +41,14 @@ class ExercisePlanListTile extends StatelessWidget {
           ],
         ),
         const Spacer(),
-        Text(exercise.getRepsRange() ?? ''),
+        Text(
+          '${exercise.setsAmount} séries',
+          style: const TextStyle(
+            color: AppColors.primary,
+            decoration: TextDecoration.underline,
+            fontSize: 14,
+          ),
+        ),
       ],
     );
   }

@@ -34,7 +34,9 @@ abstract class _WorkoutPageControllerBase extends BaseStore with Store {
   }
 
   void animateToSelectedWeekday(WeekdayViewModel weekday) {
-    pageController.animateToPage(weekday.weekdayNumber == 7 ? 0 : weekday.weekdayNumber,
+    // Sunday appears at first position on WeekdaySelector
+    // So the first button on WeekdaySelector has to animate towards the last element on workoutRoutine
+    pageController.animateToPage(weekday.weekdayNumber == DateTime.sunday ? 0 : weekday.weekdayNumber,
         duration: const Duration(milliseconds: 250), curve: Curves.easeOut);
   }
 }

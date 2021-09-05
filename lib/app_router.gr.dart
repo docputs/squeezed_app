@@ -10,9 +10,10 @@ import 'package:flutter/material.dart' as _i2;
 import 'features/auth/ui/sign_in/pages/sign_in_page.dart' as _i4;
 import 'features/auth/ui/sign_up/pages/sign_up_page.dart' as _i5;
 import 'features/home/ui/home_page.dart' as _i7;
-import 'features/settings/settings_page.dart' as _i10;
+import 'features/settings/settings_page.dart' as _i11;
 import 'features/splash/ui/splash_page.dart' as _i3;
-import 'features/statistics/statistics_page.dart' as _i9;
+import 'features/statistics/statistics_page.dart' as _i10;
+import 'features/workout/ui/create_workout_page.dart' as _i9;
 import 'features/workout/ui/workout_page.dart' as _i8;
 import 'widgets/bottom_navigation_manager.dart' as _i6;
 
@@ -49,6 +50,26 @@ class AppRouter extends _i1.RootStackRouter {
             builder: (_) {
               return const _i6.BottomNavigationManager();
             }),
+    HomeTab.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i1.EmptyRouterPage();
+        }),
+    WorkoutTab.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i1.EmptyRouterPage();
+        }),
+    StatisticsTab.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i1.EmptyRouterPage();
+        }),
+    SettingsTab.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i1.EmptyRouterPage();
+        }),
     HomePageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
@@ -61,15 +82,20 @@ class AppRouter extends _i1.RootStackRouter {
               orElse: () => const WorkoutPageRouteArgs());
           return _i8.WorkoutPage(key: args.key);
         }),
+    CreateWorkoutPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i9.CreateWorkoutPage();
+        }),
     StatisticsPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return const _i9.StatisticsPage();
+          return const _i10.StatisticsPage();
         }),
     SettingsPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return const _i10.SettingsPage();
+          return const _i11.SettingsPage();
         })
   };
 
@@ -81,11 +107,24 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(BottomNavigationManagerRoute.name,
             path: '/bottom-navigation-manager',
             children: [
-              _i1.RouteConfig(HomePageRoute.name, path: ''),
-              _i1.RouteConfig(WorkoutPageRoute.name, path: 'workout-page'),
-              _i1.RouteConfig(StatisticsPageRoute.name,
-                  path: 'statistics-page'),
-              _i1.RouteConfig(SettingsPageRoute.name, path: 'settings-page')
+              _i1.RouteConfig(HomeTab.name,
+                  path: '',
+                  children: [_i1.RouteConfig(HomePageRoute.name, path: '')]),
+              _i1.RouteConfig(WorkoutTab.name,
+                  path: 'empty-router-page',
+                  children: [
+                    _i1.RouteConfig(WorkoutPageRoute.name, path: ''),
+                    _i1.RouteConfig(CreateWorkoutPageRoute.name,
+                        path: 'create-workout-page')
+                  ]),
+              _i1.RouteConfig(StatisticsTab.name,
+                  path: 'empty-router-page',
+                  children: [
+                    _i1.RouteConfig(StatisticsPageRoute.name, path: '')
+                  ]),
+              _i1.RouteConfig(SettingsTab.name,
+                  path: 'empty-router-page',
+                  children: [_i1.RouteConfig(SettingsPageRoute.name, path: '')])
             ])
       ];
 }
@@ -137,6 +176,34 @@ class BottomNavigationManagerRoute extends _i1.PageRouteInfo {
   static const String name = 'BottomNavigationManagerRoute';
 }
 
+class HomeTab extends _i1.PageRouteInfo {
+  const HomeTab({List<_i1.PageRouteInfo>? children})
+      : super(name, path: '', initialChildren: children);
+
+  static const String name = 'HomeTab';
+}
+
+class WorkoutTab extends _i1.PageRouteInfo {
+  const WorkoutTab({List<_i1.PageRouteInfo>? children})
+      : super(name, path: 'empty-router-page', initialChildren: children);
+
+  static const String name = 'WorkoutTab';
+}
+
+class StatisticsTab extends _i1.PageRouteInfo {
+  const StatisticsTab({List<_i1.PageRouteInfo>? children})
+      : super(name, path: 'empty-router-page', initialChildren: children);
+
+  static const String name = 'StatisticsTab';
+}
+
+class SettingsTab extends _i1.PageRouteInfo {
+  const SettingsTab({List<_i1.PageRouteInfo>? children})
+      : super(name, path: 'empty-router-page', initialChildren: children);
+
+  static const String name = 'SettingsTab';
+}
+
 class HomePageRoute extends _i1.PageRouteInfo {
   const HomePageRoute() : super(name, path: '');
 
@@ -145,7 +212,7 @@ class HomePageRoute extends _i1.PageRouteInfo {
 
 class WorkoutPageRoute extends _i1.PageRouteInfo<WorkoutPageRouteArgs> {
   WorkoutPageRoute({_i2.Key? key})
-      : super(name, path: 'workout-page', args: WorkoutPageRouteArgs(key: key));
+      : super(name, path: '', args: WorkoutPageRouteArgs(key: key));
 
   static const String name = 'WorkoutPageRoute';
 }
@@ -156,14 +223,20 @@ class WorkoutPageRouteArgs {
   final _i2.Key? key;
 }
 
+class CreateWorkoutPageRoute extends _i1.PageRouteInfo {
+  const CreateWorkoutPageRoute() : super(name, path: 'create-workout-page');
+
+  static const String name = 'CreateWorkoutPageRoute';
+}
+
 class StatisticsPageRoute extends _i1.PageRouteInfo {
-  const StatisticsPageRoute() : super(name, path: 'statistics-page');
+  const StatisticsPageRoute() : super(name, path: '');
 
   static const String name = 'StatisticsPageRoute';
 }
 
 class SettingsPageRoute extends _i1.PageRouteInfo {
-  const SettingsPageRoute() : super(name, path: 'settings-page');
+  const SettingsPageRoute() : super(name, path: '');
 
   static const String name = 'SettingsPageRoute';
 }

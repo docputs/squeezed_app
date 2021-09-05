@@ -10,7 +10,7 @@ class DateTimeGenerator {
 
   static DateTime _calculateFirstDayOfWeek() {
     final now = DateTime.now();
-    return now.subtract(Duration(days: now.weekday));
+    return now.subtract(Duration(days: now.weekday == DateTime.sunday ? 0 : now.weekday));
   }
 
   static List<WeekdayViewModel> _generateWeekFromFirstDate(DateTime firstDate) {

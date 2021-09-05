@@ -1,8 +1,12 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:squeezed_app/app_router.gr.dart';
 import 'package:squeezed_app/features/workout/ui/controllers/workout_page_controller.dart';
 import 'package:squeezed_app/features/workout/ui/widgets/no_workout_found.dart';
 import 'package:squeezed_app/features/workout/ui/widgets/weekday_selector.dart';
 import 'package:squeezed_app/shared/app_container.dart';
+import 'package:squeezed_app/shared/res/app_colors.dart';
+import 'package:squeezed_app/shared/res/constants.dart';
 import 'package:squeezed_app/widgets/app_scaffold.dart';
 
 import 'widgets/workout_plan_display.dart';
@@ -30,19 +34,38 @@ class _WorkoutPageState extends State<WorkoutPage> {
       body: Column(
         children: [
           const SizedBox(height: 40),
-          const SizedBox(
-            width: double.infinity,
-            child: Text(
-              'Meus treinos',
-              style: TextStyle(fontSize: 31, fontWeight: FontWeight.bold),
-            ),
-          ),
+          _buildHeaderRow(),
           const SizedBox(height: 40),
           WeekdaySelector(onWeekdaySelected: _controller.animateToSelectedWeekday),
           const SizedBox(height: 40),
           Expanded(child: _calculateWorkoutDisplay()),
         ],
       ),
+    );
+  }
+
+  Widget _buildHeaderRow() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        const Text(
+          'Meus treinos',
+          style: TextStyle(fontSize: 31, fontWeight: FontWeight.bold),
+        ),
+        GestureDetector(
+          onTap: () {
+            AutoRouter.of(context).push(const CreateWorkoutPageRoute());
+          },
+          child: Container(
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: AppColors.primary,
+              borderRadius: BorderRadius.circular(Constants.defaultBorderRadius),
+            ),
+            child: const Icon(Icons.add, color: Colors.white),
+          ),
+        ),
+      ],
     );
   }
 

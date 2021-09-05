@@ -2,14 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:squeezed_app/shared/res/app_colors.dart';
 
 class CustomDivider extends StatelessWidget {
-  const CustomDivider({Key? key}) : super(key: key);
+  final double height;
+  final Color color;
+
+  const CustomDivider({
+    Key? key,
+    this.height = 1,
+    this.color = AppColors.greyLight,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 1,
-      color: AppColors.greyLight,
+      height: height,
+      color: color,
     );
   }
 }

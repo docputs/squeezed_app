@@ -14,9 +14,9 @@ class NavigationLink {
   });
 }
 
-final bottomNavLinks = [
-  NavigationLink(labelText: 'Home', icon: Icons.home, destination: HomePageRoute()),
-  NavigationLink(labelText: 'Workout', icon: Icons.work, destination: WorkoutPageRoute()),
-  NavigationLink(labelText: 'Statistics', icon: Icons.bar_chart, destination: StatisticsPageRoute()),
-  NavigationLink(labelText: 'Settings', icon: Icons.settings, destination: SettingsPageRoute()),
+const bottomNavLinks = [
+  NavigationLink(labelText: 'Home', icon: Icons.home, destination: HomeTab()),
+  NavigationLink(labelText: 'Workout', icon: Icons.work, destination: WorkoutTab()),
+  NavigationLink(labelText: 'Statistics', icon: Icons.bar_chart, destination: StatisticsTab()),
+  NavigationLink(labelText: 'Settings', icon: Icons.settings, destination: SettingsTab()),
 ];
