@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:squeezed_app/app_router.gr.dart';
 import 'package:squeezed_app/features/workout/ui/controllers/workout_page_controller.dart';
 import 'package:squeezed_app/features/workout/ui/widgets/no_workout_found.dart';
-import 'package:squeezed_app/features/workout/ui/widgets/weekday_selector.dart';
+import 'package:squeezed_app/features/workout/ui/widgets/workout_day_selector.dart';
 import 'package:squeezed_app/shared/app_container.dart';
 import 'package:squeezed_app/shared/res/app_colors.dart';
 import 'package:squeezed_app/shared/res/constants.dart';
@@ -36,7 +36,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
           const SizedBox(height: 40),
           _buildHeaderRow(),
           const SizedBox(height: 40),
-          WeekdaySelector(onWeekdaySelected: _controller.animateToSelectedWeekday),
+          WorkoutDaySelector(onWeekdaySelected: _controller.animateToSelectedWeekday),
           const SizedBox(height: 40),
           Expanded(child: _calculateWorkoutDisplay()),
         ],

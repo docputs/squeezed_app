@@ -5,16 +5,16 @@ import 'package:squeezed_app/shared/res/app_colors.dart';
 import 'package:squeezed_app/shared/res/constants.dart';
 import 'package:squeezed_app/shared/utils/date_time_generator.dart';
 
-class WeekdaySelector extends StatefulWidget {
+class WorkoutDaySelector extends StatefulWidget {
   final void Function(WeekdayViewModel)? onWeekdaySelected;
 
-  const WeekdaySelector({Key? key, this.onWeekdaySelected}) : super(key: key);
+  const WorkoutDaySelector({Key? key, this.onWeekdaySelected}) : super(key: key);
 
   @override
-  _WeekdaySelectorState createState() => _WeekdaySelectorState();
+  _WorkoutDaySelectorState createState() => _WorkoutDaySelectorState();
 }
 
-class _WeekdaySelectorState extends State<WeekdaySelector> {
+class _WorkoutDaySelectorState extends State<WorkoutDaySelector> {
   late WeekdayViewModel _selectedWeekday;
 
   @override
@@ -40,27 +40,30 @@ class _WeekdaySelectorState extends State<WeekdaySelector> {
         }
       },
       child: Container(
-        width: _calculateWeekdayButtonWidth(),
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+        padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(Constants.defaultBorderRadius),
           color: _selectedWeekday == weekday ? AppColors.primary : AppColors.greyLight,
         ),
-        child: Center(
-          child: Text(
-            weekday.firstChar,
-            style: TextStyle(
-              color: _selectedWeekday == weekday ? Colors.white : AppColors.grey,
-              fontWeight: FontWeight.bold,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              weekday.firstChar,
+              style: TextStyle(color: _selectedWeekday == weekday ? Colors.white : AppColors.grey),
             ),
-          ),
+            const SizedBox(height: 5),
+            Text(
+              weekday.leadingZeroFormattedDay,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: _selectedWeekday == weekday ? Colors.white : AppColors.greyDark,
+              ),
+            ),
+          ],
         ),
       ),
     );
-  }
-
-  double _calculateWeekdayButtonWidth() {
-    final pageSize = MediaQuery.of(context).size;
-    return (pageSize.width / DateTime.daysPerWeek) - Constants.defaultPadding;
   }
 }
