@@ -4,6 +4,7 @@ import 'package:mobx/mobx.dart';
 import 'package:squeezed_app/features/workout/domain/entities/workout_plan.dart';
 import 'package:squeezed_app/features/workout/ui/fixtures.dart';
 import 'package:squeezed_app/shared/base/base_store.dart';
+import 'package:squeezed_app/shared/utils/weekday_utils.dart';
 import 'package:squeezed_app/shared/view_models/weekday_view_model.dart';
 
 part 'workout_page_controller.g.dart';
@@ -15,7 +16,9 @@ abstract class _WorkoutPageControllerBase extends BaseStore with Store {
   @observable
   List<WorkoutPlan?> workoutRoutine = [];
 
-  final pageController = PageController();
+  final pageController = PageController(
+    initialPage: WeekdayUtils.recalculateWeekdayNumberConsideringSunday(DateTime.now().weekday),
+  );
 
   Future<void> initialize() async {
     workoutRoutine = _generateWorkoutRoutineBasedOnWeek();
@@ -36,7 +39,7 @@ abstract class _WorkoutPageControllerBase extends BaseStore with Store {
   void animateToSelectedWeekday(WeekdayViewModel weekday) {
     // Sunday appears at first position on WeekdaySelector
     // So the first button on WeekdaySelector has to animate towards the last element on workoutRoutine
-    pageController.animateToPage(weekday.weekdayNumber == DateTime.sunday ? 0 : weekday.weekdayNumber,
-        duration: const Duration(milliseconds: 250), curve: Curves.easeOut);
+    final recalculatedWeekday = WeekdayUtils.recalculateWeekdayNumberConsideringSunday(weekday.weekdayNumber);
+    pageController.animateToPage(recalculatedWeekday, duration: const Duration(milliseconds: 250), curve: Curves.easeOut);
   }
 }
