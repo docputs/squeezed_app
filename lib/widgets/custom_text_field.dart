@@ -15,6 +15,7 @@ class CustomTextField extends StatefulWidget {
   final TextInputFormatter? maskFormatter;
   final int? maxLines;
   final TextInputAction? textInputAction;
+  final bool isMultiline;
 
   const CustomTextField({
     Key? key,
@@ -30,6 +31,7 @@ class CustomTextField extends StatefulWidget {
     this.maskFormatter,
     this.maxLines = 1,
     this.textInputAction,
+    this.isMultiline = false,
   }) : super(key: key);
 
   @override
@@ -54,6 +56,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           alignment: AlignmentDirectional.centerEnd,
           children: [
             TextFormField(
+              maxLines: widget.isMultiline ? null : widget.maxLines,
               autocorrect: false,
               controller: widget.controller,
               enabled: widget.enabled,
