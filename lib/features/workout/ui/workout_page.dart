@@ -52,20 +52,24 @@ class _WorkoutPageState extends State<WorkoutPage> {
           'Meus treinos',
           style: TextStyle(fontSize: 31, fontWeight: FontWeight.bold),
         ),
-        GestureDetector(
-          onTap: () {
-            AutoRouter.of(context).push(const CreateWorkoutPageRoute());
-          },
-          child: Container(
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: AppColors.primary,
-              borderRadius: BorderRadius.circular(Constants.defaultBorderRadius),
-            ),
-            child: const Icon(Icons.add, color: Colors.white),
-          ),
-        ),
+        _buildCreateWorkoutButton(),
       ],
+    );
+  }
+
+  Widget _buildCreateWorkoutButton() {
+    return GestureDetector(
+      onTap: () {
+        AutoRouter.of(context).push(const CreateWorkoutPageRoute());
+      },
+      child: Container(
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          color: AppColors.primary,
+          borderRadius: BorderRadius.circular(Constants.defaultBorderRadius),
+        ),
+        child: const Icon(Icons.add, color: Colors.white),
+      ),
     );
   }
 
