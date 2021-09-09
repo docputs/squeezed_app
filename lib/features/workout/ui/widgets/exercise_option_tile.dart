@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:squeezed_app/app_router.gr.dart';
 import 'package:squeezed_app/features/workout/domain/entities/exercise.dart';
 import 'package:squeezed_app/shared/res/app_colors.dart';
 
@@ -10,7 +12,9 @@ class ExerciseOptionTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        AutoRouter.of(context).push(ExerciseDetailsPageRoute(exercise: exercise));
+      },
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 15),
         child: Row(
