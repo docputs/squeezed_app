@@ -16,6 +16,7 @@ class CustomTextField extends StatefulWidget {
   final int? maxLines;
   final TextInputAction? textInputAction;
   final bool isMultiline;
+  final Widget? prefixIcon;
 
   const CustomTextField({
     Key? key,
@@ -32,6 +33,7 @@ class CustomTextField extends StatefulWidget {
     this.maxLines = 1,
     this.textInputAction,
     this.isMultiline = false,
+    this.prefixIcon,
   }) : super(key: key);
 
   @override
@@ -65,6 +67,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               keyboardType: widget.keyboardType,
               onChanged: widget.onChanged,
               decoration: InputDecoration(
+                prefixIcon: widget.prefixIcon,
                 isDense: true,
                 hintText: widget.hintText,
                 hintStyle: const TextStyle(color: AppColors.greyLight),

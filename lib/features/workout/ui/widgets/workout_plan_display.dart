@@ -20,12 +20,9 @@ class WorkoutPlanDisplay extends StatelessWidget {
         const SizedBox(height: 20),
         const CustomDivider(color: AppColors.grey),
         Expanded(
-          child: Theme(
-            data: ThemeData(accentColor: AppColors.primary),
-            child: ListView(
-              padding: const EdgeInsets.all(0),
-              children: workout.exercises.map((e) => ExercisePlanListTile(e)).toList(),
-            ),
+          child: ListView(
+            padding: const EdgeInsets.all(0),
+            children: workout.exercises.map((e) => ExercisePlanListTile(e)).toList(),
           ),
         ),
       ],

@@ -11,7 +11,7 @@ class AppScaffold extends StatefulWidget {
   final String? title;
   final Widget body;
   final bool isScrollable;
-  final bool padding;
+  final bool hasPadding;
   final List<Widget>? actions;
   final BaseStore? controller;
 
@@ -20,7 +20,7 @@ class AppScaffold extends StatefulWidget {
     required this.body,
     this.title,
     this.isScrollable = true,
-    this.padding = true,
+    this.hasPadding = true,
     this.actions,
     this.controller,
   });
@@ -100,7 +100,7 @@ class _AppScaffoldState extends State<AppScaffold> {
 
   Widget _buildBody() {
     final statusBarHeight = MediaQuery.of(context).padding.top;
-    return widget.padding
+    return widget.hasPadding
         ? Padding(
             padding: EdgeInsets.only(
               left: Constants.defaultPadding,

@@ -10,9 +10,10 @@ import 'package:flutter/material.dart' as _i2;
 import 'features/auth/ui/sign_in/pages/sign_in_page.dart' as _i4;
 import 'features/auth/ui/sign_up/pages/sign_up_page.dart' as _i5;
 import 'features/home/ui/home_page.dart' as _i7;
-import 'features/settings/settings_page.dart' as _i11;
+import 'features/settings/settings_page.dart' as _i12;
 import 'features/splash/ui/splash_page.dart' as _i3;
-import 'features/statistics/statistics_page.dart' as _i10;
+import 'features/statistics/statistics_page.dart' as _i11;
+import 'features/workout/ui/choose_exercises_page.dart' as _i10;
 import 'features/workout/ui/create_workout_page.dart' as _i9;
 import 'features/workout/ui/workout_page.dart' as _i8;
 import 'widgets/bottom_navigation_manager.dart' as _i6;
@@ -89,15 +90,22 @@ class AppRouter extends _i1.RootStackRouter {
               orElse: () => const CreateWorkoutPageRouteArgs());
           return _i9.CreateWorkoutPage(key: args.key);
         }),
+    ChooseExercisesPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<ChooseExercisesPageRouteArgs>(
+              orElse: () => const ChooseExercisesPageRouteArgs());
+          return _i10.ChooseExercisesPage(key: args.key);
+        }),
     StatisticsPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return const _i10.StatisticsPage();
+          return const _i11.StatisticsPage();
         }),
     SettingsPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return const _i11.SettingsPage();
+          return const _i12.SettingsPage();
         })
   };
 
@@ -117,7 +125,9 @@ class AppRouter extends _i1.RootStackRouter {
                   children: [
                     _i1.RouteConfig(WorkoutPageRoute.name, path: ''),
                     _i1.RouteConfig(CreateWorkoutPageRoute.name,
-                        path: 'create-workout-page')
+                        path: 'create-workout-page'),
+                    _i1.RouteConfig(ChooseExercisesPageRoute.name,
+                        path: 'choose-exercises-page')
                   ]),
               _i1.RouteConfig(StatisticsTab.name,
                   path: 'empty-router-page',
@@ -237,6 +247,22 @@ class CreateWorkoutPageRoute
 
 class CreateWorkoutPageRouteArgs {
   const CreateWorkoutPageRouteArgs({this.key});
+
+  final _i2.Key? key;
+}
+
+class ChooseExercisesPageRoute
+    extends _i1.PageRouteInfo<ChooseExercisesPageRouteArgs> {
+  ChooseExercisesPageRoute({_i2.Key? key})
+      : super(name,
+            path: 'choose-exercises-page',
+            args: ChooseExercisesPageRouteArgs(key: key));
+
+  static const String name = 'ChooseExercisesPageRoute';
+}
+
+class ChooseExercisesPageRouteArgs {
+  const ChooseExercisesPageRouteArgs({this.key});
 
   final _i2.Key? key;
 }

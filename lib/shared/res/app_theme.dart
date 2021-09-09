@@ -13,7 +13,11 @@ class AppTheme {
       primaryColor: AppColors.primary,
       primaryColorLight: AppColors.primaryLight,
       primaryColorDark: AppColors.primaryDark,
-      colorScheme: ColorScheme.fromSwatch(accentColor: AppColors.accent),
+      accentColor: AppColors.accent,
+      colorScheme: Theme.of(context).colorScheme.copyWith(
+            primary: AppColors.primary,
+            secondary: AppColors.primary,
+          ),
       canvasColor: Colors.white,
       dividerColor: AppColors.greyDark,
       errorColor: AppColors.error,

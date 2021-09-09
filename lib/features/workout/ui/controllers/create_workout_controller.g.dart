@@ -86,6 +86,17 @@ mixin _$CreateWorkoutController on _CreateWorkoutControllerBase, Store {
   }
 
   @override
+  void changeObservations(String input) {
+    final _$actionInfo = _$_CreateWorkoutControllerBaseActionController
+        .startAction(name: '_CreateWorkoutControllerBase.changeObservations');
+    try {
+      return super.changeObservations(input);
+    } finally {
+      _$_CreateWorkoutControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 workoutViewModel: ${workoutViewModel},

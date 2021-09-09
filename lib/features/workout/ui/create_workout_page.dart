@@ -1,5 +1,8 @@
+import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:squeezed_app/app_router.gr.dart';
 import 'package:squeezed_app/features/workout/ui/controllers/create_workout_controller.dart';
 import 'package:squeezed_app/features/workout/ui/widgets/multiple_weekday_selector.dart';
 import 'package:squeezed_app/shared/app_container.dart';
@@ -39,9 +42,11 @@ class CreateWorkoutPage extends StatelessWidget {
           Observer(
             builder: (_) => CustomElevatedButton(
               text: Messages.createWorkoutSubmitButtonText,
-              onPressed: controller.isFormValid ? () {
-                // TODO: navigate to exercises page
-              } : null,
+              onPressed: controller.isFormValid
+                  ? () {
+                      AutoRouter.of(context).push(ChooseExercisesPageRoute());
+                    }
+                  : null,
             ),
           ),
         ],
