@@ -39,6 +39,7 @@ class _ChooseExercisesPageState extends State<ChooseExercisesPage> {
             const SizedBox(height: 10),
             _buildMuscleFilterRow(),
             const SizedBox(height: 10),
+            const CustomDivider(color: AppColors.primaryLight),
             _buildExercisesOrEmptyWarning(),
           ],
         ),
