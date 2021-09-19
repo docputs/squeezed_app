@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
-import 'package:squeezed_app/features/workout/domain/entities/exercise.dart';
+import 'package:squeezed_app/features/workout/domain/entities/exercise_details.dart';
 import 'package:squeezed_app/features/workout/ui/fixtures.dart';
 
 part 'search_exercise_controller.g.dart';
@@ -15,11 +15,11 @@ abstract class _SearchExerciseControllerBase with Store {
   @action
   void searchExercise(String input) => searchTerm = input;
 
-  bool _exerciseTargetMuscleMatchesFilter(Exercise exercise) {
+  bool _exerciseTargetMuscleMatchesFilter(ExerciseDetails exercise) {
     return selectedMuscles.contains(exercise.targetMuscle);
   }
 
-  bool _exerciseNameMatchesSearchTerm(Exercise exercise) {
+  bool _exerciseNameMatchesSearchTerm(ExerciseDetails exercise) {
     return exercise.name.toLowerCase().contains(searchTerm.toLowerCase());
   }
 
@@ -33,8 +33,8 @@ abstract class _SearchExerciseControllerBase with Store {
   void unselectMuscle(String muscle) => selectedMuscles.remove(muscle);
 
   @computed
-  List<Exercise> get matchedExercises {
-    List<Exercise> preMatchedExercises = mockExercises;
+  List<ExerciseDetails> get matchedExercises {
+    List<ExerciseDetails> preMatchedExercises = mockExercises;
     if (selectedMuscles.isNotEmpty) {
       preMatchedExercises = preMatchedExercises.where(_exerciseTargetMuscleMatchesFilter).toList();
     }

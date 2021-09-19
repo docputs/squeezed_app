@@ -1,5 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:squeezed_app/features/workout/domain/entities/exercise_details.dart';
+import 'package:squeezed_app/features/workout/domain/entities/exercise_plan.dart';
+import 'package:squeezed_app/features/workout/ui/controllers/choose_exercises_controller.dart';
 import 'package:squeezed_app/features/workout/ui/controllers/search_exercise_controller.dart';
 import 'package:squeezed_app/features/workout/ui/widgets/exercise_option_tile.dart';
 import 'package:squeezed_app/features/workout/ui/widgets/muscle_filters.dart';
@@ -10,24 +14,34 @@ import 'package:squeezed_app/widgets/app_scaffold.dart';
 import 'package:squeezed_app/widgets/custom_divider.dart';
 import 'package:squeezed_app/widgets/custom_text_field.dart';
 
-class ChooseExercisesPage extends StatelessWidget {
-  final searchController = AppContainer.get<SearchExerciseController>();
+import '../../../app_router.gr.dart';
 
+class ChooseExercisesPage extends StatefulWidget {
   ChooseExercisesPage({Key? key}) : super(key: key);
 
   @override
+  _ChooseExercisesPageState createState() => _ChooseExercisesPageState();
+}
+
+class _ChooseExercisesPageState extends State<ChooseExercisesPage> {
+  final _searchController = AppContainer.get<SearchExerciseController>();
+  final _chooseExercisesController = AppContainer.get<ChooseExercisesController>();
+
+  @override
   Widget build(BuildContext context) {
-    return AppScaffold(
-      title: 'Nenhum exercício selecionado',
-      hasPadding: false,
-      body: Column(
-        children: [
-          _buildSearchTextField(),
-          const SizedBox(height: 10),
-          _buildMuscleFilterRow(),
-          const SizedBox(height: 10),
-          _buildExercisesOrEmptyWarning(),
-        ],
+    return Observer(
+      builder: (_) => AppScaffold(
+        title: _chooseExercisesController.pageTitle,
+        hasPadding: false,
+        body: Column(
+          children: [
+            _buildSearchTextField(),
+            const SizedBox(height: 10),
+            _buildMuscleFilterRow(),
+            const SizedBox(height: 10),
+            _buildExercisesOrEmptyWarning(),
+          ],
+        ),
       ),
     );
   }
@@ -37,7 +51,7 @@ class ChooseExercisesPage extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: Constants.defaultPadding),
       child: CustomTextField(
         prefixIcon: const Icon(Icons.search),
-        onChanged: searchController.searchExercise,
+        onChanged: _searchController.searchExercise,
       ),
     );
   }
@@ -52,7 +66,7 @@ class ChooseExercisesPage extends StatelessWidget {
   Widget _buildExercisesOrEmptyWarning() {
     return Expanded(
       child: Observer(
-        builder: (_) => searchController.matchedExercises.isEmpty ? _buildNoExerciseFound() : _buildExerciseList(),
+        builder: (_) => _searchController.matchedExercises.isEmpty ? _buildNoExerciseFound() : _buildExerciseList(),
       ),
     );
   }
@@ -69,9 +83,19 @@ class ChooseExercisesPage extends StatelessWidget {
   Widget _buildExerciseList() {
     return ListView.separated(
       padding: const EdgeInsets.symmetric(horizontal: Constants.defaultPadding),
-      itemBuilder: (context, index) => ExerciseOptionTile(searchController.matchedExercises[index]),
-      itemCount: searchController.matchedExercises.length,
+      itemCount: _searchController.matchedExercises.length,
       separatorBuilder: (_, __) => const CustomDivider(),
+      itemBuilder: (context, index) => ExerciseOptionTile(
+        _searchController.matchedExercises[index],
+        onTap: _resolveExerciseTileTap,
+      ),
     );
+  }
+
+  Future<void> _resolveExerciseTileTap(ExerciseDetails exercise) async {
+    final result = await AutoRouter.of(context).push<ExercisePlan>(ExerciseDetailsPageRoute(exercise: exercise));
+    if (result != null) {
+      _chooseExercisesController.addExercise(result);
+    }
   }
 }

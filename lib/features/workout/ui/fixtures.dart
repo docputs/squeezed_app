@@ -1,4 +1,3 @@
-import 'package:squeezed_app/features/workout/domain/entities/exercise.dart';
 import 'package:squeezed_app/features/workout/domain/entities/exercise_details.dart';
 import 'package:squeezed_app/features/workout/domain/entities/exercise_plan.dart';
 import 'package:squeezed_app/features/workout/domain/entities/exercise_set.dart';
@@ -116,42 +115,42 @@ final exercises = const [
 ];
 
 const mockExercises = [
-  Exercise(
+  ExerciseDetails(
     id: '1',
     name: 'Supino reto',
     targetMuscle: 'Peito',
     synergistMuscles: ['Ombros', 'Tríceps'],
   ),
-  Exercise(
+  ExerciseDetails(
     id: '2',
     name: 'Supino inclinado',
     targetMuscle: 'Peito',
     synergistMuscles: ['Ombros', 'Tríceps'],
   ),
-  Exercise(
+  ExerciseDetails(
     id: '3',
     name: 'Supino declinado',
     targetMuscle: 'Peito',
     synergistMuscles: ['Ombros', 'Tríceps'],
   ),
-  Exercise(
+  ExerciseDetails(
     id: '4',
     name: 'Crucifixo reto',
     targetMuscle: 'Peito',
     synergistMuscles: ['Ombros', 'Tríceps'],
   ),
-  Exercise(
+  ExerciseDetails(
     id: '5',
     name: 'Crucifixo inclinado',
     targetMuscle: 'Peito',
     synergistMuscles: ['Ombros', 'Tríceps'],
   ),
-  Exercise(
+  ExerciseDetails(
     id: '6',
     name: 'Elevação lateral',
     targetMuscle: 'Ombros',
   ),
-  Exercise(
+  ExerciseDetails(
     id: '7',
     name: 'Elevação frontal',
     targetMuscle: 'Ombros',

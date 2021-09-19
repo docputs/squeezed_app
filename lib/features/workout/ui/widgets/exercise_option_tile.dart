@@ -1,20 +1,17 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:squeezed_app/app_router.gr.dart';
-import 'package:squeezed_app/features/workout/domain/entities/exercise.dart';
+import 'package:squeezed_app/features/workout/domain/entities/exercise_details.dart';
 import 'package:squeezed_app/shared/res/app_colors.dart';
 
 class ExerciseOptionTile extends StatelessWidget {
-  final Exercise exercise;
+  final ExerciseDetails exercise;
+  final void Function(ExerciseDetails exercise)? onTap;
 
-  const ExerciseOptionTile(this.exercise, {Key? key}) : super(key: key);
+  const ExerciseOptionTile(this.exercise, {Key? key, this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        AutoRouter.of(context).push(ExerciseDetailsPageRoute(exercise: exercise));
-      },
+      onTap: onTap != null ? () => onTap!(exercise) : null,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 15),
         child: Row(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:squeezed_app/shared/res/messages.dart';
 
 class FullWidthLabelText extends StatelessWidget {
   final String text;
@@ -10,7 +11,7 @@ class FullWidthLabelText extends StatelessWidget {
     return const SizedBox(
       width: double.infinity,
       child: Text(
-        'Selecione os dias da semana',
+        Messages.createWorkoutSelectWeekdaysLabel,
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
     );

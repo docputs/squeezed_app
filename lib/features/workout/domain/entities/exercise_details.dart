@@ -4,6 +4,8 @@ part 'exercise_details.freezed.dart';
 
 @freezed
 class ExerciseDetails with _$ExerciseDetails {
+  const ExerciseDetails._();
+
   const factory ExerciseDetails({
     required String id,
     required String name,
@@ -12,5 +14,7 @@ class ExerciseDetails with _$ExerciseDetails {
     List<String>? synergistMuscles,
     String? imageUrl,
     String? videoUrl,
-  }) = _Exercise;
+  }) = _ExerciseDetails;
+
+  bool get hasMediaToDisplay => imageUrl != null || videoUrl != null;
 }

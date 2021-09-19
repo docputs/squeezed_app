@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$ExerciseDetailsTearOff {
   const _$ExerciseDetailsTearOff();
 
-  _Exercise call(
+  _ExerciseDetails call(
       {required String id,
       required String name,
       required String targetMuscle,
@@ -24,7 +24,7 @@ class _$ExerciseDetailsTearOff {
       List<String>? synergistMuscles,
       String? imageUrl,
       String? videoUrl}) {
-    return _Exercise(
+    return _ExerciseDetails(
       id: id,
       name: name,
       targetMuscle: targetMuscle,
@@ -122,10 +122,11 @@ class _$ExerciseDetailsCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ExerciseCopyWith<$Res>
+abstract class _$ExerciseDetailsCopyWith<$Res>
     implements $ExerciseDetailsCopyWith<$Res> {
-  factory _$ExerciseCopyWith(_Exercise value, $Res Function(_Exercise) then) =
-      __$ExerciseCopyWithImpl<$Res>;
+  factory _$ExerciseDetailsCopyWith(
+          _ExerciseDetails value, $Res Function(_ExerciseDetails) then) =
+      __$ExerciseDetailsCopyWithImpl<$Res>;
   @override
   $Res call(
       {String id,
@@ -138,13 +139,15 @@ abstract class _$ExerciseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ExerciseCopyWithImpl<$Res> extends _$ExerciseDetailsCopyWithImpl<$Res>
-    implements _$ExerciseCopyWith<$Res> {
-  __$ExerciseCopyWithImpl(_Exercise _value, $Res Function(_Exercise) _then)
-      : super(_value, (v) => _then(v as _Exercise));
+class __$ExerciseDetailsCopyWithImpl<$Res>
+    extends _$ExerciseDetailsCopyWithImpl<$Res>
+    implements _$ExerciseDetailsCopyWith<$Res> {
+  __$ExerciseDetailsCopyWithImpl(
+      _ExerciseDetails _value, $Res Function(_ExerciseDetails) _then)
+      : super(_value, (v) => _then(v as _ExerciseDetails));
 
   @override
-  _Exercise get _value => super._value as _Exercise;
+  _ExerciseDetails get _value => super._value as _ExerciseDetails;
 
   @override
   $Res call({
@@ -156,7 +159,7 @@ class __$ExerciseCopyWithImpl<$Res> extends _$ExerciseDetailsCopyWithImpl<$Res>
     Object? imageUrl = freezed,
     Object? videoUrl = freezed,
   }) {
-    return _then(_Exercise(
+    return _then(_ExerciseDetails(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -191,15 +194,16 @@ class __$ExerciseCopyWithImpl<$Res> extends _$ExerciseDetailsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Exercise implements _Exercise {
-  const _$_Exercise(
+class _$_ExerciseDetails extends _ExerciseDetails {
+  const _$_ExerciseDetails(
       {required this.id,
       required this.name,
       required this.targetMuscle,
       this.description,
       this.synergistMuscles,
       this.imageUrl,
-      this.videoUrl});
+      this.videoUrl})
+      : super._();
 
   @override
   final String id;
@@ -224,7 +228,7 @@ class _$_Exercise implements _Exercise {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Exercise &&
+        (other is _ExerciseDetails &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.name, name) ||
@@ -259,19 +263,20 @@ class _$_Exercise implements _Exercise {
 
   @JsonKey(ignore: true)
   @override
-  _$ExerciseCopyWith<_Exercise> get copyWith =>
-      __$ExerciseCopyWithImpl<_Exercise>(this, _$identity);
+  _$ExerciseDetailsCopyWith<_ExerciseDetails> get copyWith =>
+      __$ExerciseDetailsCopyWithImpl<_ExerciseDetails>(this, _$identity);
 }
 
-abstract class _Exercise implements ExerciseDetails {
-  const factory _Exercise(
+abstract class _ExerciseDetails extends ExerciseDetails {
+  const factory _ExerciseDetails(
       {required String id,
       required String name,
       required String targetMuscle,
       String? description,
       List<String>? synergistMuscles,
       String? imageUrl,
-      String? videoUrl}) = _$_Exercise;
+      String? videoUrl}) = _$_ExerciseDetails;
+  const _ExerciseDetails._() : super._();
 
   @override
   String get id => throw _privateConstructorUsedError;
@@ -289,6 +294,6 @@ abstract class _Exercise implements ExerciseDetails {
   String? get videoUrl => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ExerciseCopyWith<_Exercise> get copyWith =>
+  _$ExerciseDetailsCopyWith<_ExerciseDetails> get copyWith =>
       throw _privateConstructorUsedError;
 }
