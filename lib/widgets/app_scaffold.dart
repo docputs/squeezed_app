@@ -5,6 +5,7 @@ import 'package:mobx/mobx.dart';
 import 'package:squeezed_app/shared/base/base_store.dart';
 import 'package:squeezed_app/shared/res/app_colors.dart';
 import 'package:squeezed_app/shared/res/constants.dart';
+import 'package:squeezed_app/shared/res/messages.dart';
 import 'package:squeezed_app/widgets/custom_snack_bar.dart';
 
 class AppScaffold extends StatefulWidget {
@@ -14,6 +15,7 @@ class AppScaffold extends StatefulWidget {
   final bool hasPadding;
   final List<Widget>? actions;
   final BaseStore? controller;
+  final Widget? customTitle;
 
   const AppScaffold({
     Key? key,
@@ -23,13 +25,16 @@ class AppScaffold extends StatefulWidget {
     this.hasPadding = true,
     this.actions,
     this.controller,
-  });
+    this.customTitle,
+  }) : assert(title == null || customTitle == null);
 
   static ScaffoldState of(BuildContext context) {
     final result = context.findAncestorStateOfType<ScaffoldState>();
     if (result != null) return result;
-    throw Exception('Nenhum AppScaffold foi encontrado');
+    throw Exception(Messages.noAppScaffoldFound);
   }
+
+  bool get hasTitle => title != null || customTitle != null;
 
   @override
   _AppScaffoldState createState() => _AppScaffoldState();
@@ -42,22 +47,30 @@ class _AppScaffoldState extends State<AppScaffold> {
   void initState() {
     super.initState();
     if (widget.controller != null) {
-      _disposer = reaction<String?>(
-        (_) => widget.controller!.errorMessage,
-        (errorMessage) {
-          if (errorMessage == null) return;
-          showFlash(
-            context: context,
-            duration: const Duration(seconds: 3),
-            builder: (context, controller) => CustomSnackBar.error(
-              message: errorMessage,
-              controller: controller,
-            ),
-          );
-        },
-        equals: (_, __) => false,
-      );
+      _createErrorListener();
     }
+  }
+
+  void _createErrorListener() {
+    _disposer = reaction<String?>(
+      (_) => widget.controller!.errorMessage,
+      (errorMessage) {
+        if (errorMessage == null) return;
+        _showCustomSnackbarWithErrorMessage(errorMessage);
+      },
+      equals: (_, __) => false,
+    );
+  }
+
+  Future<void> _showCustomSnackbarWithErrorMessage(String message) {
+    return showFlash(
+      context: context,
+      duration: const Duration(seconds: 3),
+      builder: (context, controller) => CustomSnackBar.error(
+        message: message,
+        controller: controller,
+      ),
+    );
   }
 
   @override
@@ -69,7 +82,7 @@ class _AppScaffoldState extends State<AppScaffold> {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: widget.title != null ? _buildAppBar() : null,
+      appBar: widget.hasTitle ? _buildAppBar() : null,
       body: widget.isScrollable
           ? SingleChildScrollView(
               child: ConstrainedBox(
@@ -85,14 +98,15 @@ class _AppScaffoldState extends State<AppScaffold> {
       elevation: 0,
       backgroundColor: Colors.white,
       centerTitle: true,
-      title: Text(
-        widget.title!,
-        style: const TextStyle(
-          color: AppColors.greyDark,
-          fontWeight: FontWeight.bold,
-          fontSize: 16,
-        ),
-      ),
+      title: widget.customTitle ??
+          Text(
+            widget.title!,
+            style: const TextStyle(
+              color: AppColors.greyDark,
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
+          ),
       actions: widget.actions,
       iconTheme: const IconThemeData(color: AppColors.greyDark),
     );
