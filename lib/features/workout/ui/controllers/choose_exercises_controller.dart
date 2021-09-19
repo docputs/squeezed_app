@@ -1,6 +1,7 @@
 import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
 import 'package:squeezed_app/features/workout/domain/entities/exercise_plan.dart';
+import 'package:squeezed_app/shared/res/messages.dart';
 
 part 'choose_exercises_controller.g.dart';
 
@@ -25,11 +26,11 @@ abstract class _ChooseExercisesControllerBase with Store {
   String get pageTitle {
     final selectedExercisesAmount = selectedExercises.length;
     if (selectedExercisesAmount == 0) {
-      return 'Nenhum exercício selecionado';
+      return Messages.chooseExercisesNoExerciseSelected;
     } else if (selectedExercisesAmount == 1) {
-      return '1 exercício selecionado';
+      return Messages.chooseExercisesOneExerciseSelected;
     } else {
-      return '$selectedExercisesAmount exercicios selecionados';
+      return Messages.chooseExercisesNExercisesSelected(selectedExercisesAmount);
     }
   }
 }

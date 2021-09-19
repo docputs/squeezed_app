@@ -10,6 +10,7 @@ import 'package:squeezed_app/features/workout/ui/widgets/muscle_filters.dart';
 import 'package:squeezed_app/shared/app_container.dart';
 import 'package:squeezed_app/shared/res/app_colors.dart';
 import 'package:squeezed_app/shared/res/constants.dart';
+import 'package:squeezed_app/shared/res/messages.dart';
 import 'package:squeezed_app/widgets/app_scaffold.dart';
 import 'package:squeezed_app/widgets/custom_divider.dart';
 import 'package:squeezed_app/widgets/custom_text_field.dart';
@@ -75,7 +76,7 @@ class _ChooseExercisesPageState extends State<ChooseExercisesPage> {
   Widget _buildNoExerciseFound() {
     return const Center(
       child: Text(
-        'Nenhum exercício encontrado',
+        Messages.chooseExercisesNoExerciseFound,
         style: const TextStyle(color: AppColors.grey),
       ),
     );

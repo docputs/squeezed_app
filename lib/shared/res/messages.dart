@@ -9,6 +9,12 @@ class Messages {
   static const createWorkoutObservationsFieldLabel = 'Observações';
   static const createWorkoutSubmitButtonText = 'Próximo';
 
+  // ChooseExercisesPage
+  static const chooseExercisesNoExerciseFound = 'Nenhum exercício encontrado';
+  static const chooseExercisesNoExerciseSelected = 'Nenhum exercício selecionado';
+  static const chooseExercisesOneExerciseSelected = '1 exercício selecionado';
+  static String chooseExercisesNExercisesSelected(int n) => '$n exercícios selecionados';
+
   static const userNotFound = 'Nenhum usuário com este e-mail foi encontrado';
   static const operationNotAllowed = 'Usuário não possui permissões';
   static const invalidEmailAddress = 'E-mail inválido';
