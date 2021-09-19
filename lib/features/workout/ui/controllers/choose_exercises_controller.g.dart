@@ -16,6 +16,13 @@ mixin _$ChooseExercisesController on _ChooseExercisesControllerBase, Store {
       (_$pageTitleComputed ??= Computed<String>(() => super.pageTitle,
               name: '_ChooseExercisesControllerBase.pageTitle'))
           .value;
+  Computed<bool>? _$hasSelectedExercisesComputed;
+
+  @override
+  bool get hasSelectedExercises => (_$hasSelectedExercisesComputed ??=
+          Computed<bool>(() => super.hasSelectedExercises,
+              name: '_ChooseExercisesControllerBase.hasSelectedExercises'))
+      .value;
 
   final _$selectedExercisesAtom =
       Atom(name: '_ChooseExercisesControllerBase.selectedExercises');
@@ -62,7 +69,8 @@ mixin _$ChooseExercisesController on _ChooseExercisesControllerBase, Store {
   String toString() {
     return '''
 selectedExercises: ${selectedExercises},
-pageTitle: ${pageTitle}
+pageTitle: ${pageTitle},
+hasSelectedExercises: ${hasSelectedExercises}
     ''';
   }
 }

@@ -33,4 +33,7 @@ abstract class _ChooseExercisesControllerBase with Store {
       return Messages.chooseExercisesNExercisesSelected(selectedExercisesAmount);
     }
   }
+
+  @computed
+  bool get hasSelectedExercises => selectedExercises.isNotEmpty;
 }
