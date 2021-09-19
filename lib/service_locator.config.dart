@@ -20,8 +20,7 @@ import 'features/splash/ui/controllers/splash_controller.dart' as _i18;
 import 'features/workout/ui/controllers/choose_exercises_controller.dart'
     as _i4;
 import 'features/workout/ui/controllers/create_workout_controller.dart' as _i5;
-import 'features/workout/ui/controllers/exercise_details_controller.dart'
-    as _i6;
+import 'features/workout/ui/controllers/exercise_plan_controller.dart' as _i6;
 import 'features/workout/ui/controllers/search_exercise_controller.dart' as _i9;
 import 'features/workout/ui/controllers/workout_page_controller.dart' as _i10;
 import 'service_locator.dart' as _i19;
@@ -39,8 +38,8 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i4.ChooseExercisesController());
   gh.lazySingleton<_i5.CreateWorkoutController>(
       () => _i5.CreateWorkoutController());
-  gh.lazySingleton<_i6.ExerciseDetailsController>(
-      () => _i6.ExerciseDetailsController());
+  gh.lazySingleton<_i6.ExercisePlanController>(
+      () => _i6.ExercisePlanController());
   gh.lazySingleton<_i7.FirebaseAuth>(() => registerModule.firebaseAuth);
   gh.lazySingleton<_i8.FirebaseFirestore>(
       () => registerModule.firebaseFirestore);

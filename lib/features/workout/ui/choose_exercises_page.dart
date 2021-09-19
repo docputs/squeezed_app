@@ -122,9 +122,9 @@ class _ChooseExercisesPageState extends State<ChooseExercisesPage> {
   }
 
   Future<void> _handleExerciseTileTap(ExerciseDetails exercise) async {
-    final result = await AutoRouter.of(context).push<ExercisePlan>(ExerciseDetailsRoute(exercise: exercise));
-    if (result != null) {
-      _chooseController.addExercise(result);
-    }
+    final result = await AutoRouter.of(context).push<ExercisePlan>(
+      ExercisePlanRoute(exerciseDetails: exercise),
+    );
+    if (result != null) _chooseController.addExercise(result);
   }
 }

@@ -17,7 +17,7 @@ import 'features/workout/domain/entities/exercise_details.dart' as _i15;
 import 'features/workout/domain/entities/exercise_plan.dart' as _i11;
 import 'features/workout/ui/choose_exercises_page.dart' as _i10;
 import 'features/workout/ui/create_workout_page.dart' as _i9;
-import 'features/workout/ui/exercise_details_page.dart' as _i12;
+import 'features/workout/ui/exercise_plan_page.dart' as _i12;
 import 'features/workout/ui/workout_page.dart' as _i8;
 import 'widgets/bottom_navigation_manager.dart' as _i6;
 
@@ -99,13 +99,16 @@ class AppRouter extends _i1.RootStackRouter {
               orElse: () => const ChooseExercisesRouteArgs());
           return _i10.ChooseExercisesPage(key: args.key);
         }),
-    ExerciseDetailsRoute.name: (routeData) =>
-        _i1.MaterialPageX<_i11.ExercisePlan>(
-            routeData: routeData,
-            builder: (data) {
-              final args = data.argsAs<ExerciseDetailsRouteArgs>();
-              return _i12.ExerciseDetailsPage(args.exercise, key: args.key);
-            }),
+    ExercisePlanRoute.name: (routeData) => _i1.MaterialPageX<_i11.ExercisePlan>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<ExercisePlanRouteArgs>(
+              orElse: () => const ExercisePlanRouteArgs());
+          return _i12.ExercisePlanPage(
+              key: args.key,
+              exerciseDetails: args.exerciseDetails,
+              editableExercise: args.editableExercise);
+        }),
     StatisticsRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
@@ -137,8 +140,8 @@ class AppRouter extends _i1.RootStackRouter {
                         path: 'create-workout-page'),
                     _i1.RouteConfig(ChooseExercisesRoute.name,
                         path: 'choose-exercises-page'),
-                    _i1.RouteConfig(ExerciseDetailsRoute.name,
-                        path: 'exercise-details-page')
+                    _i1.RouteConfig(ExercisePlanRoute.name,
+                        path: 'exercise-plan-page')
                   ]),
               _i1.RouteConfig(StatisticsTab.name,
                   path: 'empty-router-page',
@@ -274,21 +277,30 @@ class ChooseExercisesRouteArgs {
   final _i2.Key? key;
 }
 
-class ExerciseDetailsRoute extends _i1.PageRouteInfo<ExerciseDetailsRouteArgs> {
-  ExerciseDetailsRoute({required _i15.ExerciseDetails exercise, _i2.Key? key})
+class ExercisePlanRoute extends _i1.PageRouteInfo<ExercisePlanRouteArgs> {
+  ExercisePlanRoute(
+      {_i2.Key? key,
+      _i15.ExerciseDetails? exerciseDetails,
+      _i11.ExercisePlan? editableExercise})
       : super(name,
-            path: 'exercise-details-page',
-            args: ExerciseDetailsRouteArgs(exercise: exercise, key: key));
+            path: 'exercise-plan-page',
+            args: ExercisePlanRouteArgs(
+                key: key,
+                exerciseDetails: exerciseDetails,
+                editableExercise: editableExercise));
 
-  static const String name = 'ExerciseDetailsRoute';
+  static const String name = 'ExercisePlanRoute';
 }
 
-class ExerciseDetailsRouteArgs {
-  const ExerciseDetailsRouteArgs({required this.exercise, this.key});
-
-  final _i15.ExerciseDetails exercise;
+class ExercisePlanRouteArgs {
+  const ExercisePlanRouteArgs(
+      {this.key, this.exerciseDetails, this.editableExercise});
 
   final _i2.Key? key;
+
+  final _i15.ExerciseDetails? exerciseDetails;
+
+  final _i11.ExercisePlan? editableExercise;
 }
 
 class StatisticsRoute extends _i1.PageRouteInfo {

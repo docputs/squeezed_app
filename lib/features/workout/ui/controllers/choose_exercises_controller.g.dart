@@ -55,6 +55,17 @@ mixin _$ChooseExercisesController on _ChooseExercisesControllerBase, Store {
   }
 
   @override
+  void editExercise(ExercisePlan exercise) {
+    final _$actionInfo = _$_ChooseExercisesControllerBaseActionController
+        .startAction(name: '_ChooseExercisesControllerBase.editExercise');
+    try {
+      return super.editExercise(exercise);
+    } finally {
+      _$_ChooseExercisesControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void removeExercise(ExercisePlan exercise) {
     final _$actionInfo = _$_ChooseExercisesControllerBaseActionController
         .startAction(name: '_ChooseExercisesControllerBase.removeExercise');

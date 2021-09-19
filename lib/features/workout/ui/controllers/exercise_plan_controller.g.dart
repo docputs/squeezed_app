@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'exercise_details_controller.dart';
+part of 'exercise_plan_controller.dart';
 
 // **************************************************************************
 // StoreGenerator
@@ -8,9 +8,8 @@ part of 'exercise_details_controller.dart';
 
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
-mixin _$ExerciseDetailsController on _ExerciseDetailsControllerBase, Store {
-  final _$setsAmountAtom =
-      Atom(name: '_ExerciseDetailsControllerBase.setsAmount');
+mixin _$ExercisePlanController on _ExercisePlanControllerBase, Store {
+  final _$setsAmountAtom = Atom(name: '_ExercisePlanControllerBase.setsAmount');
 
   @override
   int get setsAmount {
@@ -25,8 +24,7 @@ mixin _$ExerciseDetailsController on _ExerciseDetailsControllerBase, Store {
     });
   }
 
-  final _$totalLoadAtom =
-      Atom(name: '_ExerciseDetailsControllerBase.totalLoad');
+  final _$totalLoadAtom = Atom(name: '_ExercisePlanControllerBase.totalLoad');
 
   @override
   double? get totalLoad {
@@ -41,8 +39,7 @@ mixin _$ExerciseDetailsController on _ExerciseDetailsControllerBase, Store {
     });
   }
 
-  final _$repsRangeAtom =
-      Atom(name: '_ExerciseDetailsControllerBase.repsRange');
+  final _$repsRangeAtom = Atom(name: '_ExercisePlanControllerBase.repsRange');
 
   @override
   RepsRange get repsRange {
@@ -57,63 +54,61 @@ mixin _$ExerciseDetailsController on _ExerciseDetailsControllerBase, Store {
     });
   }
 
-  final _$_ExerciseDetailsControllerBaseActionController =
-      ActionController(name: '_ExerciseDetailsControllerBase');
+  final _$_ExercisePlanControllerBaseActionController =
+      ActionController(name: '_ExercisePlanControllerBase');
 
   @override
   void incrementSetsAmount() {
-    final _$actionInfo =
-        _$_ExerciseDetailsControllerBaseActionController.startAction(
-            name: '_ExerciseDetailsControllerBase.incrementSetsAmount');
+    final _$actionInfo = _$_ExercisePlanControllerBaseActionController
+        .startAction(name: '_ExercisePlanControllerBase.incrementSetsAmount');
     try {
       return super.incrementSetsAmount();
     } finally {
-      _$_ExerciseDetailsControllerBaseActionController.endAction(_$actionInfo);
+      _$_ExercisePlanControllerBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
   void decrementSetsAmount() {
-    final _$actionInfo =
-        _$_ExerciseDetailsControllerBaseActionController.startAction(
-            name: '_ExerciseDetailsControllerBase.decrementSetsAmount');
+    final _$actionInfo = _$_ExercisePlanControllerBaseActionController
+        .startAction(name: '_ExercisePlanControllerBase.decrementSetsAmount');
     try {
       return super.decrementSetsAmount();
     } finally {
-      _$_ExerciseDetailsControllerBaseActionController.endAction(_$actionInfo);
+      _$_ExercisePlanControllerBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
   void changeTotalLoad(String value) {
-    final _$actionInfo = _$_ExerciseDetailsControllerBaseActionController
-        .startAction(name: '_ExerciseDetailsControllerBase.changeTotalLoad');
+    final _$actionInfo = _$_ExercisePlanControllerBaseActionController
+        .startAction(name: '_ExercisePlanControllerBase.changeTotalLoad');
     try {
       return super.changeTotalLoad(value);
     } finally {
-      _$_ExerciseDetailsControllerBaseActionController.endAction(_$actionInfo);
+      _$_ExercisePlanControllerBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
   void changeMinRepsRange(String value) {
-    final _$actionInfo = _$_ExerciseDetailsControllerBaseActionController
-        .startAction(name: '_ExerciseDetailsControllerBase.changeMinRepsRange');
+    final _$actionInfo = _$_ExercisePlanControllerBaseActionController
+        .startAction(name: '_ExercisePlanControllerBase.changeMinRepsRange');
     try {
       return super.changeMinRepsRange(value);
     } finally {
-      _$_ExerciseDetailsControllerBaseActionController.endAction(_$actionInfo);
+      _$_ExercisePlanControllerBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
   void changeMaxRepsRange(String value) {
-    final _$actionInfo = _$_ExerciseDetailsControllerBaseActionController
-        .startAction(name: '_ExerciseDetailsControllerBase.changeMaxRepsRange');
+    final _$actionInfo = _$_ExercisePlanControllerBaseActionController
+        .startAction(name: '_ExercisePlanControllerBase.changeMaxRepsRange');
     try {
       return super.changeMaxRepsRange(value);
     } finally {
-      _$_ExerciseDetailsControllerBaseActionController.endAction(_$actionInfo);
+      _$_ExercisePlanControllerBaseActionController.endAction(_$actionInfo);
     }
   }
 

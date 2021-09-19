@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:sliding_sheet/sliding_sheet.dart';
+import 'package:squeezed_app/app_router.gr.dart';
 import 'package:squeezed_app/features/workout/domain/entities/exercise_plan.dart';
 import 'package:squeezed_app/features/workout/ui/controllers/choose_exercises_controller.dart';
 import 'package:squeezed_app/features/workout/ui/widgets/selected_exercise_list_tile.dart';
@@ -39,8 +41,8 @@ class _SelectedExercisesBottomSheetBodyState extends State<SelectedExercisesBott
         mainAxisSize: MainAxisSize.min,
         children: controller.selectedExercises
             .map(
-              (element) => SelectedExerciseListTile(
-                element,
+              (exercise) => SelectedExerciseListTile(
+                exercise,
                 onDeletePressed: _handleDeletePressed,
                 onEditPressed: _handleEditPressed,
               ),
@@ -61,7 +63,12 @@ class _SelectedExercisesBottomSheetBodyState extends State<SelectedExercisesBott
     Navigator.of(context).pop();
   }
 
-  void _handleEditPressed(ExercisePlan exercise) {
-    print('edit');
+  Future<void> _handleEditPressed(ExercisePlan exercisePlan) async {
+    final result = await AutoRouter.of(context).popAndPush<ExercisePlan, Object?>(ExercisePlanRoute(
+      editableExercise: exercisePlan,
+    ));
+    if (result != null) {
+      controller.editExercise(result);
+    }
   }
 }

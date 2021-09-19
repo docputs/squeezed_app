@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:squeezed_app/features/workout/ui/controllers/exercise_details_controller.dart';
+import 'package:squeezed_app/features/workout/ui/controllers/exercise_plan_controller.dart';
 import 'package:squeezed_app/shared/app_container.dart';
 import 'package:squeezed_app/shared/res/app_colors.dart';
 import 'package:squeezed_app/shared/res/constants.dart';
 import 'package:squeezed_app/widgets/custom_divider.dart';
 
 class RepsAmountInput extends StatelessWidget {
-  final controller = AppContainer.get<ExerciseDetailsController>();
+  final controller = AppContainer.get<ExercisePlanController>();
 
   RepsAmountInput({Key? key}) : super(key: key);
 
@@ -47,6 +47,7 @@ class RepsAmountInput extends StatelessWidget {
   Widget _buildFirstInputField() {
     return Observer(
       builder: (_) => _buildCommonRepsInputField(
+        textEditingController: controller.minRepsTextController,
         onChanged: controller.changeMinRepsRange,
         action: TextInputAction.next,
       ),
@@ -56,16 +57,19 @@ class RepsAmountInput extends StatelessWidget {
   Widget _buildSecondInputField() {
     return Observer(
       builder: (_) => _buildCommonRepsInputField(
+        textEditingController: controller.maxRepsTextController,
         onChanged: controller.changeMaxRepsRange,
       ),
     );
   }
 
   Widget _buildCommonRepsInputField({
+    required TextEditingController textEditingController,
     required void Function(String) onChanged,
     TextInputAction? action,
   }) {
     return TextField(
+      controller: textEditingController,
       decoration: InputDecoration(
         enabledBorder: InputBorder.none,
         focusedBorder: InputBorder.none,

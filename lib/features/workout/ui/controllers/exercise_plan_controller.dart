@@ -9,13 +9,17 @@ import 'package:squeezed_app/features/workout/domain/entities/exercise_set.dart'
 import 'package:squeezed_app/features/workout/domain/entities/reps_range.dart';
 import 'package:uuid/uuid.dart';
 
-part 'exercise_details_controller.g.dart';
+part 'exercise_plan_controller.g.dart';
 
 @lazySingleton
-class ExerciseDetailsController = _ExerciseDetailsControllerBase with _$ExerciseDetailsController;
+class ExercisePlanController = _ExercisePlanControllerBase with _$ExercisePlanController;
 
-abstract class _ExerciseDetailsControllerBase with Store implements Disposable {
-  ExerciseDetails? currentExercise;
+abstract class _ExercisePlanControllerBase with Store implements Disposable {
+  final minRepsTextController = TextEditingController();
+  final maxRepsTextController = TextEditingController();
+
+  late ExerciseDetails exerciseDetails;
+  ExercisePlan? exercisePlan;
 
   @observable
   int setsAmount = 3;
@@ -25,6 +29,30 @@ abstract class _ExerciseDetailsControllerBase with Store implements Disposable {
 
   @observable
   RepsRange repsRange = RepsRange.zero();
+
+  void initializeExerciseDetails(ExerciseDetails newExerciseDetails) {
+    exerciseDetails = newExerciseDetails;
+  }
+
+  void initializeEditableExercisePlan(ExercisePlan newExercisePlan) {
+    exercisePlan = newExercisePlan;
+    exerciseDetails = newExercisePlan.exercise;
+    initializeFieldsWithExercisePlan(newExercisePlan);
+  }
+
+  void initializeFieldsWithExercisePlan(ExercisePlan exercisePlan) {
+    setsAmount = exercisePlan.setsAmount;
+    totalLoad = exercisePlan.plannedSets.first.load;
+    if (exercisePlan.plannedSets.first.reps != null) {
+      repsRange = exercisePlan.plannedSets.first.reps!;
+      _initializeTextEditingControllers();
+    }
+  }
+
+  void _initializeTextEditingControllers() {
+    minRepsTextController.text = exercisePlan!.plannedSets.first.reps!.min.toString();
+    maxRepsTextController.text = exercisePlan!.plannedSets.first.reps!.max.toString();
+  }
 
   @action
   void incrementSetsAmount() => setsAmount++;
@@ -51,16 +79,23 @@ abstract class _ExerciseDetailsControllerBase with Store implements Disposable {
   }
 
   String _replaceCommasWithDots(String value) => value.replaceAll(',', '.');
+  
+  void updateExerciseInList(BuildContext context) {
+    final newExercisePlan = exercisePlan!.copyWith(
+      plannedSets: _generatePlannedSets(),
+    );
+    AutoRouter.of(context).pop<ExercisePlan>(newExercisePlan);
+  }
 
   void addExerciseToList(BuildContext context) {
-    final exercisePlan = _createExercisePlan();
-    AutoRouter.of(context).pop<ExercisePlan>(exercisePlan);
+    final newExercisePlan = _createExercisePlan();
+    AutoRouter.of(context).pop<ExercisePlan>(newExercisePlan);
   }
 
   ExercisePlan _createExercisePlan() {
     return ExercisePlan(
       id: const Uuid().v1(),
-      exercise: currentExercise!,
+      exercise: exerciseDetails,
       plannedSets: _generatePlannedSets(),
     );
   }

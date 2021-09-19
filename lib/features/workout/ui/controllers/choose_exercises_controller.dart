@@ -18,6 +18,16 @@ abstract class _ChooseExercisesControllerBase with Store {
   }
 
   @action
+  void editExercise(ExercisePlan exercise) {
+    final index = _findSelectedExerciseIndexById(exercise.id);
+    selectedExercises[index] = exercise;
+  }
+
+  int _findSelectedExerciseIndexById(String id) {
+    return selectedExercises.indexWhere((selectedExercise) => selectedExercise.id == id);
+  }
+
+  @action
   void removeExercise(ExercisePlan exercise) {
     selectedExercises.remove(exercise);
   }

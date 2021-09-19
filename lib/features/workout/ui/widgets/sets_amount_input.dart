@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:squeezed_app/features/workout/ui/controllers/exercise_details_controller.dart';
+import 'package:squeezed_app/features/workout/ui/controllers/exercise_plan_controller.dart';
 import 'package:squeezed_app/shared/app_container.dart';
 import 'package:squeezed_app/shared/res/app_colors.dart';
 import 'package:squeezed_app/shared/res/constants.dart';
 import 'package:squeezed_app/widgets/custom_divider.dart';
 
 class SetsAmountInput extends StatelessWidget {
-  final controller = AppContainer.get<ExerciseDetailsController>();
+  final controller = AppContainer.get<ExercisePlanController>();
 
   SetsAmountInput({Key? key}) : super(key: key);
 
