@@ -7,9 +7,9 @@ import 'package:squeezed_app/shared/res/constants.dart';
 import 'package:squeezed_app/widgets/custom_divider.dart';
 
 class SetsAmountInput extends StatelessWidget {
-  final controller = AppContainer.get<ExercisePlanController>();
+  final ExercisePlanController controller;
 
-  SetsAmountInput({Key? key}) : super(key: key);
+  SetsAmountInput({Key? key, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

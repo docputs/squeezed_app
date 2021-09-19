@@ -54,9 +54,9 @@ class _ExercisePlanPageState extends State<ExercisePlanPage> {
       body: Column(
         children: [
           if (controller.exerciseDetails.hasMediaToDisplay) _buildExerciseMediaDisplay(),
-          SetsAmountInput(),
-          RepsAmountInput(),
-          LoadAmountInput(),
+          SetsAmountInput(controller: controller),
+          RepsAmountInput(controller: controller),
+          LoadAmountInput(controller: controller),
         ],
       ),
     );

@@ -11,7 +11,7 @@ import 'package:uuid/uuid.dart';
 
 part 'exercise_plan_controller.g.dart';
 
-@lazySingleton
+@injectable
 class ExercisePlanController = _ExercisePlanControllerBase with _$ExercisePlanController;
 
 abstract class _ExercisePlanControllerBase with Store implements Disposable {
@@ -79,7 +79,7 @@ abstract class _ExercisePlanControllerBase with Store implements Disposable {
   }
 
   String _replaceCommasWithDots(String value) => value.replaceAll(',', '.');
-  
+
   void updateExerciseInList(BuildContext context) {
     final newExercisePlan = exercisePlan!.copyWith(
       plannedSets: _generatePlannedSets(),
@@ -113,11 +113,18 @@ abstract class _ExercisePlanControllerBase with Store implements Disposable {
   @override
   void onDispose() {
     _resetDefaultValues();
+    _disposeTextEditingControllers();
   }
 
   void _resetDefaultValues() {
     setsAmount = 3;
     totalLoad = null;
     repsRange = RepsRange.zero();
+    exercisePlan = null;
+  }
+
+  void _disposeTextEditingControllers() {
+    minRepsTextController.dispose();
+    maxRepsTextController.dispose();
   }
 }

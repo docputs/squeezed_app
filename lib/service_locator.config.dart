@@ -38,8 +38,7 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i4.ChooseExercisesController());
   gh.lazySingleton<_i5.CreateWorkoutController>(
       () => _i5.CreateWorkoutController());
-  gh.lazySingleton<_i6.ExercisePlanController>(
-      () => _i6.ExercisePlanController());
+  gh.factory<_i6.ExercisePlanController>(() => _i6.ExercisePlanController());
   gh.lazySingleton<_i7.FirebaseAuth>(() => registerModule.firebaseAuth);
   gh.lazySingleton<_i8.FirebaseFirestore>(
       () => registerModule.firebaseFirestore);
