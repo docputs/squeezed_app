@@ -33,6 +33,6 @@ abstract class _SignInControllerBase extends BaseStore with Store {
   }
 
   void pushSignUpPage() {
-    _appRouter.push(SignUpPageRoute());
+    _appRouter.push(SignUpRoute());
   }
 }

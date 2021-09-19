@@ -10,6 +10,7 @@ import 'package:squeezed_app/features/workout/workout_router.dart';
 import 'package:squeezed_app/widgets/bottom_navigation_manager.dart';
 
 @MaterialAutoRouter(
+  replaceInRouteName: 'Page,Route',
   routes: [
     AutoRoute(page: SplashPage, initial: true),
     AutoRoute(page: SignInPage),

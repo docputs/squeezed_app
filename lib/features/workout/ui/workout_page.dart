@@ -60,7 +60,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
   Widget _buildCreateWorkoutButton() {
     return GestureDetector(
       onTap: () {
-        AutoRouter.of(context).push(CreateWorkoutPageRoute());
+        AutoRouter.of(context).push(CreateWorkoutRoute());
       },
       child: Container(
         padding: const EdgeInsets.all(10),

@@ -44,7 +44,7 @@ class CreateWorkoutPage extends StatelessWidget {
               text: Messages.createWorkoutSubmitButtonText,
               onPressed: controller.isFormValid
                   ? () {
-                      AutoRouter.of(context).push(ChooseExercisesPageRoute());
+                      AutoRouter.of(context).push(ChooseExercisesRoute());
                     }
                   : null,
             ),

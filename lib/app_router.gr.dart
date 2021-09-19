@@ -27,33 +27,32 @@ class AppRouter extends _i1.RootStackRouter {
 
   @override
   final Map<String, _i1.PageFactory> pagesMap = {
-    SplashPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    SplashRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
-          final args = data.argsAs<SplashPageRouteArgs>(
-              orElse: () => const SplashPageRouteArgs());
+          final args = data.argsAs<SplashRouteArgs>(
+              orElse: () => const SplashRouteArgs());
           return _i3.SplashPage(key: args.key);
         }),
-    SignInPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    SignInRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
-          final args = data.argsAs<SignInPageRouteArgs>(
-              orElse: () => const SignInPageRouteArgs());
+          final args = data.argsAs<SignInRouteArgs>(
+              orElse: () => const SignInRouteArgs());
           return _i4.SignInPage(key: args.key);
         }),
-    SignUpPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    SignUpRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
-          final args = data.argsAs<SignUpPageRouteArgs>(
-              orElse: () => const SignUpPageRouteArgs());
+          final args = data.argsAs<SignUpRouteArgs>(
+              orElse: () => const SignUpRouteArgs());
           return _i5.SignUpPage(key: args.key);
         }),
-    BottomNavigationManagerRoute.name: (routeData) =>
-        _i1.MaterialPageX<dynamic>(
-            routeData: routeData,
-            builder: (_) {
-              return const _i6.BottomNavigationManager();
-            }),
+    BottomNavigationManager.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i6.BottomNavigationManager();
+        }),
     HomeTab.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
@@ -74,45 +73,45 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (_) {
           return const _i1.EmptyRouterPage();
         }),
-    HomePageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    HomeRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
           return const _i7.HomePage();
         }),
-    WorkoutPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    WorkoutRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
-          final args = data.argsAs<WorkoutPageRouteArgs>(
-              orElse: () => const WorkoutPageRouteArgs());
+          final args = data.argsAs<WorkoutRouteArgs>(
+              orElse: () => const WorkoutRouteArgs());
           return _i8.WorkoutPage(key: args.key);
         }),
-    CreateWorkoutPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    CreateWorkoutRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
-          final args = data.argsAs<CreateWorkoutPageRouteArgs>(
-              orElse: () => const CreateWorkoutPageRouteArgs());
+          final args = data.argsAs<CreateWorkoutRouteArgs>(
+              orElse: () => const CreateWorkoutRouteArgs());
           return _i9.CreateWorkoutPage(key: args.key);
         }),
-    ChooseExercisesPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    ChooseExercisesRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
-          final args = data.argsAs<ChooseExercisesPageRouteArgs>(
-              orElse: () => const ChooseExercisesPageRouteArgs());
+          final args = data.argsAs<ChooseExercisesRouteArgs>(
+              orElse: () => const ChooseExercisesRouteArgs());
           return _i10.ChooseExercisesPage(key: args.key);
         }),
-    ExerciseDetailsPageRoute.name: (routeData) =>
+    ExerciseDetailsRoute.name: (routeData) =>
         _i1.MaterialPageX<_i11.ExercisePlan>(
             routeData: routeData,
             builder: (data) {
-              final args = data.argsAs<ExerciseDetailsPageRouteArgs>();
+              final args = data.argsAs<ExerciseDetailsRouteArgs>();
               return _i12.ExerciseDetailsPage(args.exercise, key: args.key);
             }),
-    StatisticsPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    StatisticsRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
           return const _i13.StatisticsPage();
         }),
-    SettingsPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    SettingsRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
           return const _i14.SettingsPage();
@@ -121,83 +120,81 @@ class AppRouter extends _i1.RootStackRouter {
 
   @override
   List<_i1.RouteConfig> get routes => [
-        _i1.RouteConfig(SplashPageRoute.name, path: '/'),
-        _i1.RouteConfig(SignInPageRoute.name, path: '/sign-in-page'),
-        _i1.RouteConfig(SignUpPageRoute.name, path: '/sign-up-page'),
-        _i1.RouteConfig(BottomNavigationManagerRoute.name,
+        _i1.RouteConfig(SplashRoute.name, path: '/'),
+        _i1.RouteConfig(SignInRoute.name, path: '/sign-in-page'),
+        _i1.RouteConfig(SignUpRoute.name, path: '/sign-up-page'),
+        _i1.RouteConfig(BottomNavigationManager.name,
             path: '/bottom-navigation-manager',
             children: [
               _i1.RouteConfig(HomeTab.name,
                   path: '',
-                  children: [_i1.RouteConfig(HomePageRoute.name, path: '')]),
+                  children: [_i1.RouteConfig(HomeRoute.name, path: '')]),
               _i1.RouteConfig(WorkoutTab.name,
                   path: 'empty-router-page',
                   children: [
-                    _i1.RouteConfig(WorkoutPageRoute.name, path: ''),
-                    _i1.RouteConfig(CreateWorkoutPageRoute.name,
+                    _i1.RouteConfig(WorkoutRoute.name, path: ''),
+                    _i1.RouteConfig(CreateWorkoutRoute.name,
                         path: 'create-workout-page'),
-                    _i1.RouteConfig(ChooseExercisesPageRoute.name,
+                    _i1.RouteConfig(ChooseExercisesRoute.name,
                         path: 'choose-exercises-page'),
-                    _i1.RouteConfig(ExerciseDetailsPageRoute.name,
+                    _i1.RouteConfig(ExerciseDetailsRoute.name,
                         path: 'exercise-details-page')
                   ]),
               _i1.RouteConfig(StatisticsTab.name,
                   path: 'empty-router-page',
-                  children: [
-                    _i1.RouteConfig(StatisticsPageRoute.name, path: '')
-                  ]),
+                  children: [_i1.RouteConfig(StatisticsRoute.name, path: '')]),
               _i1.RouteConfig(SettingsTab.name,
                   path: 'empty-router-page',
-                  children: [_i1.RouteConfig(SettingsPageRoute.name, path: '')])
+                  children: [_i1.RouteConfig(SettingsRoute.name, path: '')])
             ])
       ];
 }
 
-class SplashPageRoute extends _i1.PageRouteInfo<SplashPageRouteArgs> {
-  SplashPageRoute({_i2.Key? key})
-      : super(name, path: '/', args: SplashPageRouteArgs(key: key));
+class SplashRoute extends _i1.PageRouteInfo<SplashRouteArgs> {
+  SplashRoute({_i2.Key? key})
+      : super(name, path: '/', args: SplashRouteArgs(key: key));
 
-  static const String name = 'SplashPageRoute';
+  static const String name = 'SplashRoute';
 }
 
-class SplashPageRouteArgs {
-  const SplashPageRouteArgs({this.key});
+class SplashRouteArgs {
+  const SplashRouteArgs({this.key});
 
   final _i2.Key? key;
 }
 
-class SignInPageRoute extends _i1.PageRouteInfo<SignInPageRouteArgs> {
-  SignInPageRoute({_i2.Key? key})
-      : super(name, path: '/sign-in-page', args: SignInPageRouteArgs(key: key));
+class SignInRoute extends _i1.PageRouteInfo<SignInRouteArgs> {
+  SignInRoute({_i2.Key? key})
+      : super(name, path: '/sign-in-page', args: SignInRouteArgs(key: key));
 
-  static const String name = 'SignInPageRoute';
+  static const String name = 'SignInRoute';
 }
 
-class SignInPageRouteArgs {
-  const SignInPageRouteArgs({this.key});
+class SignInRouteArgs {
+  const SignInRouteArgs({this.key});
 
   final _i2.Key? key;
 }
 
-class SignUpPageRoute extends _i1.PageRouteInfo<SignUpPageRouteArgs> {
-  SignUpPageRoute({_i2.Key? key})
-      : super(name, path: '/sign-up-page', args: SignUpPageRouteArgs(key: key));
+class SignUpRoute extends _i1.PageRouteInfo<SignUpRouteArgs> {
+  SignUpRoute({_i2.Key? key})
+      : super(name, path: '/sign-up-page', args: SignUpRouteArgs(key: key));
 
-  static const String name = 'SignUpPageRoute';
+  static const String name = 'SignUpRoute';
 }
 
-class SignUpPageRouteArgs {
-  const SignUpPageRouteArgs({this.key});
+class SignUpRouteArgs {
+  const SignUpRouteArgs({this.key});
 
   final _i2.Key? key;
 }
 
-class BottomNavigationManagerRoute extends _i1.PageRouteInfo {
-  const BottomNavigationManagerRoute({List<_i1.PageRouteInfo>? children})
+class BottomNavigationManager extends _i1.PageRouteInfo {
+  const BottomNavigationManager({List<_i1.PageRouteInfo>? children})
       : super(name,
             path: '/bottom-navigation-manager', initialChildren: children);
 
-  static const String name = 'BottomNavigationManagerRoute';
+  static const String name = 'BottomNavigationManager';
 }
 
 class HomeTab extends _i1.PageRouteInfo {
@@ -228,84 +225,80 @@ class SettingsTab extends _i1.PageRouteInfo {
   static const String name = 'SettingsTab';
 }
 
-class HomePageRoute extends _i1.PageRouteInfo {
-  const HomePageRoute() : super(name, path: '');
+class HomeRoute extends _i1.PageRouteInfo {
+  const HomeRoute() : super(name, path: '');
 
-  static const String name = 'HomePageRoute';
+  static const String name = 'HomeRoute';
 }
 
-class WorkoutPageRoute extends _i1.PageRouteInfo<WorkoutPageRouteArgs> {
-  WorkoutPageRoute({_i2.Key? key})
-      : super(name, path: '', args: WorkoutPageRouteArgs(key: key));
+class WorkoutRoute extends _i1.PageRouteInfo<WorkoutRouteArgs> {
+  WorkoutRoute({_i2.Key? key})
+      : super(name, path: '', args: WorkoutRouteArgs(key: key));
 
-  static const String name = 'WorkoutPageRoute';
+  static const String name = 'WorkoutRoute';
 }
 
-class WorkoutPageRouteArgs {
-  const WorkoutPageRouteArgs({this.key});
+class WorkoutRouteArgs {
+  const WorkoutRouteArgs({this.key});
 
   final _i2.Key? key;
 }
 
-class CreateWorkoutPageRoute
-    extends _i1.PageRouteInfo<CreateWorkoutPageRouteArgs> {
-  CreateWorkoutPageRoute({_i2.Key? key})
+class CreateWorkoutRoute extends _i1.PageRouteInfo<CreateWorkoutRouteArgs> {
+  CreateWorkoutRoute({_i2.Key? key})
       : super(name,
             path: 'create-workout-page',
-            args: CreateWorkoutPageRouteArgs(key: key));
+            args: CreateWorkoutRouteArgs(key: key));
 
-  static const String name = 'CreateWorkoutPageRoute';
+  static const String name = 'CreateWorkoutRoute';
 }
 
-class CreateWorkoutPageRouteArgs {
-  const CreateWorkoutPageRouteArgs({this.key});
+class CreateWorkoutRouteArgs {
+  const CreateWorkoutRouteArgs({this.key});
 
   final _i2.Key? key;
 }
 
-class ChooseExercisesPageRoute
-    extends _i1.PageRouteInfo<ChooseExercisesPageRouteArgs> {
-  ChooseExercisesPageRoute({_i2.Key? key})
+class ChooseExercisesRoute extends _i1.PageRouteInfo<ChooseExercisesRouteArgs> {
+  ChooseExercisesRoute({_i2.Key? key})
       : super(name,
             path: 'choose-exercises-page',
-            args: ChooseExercisesPageRouteArgs(key: key));
+            args: ChooseExercisesRouteArgs(key: key));
 
-  static const String name = 'ChooseExercisesPageRoute';
+  static const String name = 'ChooseExercisesRoute';
 }
 
-class ChooseExercisesPageRouteArgs {
-  const ChooseExercisesPageRouteArgs({this.key});
+class ChooseExercisesRouteArgs {
+  const ChooseExercisesRouteArgs({this.key});
 
   final _i2.Key? key;
 }
 
-class ExerciseDetailsPageRoute
-    extends _i1.PageRouteInfo<ExerciseDetailsPageRouteArgs> {
-  ExerciseDetailsPageRoute(
-      {required _i15.ExerciseDetails exercise, _i2.Key? key})
+class ExerciseDetailsRoute extends _i1.PageRouteInfo<ExerciseDetailsRouteArgs> {
+  ExerciseDetailsRoute({required _i15.ExerciseDetails exercise, _i2.Key? key})
       : super(name,
             path: 'exercise-details-page',
-            args: ExerciseDetailsPageRouteArgs(exercise: exercise, key: key));
+            args: ExerciseDetailsRouteArgs(exercise: exercise, key: key));
 
-  static const String name = 'ExerciseDetailsPageRoute';
+  static const String name = 'ExerciseDetailsRoute';
 }
 
-class ExerciseDetailsPageRouteArgs {
-  const ExerciseDetailsPageRouteArgs({required this.exercise, this.key});
+class ExerciseDetailsRouteArgs {
+  const ExerciseDetailsRouteArgs({required this.exercise, this.key});
 
   final _i15.ExerciseDetails exercise;
 
   final _i2.Key? key;
 }
 
-class StatisticsPageRoute extends _i1.PageRouteInfo {
-  const StatisticsPageRoute() : super(name, path: '');
+class StatisticsRoute extends _i1.PageRouteInfo {
+  const StatisticsRoute() : super(name, path: '');
 
-  static const String name = 'StatisticsPageRoute';
+  static const String name = 'StatisticsRoute';
 }
 
-class SettingsPageRoute extends _i1.PageRouteInfo {
-  const SettingsPageRoute() : super(name, path: '');
+class SettingsRoute extends _i1.PageRouteInfo {
+  const SettingsRoute() : super(name, path: '');
 
-  static const String name = 'SettingsPageRoute';
+  static const String name = 'SettingsRoute';
 }
