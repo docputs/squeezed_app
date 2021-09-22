@@ -79,16 +79,19 @@ class _AppScaffoldState extends State<AppScaffold> {
   }
 
   Scaffold _buildScaffoldWidget() {
-    final width = MediaQuery.of(context).size.width;
-    final height = MediaQuery.of(context).size.height;
+    final pageSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: widget.hasTitle ? _buildAppBar() : null,
       body: widget.isScrollable
           ? SingleChildScrollView(
               child: ConstrainedBox(
-              constraints: BoxConstraints(maxHeight: height - 136, maxWidth: width),
-              child: _buildBody(),
-            ))
+                constraints: BoxConstraints(
+                  maxWidth: pageSize.width,
+                  maxHeight: pageSize.height,
+                ),
+                child: _buildBody(),
+              ),
+            )
           : _buildBody(),
     );
   }
