@@ -7,6 +7,7 @@ class CustomElevatedButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final Color backgroundColor;
   final bool horizontallyExpanded;
+  final EdgeInsets? customPadding;
 
   const CustomElevatedButton({
     Key? key,
@@ -14,12 +15,14 @@ class CustomElevatedButton extends StatelessWidget {
     this.onPressed,
     this.backgroundColor = AppColors.primary,
     this.horizontallyExpanded = true,
+    this.customPadding,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       width: horizontallyExpanded ? double.infinity : null,
+      padding: customPadding,
       child: ElevatedButton(
         onPressed: onPressed != null
             ? () {

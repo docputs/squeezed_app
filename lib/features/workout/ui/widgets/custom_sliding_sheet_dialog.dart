@@ -7,24 +7,30 @@ import 'package:squeezed_app/features/workout/domain/entities/exercise_plan.dart
 import 'package:squeezed_app/features/workout/ui/controllers/choose_exercises_controller.dart';
 import 'package:squeezed_app/features/workout/ui/widgets/selected_exercise_list_tile.dart';
 import 'package:squeezed_app/shared/app_container.dart';
+import 'package:squeezed_app/widgets/custom_elevated_button.dart';
 
 class CustomSlidingSheetDialog extends SlidingSheetDialog {
-  CustomSlidingSheetDialog({SheetController? controller})
-      : super(
+  CustomSlidingSheetDialog({
+    SheetController? controller,
+    required Widget Function(BuildContext, SheetState, SheetController?) builder,
+  }) : super(
           avoidStatusBar: true,
           cornerRadius: 20,
           cornerRadiusOnFullscreen: 0,
           controller: controller,
-          builder: (_, state) => SelectedExercisesBottomSheetBody(sheetController: controller),
+          duration: const Duration(milliseconds: 300),
+          builder: (context, state) => builder(context, state, controller),
         );
 }
 
 class SelectedExercisesBottomSheetBody extends StatefulWidget {
   final SheetController? sheetController;
+  final VoidCallback? onSubmit;
 
   SelectedExercisesBottomSheetBody({
     Key? key,
     this.sheetController,
+    this.onSubmit,
   }) : super(key: key);
 
   @override
@@ -39,15 +45,29 @@ class _SelectedExercisesBottomSheetBodyState extends State<SelectedExercisesBott
     return Observer(
       builder: (_) => Column(
         mainAxisSize: MainAxisSize.min,
-        children: controller.selectedExercises
-            .map(
-              (exercise) => SelectedExerciseListTile(
-                exercise,
-                onDeletePressed: _handleDeletePressed,
-                onEditPressed: _handleEditPressed,
-              ),
-            )
-            .toList(),
+        children: [
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: controller.selectedExercises
+                .map(
+                  (exercise) => SelectedExerciseListTile(
+                    exercise,
+                    onDeletePressed: _handleDeletePressed,
+                    onEditPressed: _handleEditPressed,
+                  ),
+                )
+                .toList(),
+          ),
+          CustomElevatedButton(
+            text: 'Finalizar escolha',
+            onPressed: widget.onSubmit != null
+                ? () {
+                    widget.onSubmit!();
+                    _hideCurrentBottomSheet();
+                  }
+                : null,
+          ),
+        ],
       ),
     );
   }

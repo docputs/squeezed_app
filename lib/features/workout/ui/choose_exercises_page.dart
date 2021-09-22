@@ -61,7 +61,17 @@ class _ChooseExercisesPageState extends State<ChooseExercisesPage> {
   }
 
   void _handleCustomTitleTap() {
-    showSlidingBottomSheet(context, builder: (_) => CustomSlidingSheetDialog());
+    showSlidingBottomSheet(
+      context,
+      builder: (_) => CustomSlidingSheetDialog(
+        builder: (_, __, controller) {
+          return SelectedExercisesBottomSheetBody(
+            sheetController: controller,
+            onSubmit: () => _chooseController.submitExercises(context),
+          );
+        },
+      ),
+    );
   }
 
   Widget _buildPlainTitleText() {
@@ -79,9 +89,7 @@ class _ChooseExercisesPageState extends State<ChooseExercisesPage> {
   Widget _buildSubmitIconButton() {
     return IconButton(
       icon: const Icon(Icons.check, color: AppColors.primary),
-      onPressed: () {
-        _chooseController.submitExercises(context);
-      },
+      onPressed: () => _chooseController.submitExercises(context),
     );
   }
 
