@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:squeezed_app/features/workout/domain/entities/exercise_plan.dart';
 import 'package:squeezed_app/shared/view_models/weekday_view_model.dart';
 
 part 'create_workout_view_model.freezed.dart';
@@ -10,18 +11,19 @@ class CreateWorkoutViewModel with _$CreateWorkoutViewModel {
   factory CreateWorkoutViewModel({
     required Set<WeekdayViewModel> selectedWeekdays,
     required String workoutName,
-    required String observations,
+    required List<ExercisePlan> exercises,
+    String? observations,
   }) = _CreateWorkoutViewModel;
 
   factory CreateWorkoutViewModel.empty() {
     return CreateWorkoutViewModel(
       selectedWeekdays: {},
       workoutName: '',
-      observations: '',
+      exercises: [],
     );
   }
 
   bool isValid() {
-    return workoutName.isNotEmpty;
+    return workoutName.isNotEmpty && selectedWeekdays.isNotEmpty && exercises.isNotEmpty;
   }
 }

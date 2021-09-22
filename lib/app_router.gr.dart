@@ -10,14 +10,16 @@ import 'package:flutter/material.dart' as _i2;
 import 'features/auth/ui/sign_in/pages/sign_in_page.dart' as _i4;
 import 'features/auth/ui/sign_up/pages/sign_up_page.dart' as _i5;
 import 'features/home/ui/home_page.dart' as _i7;
-import 'features/settings/settings_page.dart' as _i14;
+import 'features/settings/settings_page.dart' as _i15;
 import 'features/splash/ui/splash_page.dart' as _i3;
-import 'features/statistics/statistics_page.dart' as _i13;
-import 'features/workout/domain/entities/exercise_details.dart' as _i15;
+import 'features/statistics/statistics_page.dart' as _i14;
+import 'features/workout/domain/entities/exercise_details.dart' as _i16;
 import 'features/workout/domain/entities/exercise_plan.dart' as _i11;
 import 'features/workout/ui/choose_exercises_page.dart' as _i10;
 import 'features/workout/ui/create_workout_page.dart' as _i9;
 import 'features/workout/ui/exercise_plan_page.dart' as _i12;
+import 'features/workout/ui/review_workout_plan_page.dart' as _i13;
+import 'features/workout/ui/view_models/create_workout_view_model.dart' as _i17;
 import 'features/workout/ui/workout_page.dart' as _i8;
 import 'widgets/bottom_navigation_manager.dart' as _i6;
 
@@ -109,15 +111,21 @@ class AppRouter extends _i1.RootStackRouter {
               exerciseDetails: args.exerciseDetails,
               editableExercise: args.editableExercise);
         }),
+    ReviewWorkoutPlanRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<ReviewWorkoutPlanRouteArgs>();
+          return _i13.ReviewWorkoutPlanPage(args.workout, key: args.key);
+        }),
     StatisticsRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return const _i13.StatisticsPage();
+          return const _i14.StatisticsPage();
         }),
     SettingsRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return const _i14.SettingsPage();
+          return const _i15.SettingsPage();
         })
   };
 
@@ -141,7 +149,9 @@ class AppRouter extends _i1.RootStackRouter {
                     _i1.RouteConfig(ChooseExercisesRoute.name,
                         path: 'choose-exercises-page'),
                     _i1.RouteConfig(ExercisePlanRoute.name,
-                        path: 'exercise-plan-page')
+                        path: 'exercise-plan-page'),
+                    _i1.RouteConfig(ReviewWorkoutPlanRoute.name,
+                        path: 'review-workout-plan-page')
                   ]),
               _i1.RouteConfig(StatisticsTab.name,
                   path: 'empty-router-page',
@@ -280,7 +290,7 @@ class ChooseExercisesRouteArgs {
 class ExercisePlanRoute extends _i1.PageRouteInfo<ExercisePlanRouteArgs> {
   ExercisePlanRoute(
       {_i2.Key? key,
-      _i15.ExerciseDetails? exerciseDetails,
+      _i16.ExerciseDetails? exerciseDetails,
       _i11.ExercisePlan? editableExercise})
       : super(name,
             path: 'exercise-plan-page',
@@ -298,9 +308,28 @@ class ExercisePlanRouteArgs {
 
   final _i2.Key? key;
 
-  final _i15.ExerciseDetails? exerciseDetails;
+  final _i16.ExerciseDetails? exerciseDetails;
 
   final _i11.ExercisePlan? editableExercise;
+}
+
+class ReviewWorkoutPlanRoute
+    extends _i1.PageRouteInfo<ReviewWorkoutPlanRouteArgs> {
+  ReviewWorkoutPlanRoute(
+      {required _i17.CreateWorkoutViewModel workout, _i2.Key? key})
+      : super(name,
+            path: 'review-workout-plan-page',
+            args: ReviewWorkoutPlanRouteArgs(workout: workout, key: key));
+
+  static const String name = 'ReviewWorkoutPlanRoute';
+}
+
+class ReviewWorkoutPlanRouteArgs {
+  const ReviewWorkoutPlanRouteArgs({required this.workout, this.key});
+
+  final _i17.CreateWorkoutViewModel workout;
+
+  final _i2.Key? key;
 }
 
 class StatisticsRoute extends _i1.PageRouteInfo {

@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
 import 'package:squeezed_app/features/workout/domain/entities/exercise_details.dart';
@@ -14,7 +13,7 @@ part 'exercise_plan_controller.g.dart';
 @injectable
 class ExercisePlanController = _ExercisePlanControllerBase with _$ExercisePlanController;
 
-abstract class _ExercisePlanControllerBase with Store implements Disposable {
+abstract class _ExercisePlanControllerBase with Store {
   final minRepsTextController = TextEditingController();
   final maxRepsTextController = TextEditingController();
 
@@ -110,7 +109,6 @@ abstract class _ExercisePlanControllerBase with Store implements Disposable {
     );
   }
 
-  @override
   void onDispose() {
     _resetDefaultValues();
     _disposeTextEditingControllers();

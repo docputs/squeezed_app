@@ -19,10 +19,12 @@ class _$CreateWorkoutViewModelTearOff {
   _CreateWorkoutViewModel call(
       {required Set<WeekdayViewModel> selectedWeekdays,
       required String workoutName,
-      required String observations}) {
+      required List<ExercisePlan> exercises,
+      String? observations}) {
     return _CreateWorkoutViewModel(
       selectedWeekdays: selectedWeekdays,
       workoutName: workoutName,
+      exercises: exercises,
       observations: observations,
     );
   }
@@ -36,7 +38,8 @@ mixin _$CreateWorkoutViewModel {
   Set<WeekdayViewModel> get selectedWeekdays =>
       throw _privateConstructorUsedError;
   String get workoutName => throw _privateConstructorUsedError;
-  String get observations => throw _privateConstructorUsedError;
+  List<ExercisePlan> get exercises => throw _privateConstructorUsedError;
+  String? get observations => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CreateWorkoutViewModelCopyWith<CreateWorkoutViewModel> get copyWith =>
@@ -51,7 +54,8 @@ abstract class $CreateWorkoutViewModelCopyWith<$Res> {
   $Res call(
       {Set<WeekdayViewModel> selectedWeekdays,
       String workoutName,
-      String observations});
+      List<ExercisePlan> exercises,
+      String? observations});
 }
 
 /// @nodoc
@@ -67,6 +71,7 @@ class _$CreateWorkoutViewModelCopyWithImpl<$Res>
   $Res call({
     Object? selectedWeekdays = freezed,
     Object? workoutName = freezed,
+    Object? exercises = freezed,
     Object? observations = freezed,
   }) {
     return _then(_value.copyWith(
@@ -78,10 +83,14 @@ class _$CreateWorkoutViewModelCopyWithImpl<$Res>
           ? _value.workoutName
           : workoutName // ignore: cast_nullable_to_non_nullable
               as String,
+      exercises: exercises == freezed
+          ? _value.exercises
+          : exercises // ignore: cast_nullable_to_non_nullable
+              as List<ExercisePlan>,
       observations: observations == freezed
           ? _value.observations
           : observations // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -96,7 +105,8 @@ abstract class _$CreateWorkoutViewModelCopyWith<$Res>
   $Res call(
       {Set<WeekdayViewModel> selectedWeekdays,
       String workoutName,
-      String observations});
+      List<ExercisePlan> exercises,
+      String? observations});
 }
 
 /// @nodoc
@@ -114,6 +124,7 @@ class __$CreateWorkoutViewModelCopyWithImpl<$Res>
   $Res call({
     Object? selectedWeekdays = freezed,
     Object? workoutName = freezed,
+    Object? exercises = freezed,
     Object? observations = freezed,
   }) {
     return _then(_CreateWorkoutViewModel(
@@ -125,10 +136,14 @@ class __$CreateWorkoutViewModelCopyWithImpl<$Res>
           ? _value.workoutName
           : workoutName // ignore: cast_nullable_to_non_nullable
               as String,
+      exercises: exercises == freezed
+          ? _value.exercises
+          : exercises // ignore: cast_nullable_to_non_nullable
+              as List<ExercisePlan>,
       observations: observations == freezed
           ? _value.observations
           : observations // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -139,7 +154,8 @@ class _$_CreateWorkoutViewModel extends _CreateWorkoutViewModel {
   _$_CreateWorkoutViewModel(
       {required this.selectedWeekdays,
       required this.workoutName,
-      required this.observations})
+      required this.exercises,
+      this.observations})
       : super._();
 
   @override
@@ -147,11 +163,13 @@ class _$_CreateWorkoutViewModel extends _CreateWorkoutViewModel {
   @override
   final String workoutName;
   @override
-  final String observations;
+  final List<ExercisePlan> exercises;
+  @override
+  final String? observations;
 
   @override
   String toString() {
-    return 'CreateWorkoutViewModel(selectedWeekdays: $selectedWeekdays, workoutName: $workoutName, observations: $observations)';
+    return 'CreateWorkoutViewModel(selectedWeekdays: $selectedWeekdays, workoutName: $workoutName, exercises: $exercises, observations: $observations)';
   }
 
   @override
@@ -164,6 +182,9 @@ class _$_CreateWorkoutViewModel extends _CreateWorkoutViewModel {
             (identical(other.workoutName, workoutName) ||
                 const DeepCollectionEquality()
                     .equals(other.workoutName, workoutName)) &&
+            (identical(other.exercises, exercises) ||
+                const DeepCollectionEquality()
+                    .equals(other.exercises, exercises)) &&
             (identical(other.observations, observations) ||
                 const DeepCollectionEquality()
                     .equals(other.observations, observations)));
@@ -174,6 +195,7 @@ class _$_CreateWorkoutViewModel extends _CreateWorkoutViewModel {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(selectedWeekdays) ^
       const DeepCollectionEquality().hash(workoutName) ^
+      const DeepCollectionEquality().hash(exercises) ^
       const DeepCollectionEquality().hash(observations);
 
   @JsonKey(ignore: true)
@@ -187,7 +209,8 @@ abstract class _CreateWorkoutViewModel extends CreateWorkoutViewModel {
   factory _CreateWorkoutViewModel(
       {required Set<WeekdayViewModel> selectedWeekdays,
       required String workoutName,
-      required String observations}) = _$_CreateWorkoutViewModel;
+      required List<ExercisePlan> exercises,
+      String? observations}) = _$_CreateWorkoutViewModel;
   _CreateWorkoutViewModel._() : super._();
 
   @override
@@ -196,7 +219,9 @@ abstract class _CreateWorkoutViewModel extends CreateWorkoutViewModel {
   @override
   String get workoutName => throw _privateConstructorUsedError;
   @override
-  String get observations => throw _privateConstructorUsedError;
+  List<ExercisePlan> get exercises => throw _privateConstructorUsedError;
+  @override
+  String? get observations => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$CreateWorkoutViewModelCopyWith<_CreateWorkoutViewModel> get copyWith =>

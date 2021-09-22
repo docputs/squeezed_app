@@ -35,6 +35,7 @@ class _ChooseExercisesPageState extends State<ChooseExercisesPage> {
     return AppScaffold(
       customTitle: _buildCustomTitle(),
       hasPadding: false,
+      actions: [_buildSubmitIconButton()],
       body: Column(
         children: [
           _buildSearchTextField(),
@@ -72,6 +73,15 @@ class _ChooseExercisesPageState extends State<ChooseExercisesPage> {
         fontSize: 16,
         fontWeight: FontWeight.bold,
       ),
+    );
+  }
+
+  Widget _buildSubmitIconButton() {
+    return IconButton(
+      icon: const Icon(Icons.check, color: AppColors.primary),
+      onPressed: () {
+        _chooseController.submitExercises(context);
+      },
     );
   }
 
