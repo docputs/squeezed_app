@@ -58,15 +58,7 @@ class _SelectedExercisesBottomSheetBodyState extends State<SelectedExercisesBott
                 )
                 .toList(),
           ),
-          CustomElevatedButton(
-            text: 'Finalizar escolha',
-            onPressed: widget.onSubmit != null
-                ? () {
-                    widget.onSubmit!();
-                    _hideCurrentBottomSheet();
-                  }
-                : null,
-          ),
+          _buildSubmitExercisesButton(),
         ],
       ),
     );
@@ -90,5 +82,18 @@ class _SelectedExercisesBottomSheetBodyState extends State<SelectedExercisesBott
     if (result != null) {
       controller.editExercise(result);
     }
+  }
+
+  Widget _buildSubmitExercisesButton() {
+    return CustomElevatedButton(
+      text: 'Finalizar escolha',
+      customBorderRadius: BorderRadius.zero,
+      onPressed: widget.onSubmit != null
+          ? () {
+              widget.onSubmit!();
+              _hideCurrentBottomSheet();
+            }
+          : null,
+    );
   }
 }

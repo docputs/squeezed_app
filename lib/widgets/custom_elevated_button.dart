@@ -8,6 +8,7 @@ class CustomElevatedButton extends StatelessWidget {
   final Color backgroundColor;
   final bool horizontallyExpanded;
   final EdgeInsets? customPadding;
+  final BorderRadius? customBorderRadius;
 
   const CustomElevatedButton({
     Key? key,
@@ -16,6 +17,7 @@ class CustomElevatedButton extends StatelessWidget {
     this.backgroundColor = AppColors.primary,
     this.horizontallyExpanded = true,
     this.customPadding,
+    this.customBorderRadius,
   }) : super(key: key);
 
   @override
@@ -36,6 +38,7 @@ class CustomElevatedButton extends StatelessWidget {
             vertical: Constants.defaultPadding / 1.5,
           ),
           primary: backgroundColor,
+          shape: customBorderRadius != null ? RoundedRectangleBorder(borderRadius: customBorderRadius!) : null,
         ),
         child: Text(
           text.toUpperCase(),

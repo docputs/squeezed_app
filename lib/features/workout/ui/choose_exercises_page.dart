@@ -87,9 +87,12 @@ class _ChooseExercisesPageState extends State<ChooseExercisesPage> {
   }
 
   Widget _buildSubmitIconButton() {
-    return IconButton(
-      icon: const Icon(Icons.check, color: AppColors.primary),
-      onPressed: () => _chooseController.submitExercises(context),
+    return Observer(
+      builder: (_) => IconButton(
+        icon: const Icon(Icons.check),
+        color: AppColors.primary,
+        onPressed: _chooseController.hasSelectedExercises ? () => _chooseController.submitExercises(context) : null,
+      ),
     );
   }
 
