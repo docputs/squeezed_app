@@ -7,21 +7,8 @@ import 'package:squeezed_app/features/workout/domain/entities/exercise_plan.dart
 import 'package:squeezed_app/features/workout/ui/controllers/choose_exercises_controller.dart';
 import 'package:squeezed_app/features/workout/ui/widgets/selected_exercise_list_tile.dart';
 import 'package:squeezed_app/shared/app_container.dart';
+import 'package:squeezed_app/shared/res/app_colors.dart';
 import 'package:squeezed_app/widgets/custom_elevated_button.dart';
-
-class CustomSlidingSheetDialog extends SlidingSheetDialog {
-  CustomSlidingSheetDialog({
-    SheetController? controller,
-    required Widget Function(BuildContext, SheetState, SheetController?) builder,
-  }) : super(
-          avoidStatusBar: true,
-          cornerRadius: 20,
-          cornerRadiusOnFullscreen: 0,
-          controller: controller,
-          duration: const Duration(milliseconds: 300),
-          builder: (context, state) => builder(context, state, controller),
-        );
-}
 
 class SelectedExercisesBottomSheetBody extends StatefulWidget {
   final SheetController? sheetController;
@@ -46,6 +33,8 @@ class _SelectedExercisesBottomSheetBodyState extends State<SelectedExercisesBott
       builder: (_) => Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+          const SizedBox(height: 10),
+          _buildDragIndicator(),
           Column(
             mainAxisSize: MainAxisSize.min,
             children: controller.selectedExercises
@@ -60,6 +49,17 @@ class _SelectedExercisesBottomSheetBodyState extends State<SelectedExercisesBott
           ),
           _buildSubmitExercisesButton(),
         ],
+      ),
+    );
+  }
+
+  Widget _buildDragIndicator() {
+    return Container(
+      height: 4,
+      width: 80,
+      decoration: BoxDecoration(
+        color: AppColors.greyLight,
+        borderRadius: BorderRadius.circular(10),
       ),
     );
   }

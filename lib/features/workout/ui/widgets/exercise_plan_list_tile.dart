@@ -34,6 +34,7 @@ class ExercisePlanListTile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(exercise.name),
+            const SizedBox(height: 5),
             Text(
               exercise.targetMuscle,
               style: const TextStyle(color: AppColors.grey, fontSize: 13),

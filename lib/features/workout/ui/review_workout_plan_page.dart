@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:squeezed_app/features/workout/ui/view_models/create_workout_view_model.dart';
+import 'package:squeezed_app/features/workout/ui/widgets/exercise_plan_list_tile.dart';
+import 'package:squeezed_app/features/workout/ui/widgets/selected_weekdays_display.dart';
+import 'package:squeezed_app/shared/res/app_colors.dart';
 import 'package:squeezed_app/widgets/app_scaffold.dart';
+import 'package:squeezed_app/widgets/custom_section_header.dart';
 
 class ReviewWorkoutPlanPage extends StatelessWidget {
   final CreateWorkoutViewModel workout;
@@ -13,12 +17,35 @@ class ReviewWorkoutPlanPage extends StatelessWidget {
       title: 'Revisar treino',
       body: Column(
         children: [
-          Text(workout.workoutName),
-          Text(workout.exercises.toString()),
-          Text(workout.selectedWeekdays.toString()),
-          Text(workout.observations ?? 'no obs'),
+          const CustomSectionHeader('Nome do treino'),
+          SizedBox(
+            width: double.infinity,
+            child: Text(
+              workout.workoutName,
+              style: const TextStyle(fontSize: 31, color: AppColors.grey),
+            ),
+          ),
+          const SizedBox(height: 40),
+          const CustomSectionHeader('Dias da semana', bottomPadding: 20),
+          SelectedWeekdaysDisplay(workout.selectedWeekdays),
+          const SizedBox(height: 40),
+          const CustomSectionHeader('Exercícios'),
+          Column(
+            children: workout.exercises.map((e) => ExercisePlanListTile(e)).toList(),
+          ),
+          const SizedBox(height: 40),
+          if (workout.observations != null) _buildObservationsSection(),
         ],
       ),
+    );
+  }
+
+  Widget _buildObservationsSection() {
+    return Column(
+      children: [
+        const CustomSectionHeader('Observações'),
+        Text(workout.observations!),
+      ],
     );
   }
 }

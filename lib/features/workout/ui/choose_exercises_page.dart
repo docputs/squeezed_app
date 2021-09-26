@@ -8,13 +8,14 @@ import 'package:squeezed_app/features/workout/ui/controllers/choose_exercises_co
 import 'package:squeezed_app/features/workout/ui/controllers/search_exercise_controller.dart';
 import 'package:squeezed_app/features/workout/ui/widgets/exercise_option_tile.dart';
 import 'package:squeezed_app/features/workout/ui/widgets/muscle_filters.dart';
-import 'package:squeezed_app/features/workout/ui/widgets/custom_sliding_sheet_dialog.dart';
+import 'package:squeezed_app/features/workout/ui/widgets/selected_exercises_bottom_sheet_body.dart';
 import 'package:squeezed_app/shared/app_container.dart';
 import 'package:squeezed_app/shared/res/app_colors.dart';
 import 'package:squeezed_app/shared/res/constants.dart';
 import 'package:squeezed_app/shared/res/messages.dart';
 import 'package:squeezed_app/widgets/app_scaffold.dart';
 import 'package:squeezed_app/widgets/custom_divider.dart';
+import 'package:squeezed_app/widgets/custom_sliding_sheet_dialog.dart';
 import 'package:squeezed_app/widgets/custom_text_field.dart';
 
 import '../../../app_router.gr.dart';
