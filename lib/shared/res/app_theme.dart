@@ -26,12 +26,21 @@ class AppTheme {
       scaffoldBackgroundColor: Colors.white,
       indicatorColor: AppColors.accent,
       textSelectionTheme: _buildTextSelectionTheme(),
-      textTheme: const TextTheme(
-        bodyText2: TextStyle(color: AppColors.greyDark, fontSize: 16),
-      ),
+      textTheme: _buildTextTheme(),
       inputDecorationTheme: _buildInputDecorationTheme(),
       textButtonTheme: _buildTextButtonTheme(),
       bottomNavigationBarTheme: _buildBottomNavBarTheme(),
+    );
+  }
+
+  TextTheme _buildTextTheme() {
+    return const TextTheme(
+      bodyText2: TextStyle(color: AppColors.greyDark, fontSize: 16),
+      headline1: TextStyle(color: AppColors.greyDark, fontSize: 31),
+      headline2: TextStyle(color: AppColors.greyDark, fontSize: 25),
+      headline3: TextStyle(color: AppColors.greyDark, fontSize: 20),
+      subtitle1: TextStyle(color: AppColors.greyDark, fontSize: 13),
+      subtitle2: TextStyle(color: AppColors.greyDark, fontSize: 10),
     );
   }
 
