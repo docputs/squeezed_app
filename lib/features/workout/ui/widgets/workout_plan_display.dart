@@ -13,9 +13,21 @@ class WorkoutPlanDisplay extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
-          width: double.infinity,
-          child: Text(workout.title, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(workout.title, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            GestureDetector(
+              onTap: () {},
+              child: Text(
+                'COMEÇAR',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.primary,
+                ),
+              ),
+            ),
+          ],
         ),
         const SizedBox(height: 20),
         const CustomDivider(color: AppColors.grey),

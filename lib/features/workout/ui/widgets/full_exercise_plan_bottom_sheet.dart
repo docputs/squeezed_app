@@ -58,7 +58,7 @@ class FullExercisePlanBottomSheet extends StatelessWidget {
               const SizedBox(width: 100),
               Text(entry.value.formattedLoad ?? ''),
               const Spacer(),
-              Text(entry.value.formattedReps ?? ''),
+              Text(entry.value.formattedReps ?? 'n.a'),
             ],
           ),
         ),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:squeezed_app/features/workout/ui/controllers/review_workout_plan_controller.dart';
 import 'package:squeezed_app/features/workout/ui/view_models/create_workout_view_model.dart';
 import 'package:squeezed_app/features/workout/ui/widgets/exercise_plan_list_tile.dart';
 import 'package:squeezed_app/features/workout/ui/widgets/selected_weekdays_display.dart';
+import 'package:squeezed_app/shared/app_container.dart';
 import 'package:squeezed_app/shared/res/app_colors.dart';
 import 'package:squeezed_app/widgets/app_scaffold.dart';
 import 'package:squeezed_app/widgets/custom_section_header.dart';
@@ -9,12 +11,17 @@ import 'package:squeezed_app/widgets/custom_section_header.dart';
 class ReviewWorkoutPlanPage extends StatelessWidget {
   final CreateWorkoutViewModel workout;
 
-  const ReviewWorkoutPlanPage(this.workout, {Key? key}) : super(key: key);
+  ReviewWorkoutPlanPage(this.workout, {Key? key}) : super(key: key);
+
+  final controller = AppContainer.get<ReviewWorkoutPlanController>();
 
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
       title: 'Revisar treino',
+      actions: [
+        _buildSubmitButton(),
+      ],
       body: Column(
         children: [
           const CustomSectionHeader('Nome do treino'),
@@ -37,6 +44,13 @@ class ReviewWorkoutPlanPage extends StatelessWidget {
           if (workout.observations != null) _buildObservationsSection(),
         ],
       ),
+    );
+  }
+
+  Widget _buildSubmitButton() {
+    return TextButton(
+      onPressed: controller.submitWorkoutPlan,
+      child: const Text('Salvar'),
     );
   }
 

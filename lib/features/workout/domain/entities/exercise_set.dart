@@ -13,7 +13,7 @@ class ExerciseSet with _$ExerciseSet {
     int? rpe,
   }) = _ExerciseSet;
 
-  String? get formattedLoad => '$load kg';
+  String? get formattedLoad => load != null ? '$load kg' : null;
 
-  String? get formattedReps => '$reps reps';
+  String? get formattedReps => reps != null ? '$reps reps' : null;
 }

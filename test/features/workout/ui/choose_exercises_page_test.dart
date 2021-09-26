@@ -4,6 +4,7 @@ import 'package:squeezed_app/features/workout/domain/entities/exercise_details.d
 import 'package:squeezed_app/features/workout/domain/entities/exercise_plan.dart';
 import 'package:squeezed_app/features/workout/ui/choose_exercises_page.dart';
 import 'package:squeezed_app/features/workout/ui/controllers/choose_exercises_controller.dart';
+import 'package:squeezed_app/features/workout/ui/controllers/create_workout_controller.dart';
 import 'package:squeezed_app/features/workout/ui/controllers/search_exercise_controller.dart';
 import 'package:squeezed_app/features/workout/ui/widgets/exercise_option_tile.dart';
 import 'package:squeezed_app/features/workout/ui/widgets/muscle_filters.dart';
@@ -12,7 +13,9 @@ import 'package:squeezed_app/shared/res/messages.dart';
 import 'package:squeezed_app/widgets/custom_filter_chip.dart';
 
 void setUpDependencies() {
-  AppContainer.getIt.registerSingleton(ChooseExercisesController());
+  final createWorkoutController = CreateWorkoutController();
+  AppContainer.getIt.registerSingleton(createWorkoutController);
+  AppContainer.getIt.registerSingleton(ChooseExercisesController(createWorkoutController));
   AppContainer.getIt.registerSingleton(SearchExerciseController());
 }
 
