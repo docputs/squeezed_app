@@ -23,6 +23,7 @@ class SignInPage extends StatelessWidget {
           CustomTextField(
             labelText: 'E-mail',
             onChanged: controller.changeEmail,
+            keyboardType: TextInputType.emailAddress,
           ),
           const SizedBox(height: 20),
           CustomPasswordField(
@@ -33,7 +34,9 @@ class SignInPage extends StatelessWidget {
           Observer(
             builder: (_) => CustomElevatedButton(
               text: 'Entrar',
-              onPressed: controller.isFormValid && !controller.isLoading ? () => controller.submit() : null,
+              onPressed: controller.isFormValid && !controller.isLoading
+                  ? () => controller.submit()
+                  : null,
             ),
           ),
           const SizedBox(height: 20),
