@@ -13,7 +13,6 @@ class AppTheme {
       primaryColor: AppColors.primary,
       primaryColorLight: AppColors.primaryLight,
       primaryColorDark: AppColors.primaryDark,
-      accentColor: AppColors.accent,
       colorScheme: Theme.of(context).colorScheme.copyWith(
             primary: AppColors.primary,
             secondary: AppColors.primary,
