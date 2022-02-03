@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:squeezed_app/shared/res/app_colors.dart';
+
+import 'app_colors.dart';
 
 class CustomDivider extends StatelessWidget {
   final double height;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:olympia_design/olympia_design.dart';
 import 'package:squeezed_app/features/workout/domain/entities/exercise_details.dart';
 import 'package:squeezed_app/features/workout/domain/entities/exercise_plan.dart';
 import 'package:squeezed_app/features/workout/ui/choose_exercises_page.dart';
@@ -9,7 +10,6 @@ import 'package:squeezed_app/features/workout/ui/widgets/exercise_option_tile.da
 import 'package:squeezed_app/features/workout/ui/widgets/muscle_filters.dart';
 import 'package:squeezed_app/shared/app_container.dart';
 import 'package:squeezed_app/shared/res/messages.dart';
-import 'package:squeezed_app/widgets/custom_filter_chip.dart';
 
 void setUpDependencies() {
   AppContainer.getIt.registerSingleton(ChooseExercisesController());

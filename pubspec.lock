@@ -485,6 +485,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.0.15"
+  olympia_design:
+    dependency: "direct main"
+    description:
+      path: olympia_design
+      relative: true
+    source: path
+    version: "0.0.1"
   package_config:
     dependency: transitive
     description:

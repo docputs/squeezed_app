@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:olympia_design/olympia_design.dart';
 import 'package:squeezed_app/widgets/app_scaffold.dart';
-import 'package:squeezed_app/widgets/custom_elevated_button.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);

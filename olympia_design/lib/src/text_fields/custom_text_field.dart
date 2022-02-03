@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:squeezed_app/shared/res/app_colors.dart';
+import '../app_colors.dart';
 
 class CustomTextField extends StatefulWidget {
   final String? labelText;

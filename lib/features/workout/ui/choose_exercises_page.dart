@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:olympia_design/olympia_design.dart';
 import 'package:sliding_sheet/sliding_sheet.dart';
 import 'package:squeezed_app/features/workout/domain/entities/exercise_details.dart';
 import 'package:squeezed_app/features/workout/domain/entities/exercise_plan.dart';
@@ -10,12 +11,10 @@ import 'package:squeezed_app/features/workout/ui/widgets/exercise_option_tile.da
 import 'package:squeezed_app/features/workout/ui/widgets/muscle_filters.dart';
 import 'package:squeezed_app/features/workout/ui/widgets/custom_sliding_sheet_dialog.dart';
 import 'package:squeezed_app/shared/app_container.dart';
-import 'package:squeezed_app/shared/res/app_colors.dart';
 import 'package:squeezed_app/shared/res/constants.dart';
 import 'package:squeezed_app/shared/res/messages.dart';
 import 'package:squeezed_app/widgets/app_scaffold.dart';
-import 'package:squeezed_app/widgets/custom_divider.dart';
-import 'package:squeezed_app/widgets/custom_text_field.dart';
+import 'package:olympia_design/src/text_fields/custom_text_field.dart';
 
 import '../../../app_router.gr.dart';
 
@@ -93,7 +92,7 @@ class _ChooseExercisesPageState extends State<ChooseExercisesPage> {
 
   Widget _buildSearchTextField() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: Constants.defaultPadding),
+      padding: const EdgeInsets.symmetric(horizontal: Paddings.small),
       child: CustomTextField(
         prefixIcon: const Icon(Icons.search),
         onChanged: _searchController.searchExercise,
@@ -128,7 +127,7 @@ class _ChooseExercisesPageState extends State<ChooseExercisesPage> {
 
   Widget _buildExerciseList() {
     return ListView.separated(
-      padding: const EdgeInsets.symmetric(horizontal: Constants.defaultPadding),
+      padding: const EdgeInsets.symmetric(horizontal: Paddings.small),
       itemCount: _searchController.matchedExercises.length,
       separatorBuilder: (_, __) => const CustomDivider(),
       itemBuilder: (context, index) => ExerciseOptionTile(

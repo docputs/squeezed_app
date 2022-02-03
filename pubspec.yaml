@@ -23,6 +23,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  olympia_design:
+    path: ./olympia_design
   cupertino_icons: ^1.0.4
   auto_route: ^2.3.0
   freezed_annotation: ^0.14.2

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:olympia_design/olympia_design.dart';
 import 'package:squeezed_app/shared/res/constants.dart';
-
-import 'app_colors.dart';
 
 class AppTheme {
   final BuildContext context;

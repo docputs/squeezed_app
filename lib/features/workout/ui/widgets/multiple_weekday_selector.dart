@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:olympia_design/olympia_design.dart';
 import 'package:squeezed_app/features/workout/ui/controllers/create_workout_controller.dart';
 
 import 'package:squeezed_app/shared/view_models/weekday_view_model.dart';
-import 'package:squeezed_app/shared/res/app_colors.dart';
 import 'package:squeezed_app/shared/res/constants.dart';
 import 'package:squeezed_app/shared/utils/date_time_generator.dart';
 
@@ -57,7 +57,7 @@ class _MultipleWeekdaySelectorState extends State<MultipleWeekdaySelector> {
 
   double _calculateWeekdayButtonWidth() {
     final pageSize = MediaQuery.of(context).size;
-    return (pageSize.width / DateTime.daysPerWeek) - Constants.defaultPadding;
+    return (pageSize.width / DateTime.daysPerWeek) - Paddings.small;
   }
 
   void _addOrRemoveWeekdayFromWorkout(WeekdayViewModel weekday) {

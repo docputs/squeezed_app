@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:olympia_design/olympia_design.dart';
 import 'package:squeezed_app/features/workout/domain/entities/exercise_plan.dart';
 import 'package:squeezed_app/features/workout/domain/entities/exercise_set.dart';
-import 'package:squeezed_app/shared/res/app_colors.dart';
-import 'package:squeezed_app/widgets/custom_divider.dart';
 
 class FullExercisePlanBottomSheet extends StatelessWidget {
   final ExercisePlan exercise;

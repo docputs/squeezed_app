@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:olympia_design/olympia_design.dart';
 import 'package:squeezed_app/features/workout/ui/controllers/exercise_plan_controller.dart';
-import 'package:squeezed_app/shared/app_container.dart';
-import 'package:squeezed_app/shared/res/app_colors.dart';
-import 'package:squeezed_app/shared/res/constants.dart';
-import 'package:squeezed_app/widgets/custom_divider.dart';
 
 class SetsAmountInput extends StatelessWidget {
   final ExercisePlanController controller;
@@ -17,7 +14,7 @@ class SetsAmountInput extends StatelessWidget {
       children: [
         const CustomDivider(),
         Padding(
-          padding: const EdgeInsets.all(Constants.defaultPadding),
+          padding: const EdgeInsets.all(Paddings.small),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
