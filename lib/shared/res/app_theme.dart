@@ -26,12 +26,17 @@ class AppTheme {
       scaffoldBackgroundColor: Colors.white,
       indicatorColor: AppColors.accent,
       textSelectionTheme: _buildTextSelectionTheme(),
-      textTheme: const TextTheme(
-        bodyText2: TextStyle(color: AppColors.greyDark, fontSize: 16),
-      ),
+      textTheme: _buildTextTheme(),
       inputDecorationTheme: _buildInputDecorationTheme(),
       textButtonTheme: _buildTextButtonTheme(),
       bottomNavigationBarTheme: _buildBottomNavBarTheme(),
+    );
+  }
+
+  TextTheme _buildTextTheme() {
+    return const TextTheme(
+      button: TextStyle(color: AppColors.greyDark, fontSize: 16),
+      bodyText2: TextStyle(color: AppColors.greyDark, fontSize: 16),
     );
   }
 
@@ -43,7 +48,9 @@ class AppTheme {
   }
 
   TextButtonThemeData _buildTextButtonTheme() {
-    return TextButtonThemeData(style: TextButton.styleFrom(primary: AppColors.primary));
+    return TextButtonThemeData(
+      style: TextButton.styleFrom(primary: AppColors.primary),
+    );
   }
 
   InputDecorationTheme _buildInputDecorationTheme() {
