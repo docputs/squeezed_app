@@ -21,7 +21,10 @@ class CreateWorkoutPage extends StatelessWidget {
       title: Messages.createWorkoutPageTitle,
       body: Column(
         children: [
-          const FullWidthText(Messages.createWorkoutSelectWeekdaysLabel),
+          const FullWidthText(
+            Messages.createWorkoutSelectWeekdaysLabel,
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
           const SizedBox(height: 15),
           MultipleWeekdaySelector(controller: controller),
           const SizedBox(height: 20),
