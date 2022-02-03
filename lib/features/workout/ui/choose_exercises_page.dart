@@ -29,21 +29,36 @@ class ChooseExercisesPage extends StatefulWidget {
 class _ChooseExercisesPageState extends State<ChooseExercisesPage> {
   final _searchController = AppContainer.get<SearchExerciseController>();
   final _chooseController = AppContainer.get<ChooseExercisesController>();
+  final _searchBarFocusNode = FocusNode();
+  StackRouter? _router;
+
+  void _unfocusSearchBar() => _searchBarFocusNode.unfocus();
+
+  @override
+  void didChangeDependencies() {
+    _router = AutoRouter.of(context)..addListener(_unfocusSearchBar);
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return AppScaffold(
-      customTitle: _buildCustomTitle(),
-      hasPadding: false,
-      body: Column(
-        children: [
-          _buildSearchTextField(),
-          const SizedBox(height: 10),
-          _buildMuscleFilterRow(),
-          const SizedBox(height: 10),
-          const CustomDivider(color: AppColors.primaryLight),
-          _buildExercisesOrEmptyWarning(),
-        ],
+    return GestureDetector(
+      onTap: () {
+        _searchBarFocusNode.unfocus();
+      },
+      child: AppScaffold(
+        customTitle: _buildCustomTitle(),
+        hasPadding: false,
+        body: Column(
+          children: [
+            _buildSearchTextField(),
+            const SizedBox(height: 10),
+            _buildMuscleFilterRow(),
+            const SizedBox(height: 10),
+            const CustomDivider(color: AppColors.primaryLight),
+            _buildExercisesOrEmptyWarning(),
+          ],
+        ),
       ),
     );
   }
@@ -60,6 +75,7 @@ class _ChooseExercisesPageState extends State<ChooseExercisesPage> {
   }
 
   void _handleCustomTitleTap() {
+    _unfocusSearchBar();
     showSlidingBottomSheet(context, builder: (_) => CustomSlidingSheetDialog());
   }
 
@@ -81,6 +97,7 @@ class _ChooseExercisesPageState extends State<ChooseExercisesPage> {
       child: CustomTextField(
         prefixIcon: const Icon(Icons.search),
         onChanged: _searchController.searchExercise,
+        focusNode: _searchBarFocusNode,
       ),
     );
   }
@@ -126,5 +143,11 @@ class _ChooseExercisesPageState extends State<ChooseExercisesPage> {
       ExercisePlanRoute(exerciseDetails: exercise),
     );
     if (result != null) _chooseController.addExercise(result);
+  }
+
+  @override
+  void dispose() {
+    _router?.removeListener(_unfocusSearchBar);
+    super.dispose();
   }
 }

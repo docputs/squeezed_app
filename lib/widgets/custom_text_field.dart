@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'package:squeezed_app/shared/res/app_colors.dart';
 
 class CustomTextField extends StatefulWidget {
@@ -17,6 +18,7 @@ class CustomTextField extends StatefulWidget {
   final TextInputAction? textInputAction;
   final bool isMultiline;
   final Widget? prefixIcon;
+  final FocusNode? focusNode;
 
   const CustomTextField({
     Key? key,
@@ -25,15 +27,16 @@ class CustomTextField extends StatefulWidget {
     this.controller,
     this.validator,
     this.onChanged,
-    this.enabled = true,
     this.obscureText = false,
     this.suffixIcon,
     this.keyboardType,
+    this.enabled = true,
     this.maskFormatter,
     this.maxLines = 1,
     this.textInputAction,
     this.isMultiline = false,
     this.prefixIcon,
+    this.focusNode,
   }) : super(key: key);
 
   @override
@@ -58,6 +61,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           alignment: AlignmentDirectional.centerEnd,
           children: [
             TextFormField(
+              focusNode: widget.focusNode,
               maxLines: widget.isMultiline ? null : widget.maxLines,
               autocorrect: false,
               controller: widget.controller,
