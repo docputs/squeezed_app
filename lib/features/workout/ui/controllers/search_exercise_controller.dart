@@ -1,7 +1,8 @@
 import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
 import 'package:squeezed_app/features/workout/domain/entities/exercise_details.dart';
-import 'package:squeezed_app/features/workout/ui/fixtures.dart';
+
+import 'workout_page_controller.dart';
 
 part 'search_exercise_controller.g.dart';
 

@@ -9,7 +9,6 @@ class SignInUser {
 
   const SignInUser(this._repository);
 
-  @override
   Future<void> call({required String email, required String password}) {
     final signInModel = SignInModel(email: email, password: password);
     return _repository.signInWithEmailAndPassword(signInModel);

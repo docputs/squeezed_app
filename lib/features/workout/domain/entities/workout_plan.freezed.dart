@@ -17,17 +17,19 @@ class _$WorkoutPlanTearOff {
   const _$WorkoutPlanTearOff();
 
   _WorkoutPlan call(
-      {required String id,
+      {String? id,
       required String title,
       required Set<int> daysOfWeek,
       required List<ExercisePlan> exercises,
-      required DateTime creationTimestamp}) {
+      required DateTime creationTimestamp,
+      required String? observations}) {
     return _WorkoutPlan(
       id: id,
       title: title,
       daysOfWeek: daysOfWeek,
       exercises: exercises,
       creationTimestamp: creationTimestamp,
+      observations: observations,
     );
   }
 }
@@ -37,11 +39,12 @@ const $WorkoutPlan = _$WorkoutPlanTearOff();
 
 /// @nodoc
 mixin _$WorkoutPlan {
-  String get id => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   Set<int> get daysOfWeek => throw _privateConstructorUsedError;
   List<ExercisePlan> get exercises => throw _privateConstructorUsedError;
   DateTime get creationTimestamp => throw _privateConstructorUsedError;
+  String? get observations => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $WorkoutPlanCopyWith<WorkoutPlan> get copyWith =>
@@ -54,11 +57,12 @@ abstract class $WorkoutPlanCopyWith<$Res> {
           WorkoutPlan value, $Res Function(WorkoutPlan) then) =
       _$WorkoutPlanCopyWithImpl<$Res>;
   $Res call(
-      {String id,
+      {String? id,
       String title,
       Set<int> daysOfWeek,
       List<ExercisePlan> exercises,
-      DateTime creationTimestamp});
+      DateTime creationTimestamp,
+      String? observations});
 }
 
 /// @nodoc
@@ -76,12 +80,13 @@ class _$WorkoutPlanCopyWithImpl<$Res> implements $WorkoutPlanCopyWith<$Res> {
     Object? daysOfWeek = freezed,
     Object? exercises = freezed,
     Object? creationTimestamp = freezed,
+    Object? observations = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -98,6 +103,10 @@ class _$WorkoutPlanCopyWithImpl<$Res> implements $WorkoutPlanCopyWith<$Res> {
           ? _value.creationTimestamp
           : creationTimestamp // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      observations: observations == freezed
+          ? _value.observations
+          : observations // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -110,11 +119,12 @@ abstract class _$WorkoutPlanCopyWith<$Res>
       __$WorkoutPlanCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String id,
+      {String? id,
       String title,
       Set<int> daysOfWeek,
       List<ExercisePlan> exercises,
-      DateTime creationTimestamp});
+      DateTime creationTimestamp,
+      String? observations});
 }
 
 /// @nodoc
@@ -134,12 +144,13 @@ class __$WorkoutPlanCopyWithImpl<$Res> extends _$WorkoutPlanCopyWithImpl<$Res>
     Object? daysOfWeek = freezed,
     Object? exercises = freezed,
     Object? creationTimestamp = freezed,
+    Object? observations = freezed,
   }) {
     return _then(_WorkoutPlan(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -156,6 +167,10 @@ class __$WorkoutPlanCopyWithImpl<$Res> extends _$WorkoutPlanCopyWithImpl<$Res>
           ? _value.creationTimestamp
           : creationTimestamp // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      observations: observations == freezed
+          ? _value.observations
+          : observations // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -164,15 +179,16 @@ class __$WorkoutPlanCopyWithImpl<$Res> extends _$WorkoutPlanCopyWithImpl<$Res>
 
 class _$_WorkoutPlan extends _WorkoutPlan {
   _$_WorkoutPlan(
-      {required this.id,
+      {this.id,
       required this.title,
       required this.daysOfWeek,
       required this.exercises,
-      required this.creationTimestamp})
+      required this.creationTimestamp,
+      required this.observations})
       : super._();
 
   @override
-  final String id;
+  final String? id;
   @override
   final String title;
   @override
@@ -181,10 +197,12 @@ class _$_WorkoutPlan extends _WorkoutPlan {
   final List<ExercisePlan> exercises;
   @override
   final DateTime creationTimestamp;
+  @override
+  final String? observations;
 
   @override
   String toString() {
-    return 'WorkoutPlan(id: $id, title: $title, daysOfWeek: $daysOfWeek, exercises: $exercises, creationTimestamp: $creationTimestamp)';
+    return 'WorkoutPlan(id: $id, title: $title, daysOfWeek: $daysOfWeek, exercises: $exercises, creationTimestamp: $creationTimestamp, observations: $observations)';
   }
 
   @override
@@ -203,7 +221,10 @@ class _$_WorkoutPlan extends _WorkoutPlan {
                     .equals(other.exercises, exercises)) &&
             (identical(other.creationTimestamp, creationTimestamp) ||
                 const DeepCollectionEquality()
-                    .equals(other.creationTimestamp, creationTimestamp)));
+                    .equals(other.creationTimestamp, creationTimestamp)) &&
+            (identical(other.observations, observations) ||
+                const DeepCollectionEquality()
+                    .equals(other.observations, observations)));
   }
 
   @override
@@ -213,7 +234,8 @@ class _$_WorkoutPlan extends _WorkoutPlan {
       const DeepCollectionEquality().hash(title) ^
       const DeepCollectionEquality().hash(daysOfWeek) ^
       const DeepCollectionEquality().hash(exercises) ^
-      const DeepCollectionEquality().hash(creationTimestamp);
+      const DeepCollectionEquality().hash(creationTimestamp) ^
+      const DeepCollectionEquality().hash(observations);
 
   @JsonKey(ignore: true)
   @override
@@ -223,15 +245,16 @@ class _$_WorkoutPlan extends _WorkoutPlan {
 
 abstract class _WorkoutPlan extends WorkoutPlan {
   factory _WorkoutPlan(
-      {required String id,
+      {String? id,
       required String title,
       required Set<int> daysOfWeek,
       required List<ExercisePlan> exercises,
-      required DateTime creationTimestamp}) = _$_WorkoutPlan;
+      required DateTime creationTimestamp,
+      required String? observations}) = _$_WorkoutPlan;
   _WorkoutPlan._() : super._();
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
   @override
   String get title => throw _privateConstructorUsedError;
   @override
@@ -240,6 +263,8 @@ abstract class _WorkoutPlan extends WorkoutPlan {
   List<ExercisePlan> get exercises => throw _privateConstructorUsedError;
   @override
   DateTime get creationTimestamp => throw _privateConstructorUsedError;
+  @override
+  String? get observations => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$WorkoutPlanCopyWith<_WorkoutPlan> get copyWith =>
