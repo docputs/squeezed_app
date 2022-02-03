@@ -1,4 +1,3 @@
-import 'package:clock/clock.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:squeezed_app/features/workout/domain/repositories/workout_plan_repository.dart';
@@ -24,21 +23,8 @@ void main() {
   test('should call repository to create WorkoutPlan once', () async {
     when(() => mockWorkoutPlanRepository.create(any())).thenAnswer((_) async {});
 
-    await createWorkout(workoutPlanViewModel);
+    await createWorkout(workoutPlan);
 
     verify(() => mockWorkoutPlanRepository.create(any())).called(1);
-  });
-
-  test('should call repository with converted domain model', () async {
-    when(() => mockWorkoutPlanRepository.create(any())).thenAnswer((_) async {});
-
-    withClock(
-      Clock.fixed(DateTime(2000)),
-      () async {
-        await createWorkout(workoutPlanViewModel);
-      },
-    );
-
-    verify(() => mockWorkoutPlanRepository.create(workoutPlan));
   });
 }
