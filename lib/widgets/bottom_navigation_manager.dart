@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:squeezed_app/shared/res/app_colors.dart';
+import 'package:olympia_design/olympia_design.dart';
 import 'package:squeezed_app/shared/res/navigation_links.dart';
 
 class BottomNavigationManager extends StatelessWidget {

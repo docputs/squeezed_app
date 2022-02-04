@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:olympia_design/olympia_design.dart';
 import 'package:squeezed_app/features/auth/ui/sign_in/controllers/sign_in_controller.dart';
 import 'package:squeezed_app/shared/app_container.dart';
-import 'package:squeezed_app/shared/res/app_colors.dart';
 import 'package:squeezed_app/widgets/app_scaffold.dart';
-import 'package:squeezed_app/widgets/custom_elevated_button.dart';
-import 'package:squeezed_app/widgets/custom_password_field.dart';
-import 'package:squeezed_app/widgets/custom_text_field.dart';
+import 'package:olympia_design/src/text_fields/custom_text_field.dart';
 
 class SignInPage extends StatelessWidget {
   final controller = AppContainer.get<SignInController>();
@@ -23,6 +21,7 @@ class SignInPage extends StatelessWidget {
           CustomTextField(
             labelText: 'E-mail',
             onChanged: controller.changeEmail,
+            keyboardType: TextInputType.emailAddress,
           ),
           const SizedBox(height: 20),
           CustomPasswordField(
@@ -47,16 +46,10 @@ class SignInPage extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text(
-          'Não tem uma conta?',
-          style: TextStyle(color: AppColors.greyDark),
-        ),
+        const Text('Não tem uma conta?'),
         TextButton(
           onPressed: controller.pushSignUpPage,
-          child: const Text(
-            'Crie uma',
-            style: TextStyle(fontSize: 16),
-          ),
+          child: const Text('Crie uma'),
         ),
       ],
     );

@@ -21,8 +21,6 @@ class Messages {
   static const emailAlreadyInUse = 'E-mail já está em uso';
   static const weakPassword = 'Senha deve ter no mínimo 6 dígitos';
 
-  static const noAppScaffoldFound = 'Nenhum AppScaffold foi encontrado';
-
   static const serverFailure = 'Erro no servidor';
   static const unknownError = 'Erro desconhecido';
 }

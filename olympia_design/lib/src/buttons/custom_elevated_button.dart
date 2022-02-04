@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:squeezed_app/shared/res/app_colors.dart';
-import 'package:squeezed_app/shared/res/constants.dart';
+
+import '../app_colors.dart';
+import '../sizes/paddings.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   final String text;
@@ -34,8 +35,8 @@ class CustomElevatedButton extends StatelessWidget {
             : null,
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(
-            horizontal: Constants.defaultPadding,
-            vertical: Constants.defaultPadding / 1.5,
+            horizontal: Paddings.small,
+            vertical: Paddings.small / 1.5,
           ),
           primary: backgroundColor,
           shape: customBorderRadius != null ? RoundedRectangleBorder(borderRadius: customBorderRadius!) : null,

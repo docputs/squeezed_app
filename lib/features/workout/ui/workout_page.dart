@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:olympia_design/olympia_design.dart';
 import 'package:squeezed_app/app_router.gr.dart';
 import 'package:squeezed_app/features/workout/ui/controllers/workout_page_controller.dart';
 import 'package:squeezed_app/features/workout/ui/widgets/no_workout_found.dart';
 import 'package:squeezed_app/features/workout/ui/widgets/workout_day_selector.dart';
 import 'package:squeezed_app/shared/app_container.dart';
-import 'package:squeezed_app/shared/res/app_colors.dart';
 import 'package:squeezed_app/shared/res/constants.dart';
 import 'package:squeezed_app/widgets/app_scaffold.dart';
 

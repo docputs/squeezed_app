@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:olympia_design/olympia_design.dart';
 import 'package:squeezed_app/features/workout/ui/controllers/exercise_plan_controller.dart';
-import 'package:squeezed_app/shared/res/app_colors.dart';
-import 'package:squeezed_app/shared/res/constants.dart';
-import 'package:squeezed_app/widgets/custom_divider.dart';
 
 class RepsAmountInput extends StatelessWidget {
   final ExercisePlanController controller;
@@ -16,8 +14,8 @@ class RepsAmountInput extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: Constants.defaultPadding,
-            vertical: Constants.defaultPadding / 2,
+            horizontal: Paddings.small,
+            vertical: Paddings.small / 2,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

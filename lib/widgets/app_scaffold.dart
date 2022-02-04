@@ -1,11 +1,8 @@
 import 'package:flash/flash.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
+import 'package:olympia_design/olympia_design.dart';
 import 'package:squeezed_app/shared/base/base_store.dart';
-import 'package:squeezed_app/shared/res/app_colors.dart';
-import 'package:squeezed_app/shared/res/constants.dart';
-import 'package:squeezed_app/shared/res/messages.dart';
 import 'package:squeezed_app/widgets/custom_snack_bar.dart';
 
 class AppScaffold extends StatefulWidget {
@@ -31,7 +28,7 @@ class AppScaffold extends StatefulWidget {
   static ScaffoldState of(BuildContext context) {
     final result = context.findAncestorStateOfType<ScaffoldState>();
     if (result != null) return result;
-    throw Exception(Messages.noAppScaffoldFound);
+    throw Exception('No AppScaffold found');
   }
 
   bool get hasTitle => title != null || customTitle != null;
@@ -120,8 +117,8 @@ class _AppScaffoldState extends State<AppScaffold> {
     return widget.hasPadding
         ? Padding(
             padding: EdgeInsets.only(
-              left: Constants.defaultPadding,
-              right: Constants.defaultPadding,
+              left: Paddings.small,
+              right: Paddings.small,
               top: statusBarHeight,
             ),
             child: widget.body,

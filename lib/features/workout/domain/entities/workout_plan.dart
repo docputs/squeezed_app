@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:squeezed_app/features/workout/domain/entities/exercise_plan.dart';
-import 'package:squeezed_app/features/workout/ui/fixtures.dart';
 
 part 'workout_plan.freezed.dart';
 
@@ -9,11 +8,12 @@ class WorkoutPlan with _$WorkoutPlan {
   const WorkoutPlan._();
 
   factory WorkoutPlan({
-    required String id,
+    String? id,
     required String title,
     required Set<int> daysOfWeek,
     required List<ExercisePlan> exercises,
     required DateTime creationTimestamp,
+    required String? observations,
   }) = _WorkoutPlan;
 
   List<String> getTargetMuscles() {

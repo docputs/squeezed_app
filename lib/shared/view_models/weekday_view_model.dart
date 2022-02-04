@@ -1,6 +1,7 @@
+import 'package:equatable/equatable.dart';
 import 'package:intl/intl.dart';
 
-class WeekdayViewModel {
+class WeekdayViewModel extends Equatable {
   final String nameOfDay;
   final int day;
   final int weekdayNumber;
@@ -20,15 +21,5 @@ class WeekdayViewModel {
   }
 
   @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is WeekdayViewModel && other.nameOfDay == nameOfDay && other.day == day && other.weekdayNumber == weekdayNumber;
-  }
-
-  @override
-  int get hashCode => nameOfDay.hashCode ^ day.hashCode ^ weekdayNumber.hashCode;
-
-  @override
-  String toString() => 'Weekday(nameOfDay: $nameOfDay, day: $day, weekdayNumber: $weekdayNumber)';
+  List<Object?> get props => [nameOfDay, day, weekdayNumber];
 }

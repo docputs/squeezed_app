@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:olympia_design/olympia_design.dart';
 import 'package:squeezed_app/shared/res/constants.dart';
-
-import 'app_colors.dart';
 
 class AppTheme {
   final BuildContext context;
@@ -13,7 +12,6 @@ class AppTheme {
       primaryColor: AppColors.primary,
       primaryColorLight: AppColors.primaryLight,
       primaryColorDark: AppColors.primaryDark,
-      accentColor: AppColors.accent,
       colorScheme: Theme.of(context).colorScheme.copyWith(
             primary: AppColors.primary,
             secondary: AppColors.primary,
@@ -35,12 +33,8 @@ class AppTheme {
 
   TextTheme _buildTextTheme() {
     return const TextTheme(
-      headline1: TextStyle(color: AppColors.greyDark, fontSize: 31),
-      headline2: TextStyle(color: AppColors.greyDark, fontSize: 25),
-      headline3: TextStyle(color: AppColors.greyDark, fontSize: 20),
+      button: TextStyle(color: AppColors.greyDark, fontSize: 16),
       bodyText2: TextStyle(color: AppColors.greyDark, fontSize: 16),
-      subtitle1: TextStyle(color: AppColors.greyDark, fontSize: 13),
-      subtitle2: TextStyle(color: AppColors.greyDark, fontSize: 10),
     );
   }
 
@@ -52,7 +46,9 @@ class AppTheme {
   }
 
   TextButtonThemeData _buildTextButtonTheme() {
-    return TextButtonThemeData(style: TextButton.styleFrom(primary: AppColors.primary));
+    return TextButtonThemeData(
+      style: TextButton.styleFrom(primary: AppColors.primary),
+    );
   }
 
   InputDecorationTheme _buildInputDecorationTheme() {

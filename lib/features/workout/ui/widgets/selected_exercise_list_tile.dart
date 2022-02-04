@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:olympia_design/olympia_design.dart';
 import 'package:squeezed_app/features/workout/domain/entities/exercise_plan.dart';
-import 'package:squeezed_app/shared/res/app_colors.dart';
-import 'package:squeezed_app/shared/res/constants.dart';
-import 'package:squeezed_app/widgets/custom_divider.dart';
 
 class SelectedExerciseListTile extends StatelessWidget {
   final ExercisePlan exercise;
@@ -21,7 +19,7 @@ class SelectedExerciseListTile extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: Constants.defaultPadding),
+          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: Paddings.small),
           child: _buildMappedSetsDisplay(),
         ),
         const CustomDivider(),
