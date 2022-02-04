@@ -25,7 +25,7 @@ class ExercisePlan with _$ExercisePlan {
     return plannedSets.every((element) => element.reps == sampleRepsRange);
   }
 
-  String? getRepsRange() {
+  String? getRepsRangeIfTheyAreEqual() {
     if (everySetHasEqualRepsRange()) {
       return plannedSets.first.reps.toString();
     }
