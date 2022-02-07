@@ -189,14 +189,15 @@ class __$WorkoutPlanDTOCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_WorkoutPlanDTO implements _WorkoutPlanDTO {
+class _$_WorkoutPlanDTO extends _WorkoutPlanDTO {
   const _$_WorkoutPlanDTO(
       {@JsonKey(ignore: true) this.id,
       required this.title,
       required this.daysOfWeek,
       required this.exercises,
       required this.creationTimestamp,
-      required this.observations});
+      required this.observations})
+      : super._();
 
   factory _$_WorkoutPlanDTO.fromJson(Map<String, dynamic> json) =>
       _$_$_WorkoutPlanDTOFromJson(json);
@@ -263,7 +264,7 @@ class _$_WorkoutPlanDTO implements _WorkoutPlanDTO {
   }
 }
 
-abstract class _WorkoutPlanDTO implements WorkoutPlanDTO {
+abstract class _WorkoutPlanDTO extends WorkoutPlanDTO {
   const factory _WorkoutPlanDTO(
       {@JsonKey(ignore: true) String? id,
       required String title,
@@ -271,6 +272,7 @@ abstract class _WorkoutPlanDTO implements WorkoutPlanDTO {
       required List<ExercisePlanDTO> exercises,
       required DateTime creationTimestamp,
       required String? observations}) = _$_WorkoutPlanDTO;
+  const _WorkoutPlanDTO._() : super._();
 
   factory _WorkoutPlanDTO.fromJson(Map<String, dynamic> json) =
       _$_WorkoutPlanDTO.fromJson;

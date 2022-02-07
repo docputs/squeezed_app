@@ -150,8 +150,8 @@ class __$ExerciseSetDTOCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ExerciseSetDTO implements _ExerciseSetDTO {
-  const _$_ExerciseSetDTO({this.load, this.reps, this.rpe});
+class _$_ExerciseSetDTO extends _ExerciseSetDTO {
+  const _$_ExerciseSetDTO({this.load, this.reps, this.rpe}) : super._();
 
   factory _$_ExerciseSetDTO.fromJson(Map<String, dynamic> json) =>
       _$_$_ExerciseSetDTOFromJson(json);
@@ -198,9 +198,10 @@ class _$_ExerciseSetDTO implements _ExerciseSetDTO {
   }
 }
 
-abstract class _ExerciseSetDTO implements ExerciseSetDTO {
+abstract class _ExerciseSetDTO extends ExerciseSetDTO {
   const factory _ExerciseSetDTO({double? load, RepsRangeDTO? reps, int? rpe}) =
       _$_ExerciseSetDTO;
+  const _ExerciseSetDTO._() : super._();
 
   factory _ExerciseSetDTO.fromJson(Map<String, dynamic> json) =
       _$_ExerciseSetDTO.fromJson;

@@ -120,8 +120,8 @@ class __$RepsRangeDTOCopyWithImpl<$Res> extends _$RepsRangeDTOCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RepsRangeDTO implements _RepsRangeDTO {
-  const _$_RepsRangeDTO(this.min, this.max);
+class _$_RepsRangeDTO extends _RepsRangeDTO {
+  const _$_RepsRangeDTO(this.min, this.max) : super._();
 
   factory _$_RepsRangeDTO.fromJson(Map<String, dynamic> json) =>
       _$_$_RepsRangeDTOFromJson(json);
@@ -163,8 +163,9 @@ class _$_RepsRangeDTO implements _RepsRangeDTO {
   }
 }
 
-abstract class _RepsRangeDTO implements RepsRangeDTO {
+abstract class _RepsRangeDTO extends RepsRangeDTO {
   const factory _RepsRangeDTO(int min, int max) = _$_RepsRangeDTO;
+  const _RepsRangeDTO._() : super._();
 
   factory _RepsRangeDTO.fromJson(Map<String, dynamic> json) =
       _$_RepsRangeDTO.fromJson;

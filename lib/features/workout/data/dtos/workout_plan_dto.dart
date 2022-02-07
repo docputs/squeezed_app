@@ -9,6 +9,8 @@ part 'workout_plan_dto.g.dart';
 
 @freezed
 class WorkoutPlanDTO with _$WorkoutPlanDTO {
+  const WorkoutPlanDTO._();
+
   const factory WorkoutPlanDTO({
     @JsonKey(ignore: true) String? id,
     required String title,

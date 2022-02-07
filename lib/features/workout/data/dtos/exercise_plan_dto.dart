@@ -8,6 +8,8 @@ part 'exercise_plan_dto.g.dart';
 
 @freezed
 class ExercisePlanDTO with _$ExercisePlanDTO {
+  const ExercisePlanDTO._();
+
   const factory ExercisePlanDTO({
     required String id,
     required ExerciseDetailsDTO details,

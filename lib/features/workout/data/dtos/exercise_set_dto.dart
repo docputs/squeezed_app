@@ -7,6 +7,8 @@ part 'exercise_set_dto.g.dart';
 
 @freezed
 class ExerciseSetDTO with _$ExerciseSetDTO {
+  const ExerciseSetDTO._();
+
   const factory ExerciseSetDTO({
     double? load,
     RepsRangeDTO? reps,
