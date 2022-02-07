@@ -3,15 +3,6 @@ import 'package:squeezed_app/features/workout/domain/entities/exercise_plan.dart
 import 'package:squeezed_app/features/workout/domain/entities/exercise_set.dart';
 import 'package:squeezed_app/features/workout/domain/entities/reps_range.dart';
 import 'package:squeezed_app/features/workout/domain/entities/workout_plan.dart';
-import 'package:squeezed_app/features/workout/ui/view_models/workout_plan_view_model.dart';
-import 'package:squeezed_app/shared/view_models/weekday_view_model.dart';
-
-final workoutPlanViewModel = WorkoutPlanViewModel(
-  selectedWeekdays: {const WeekdayViewModel('nameOfDay', 1, 1)},
-  exercises: exercises,
-  workoutName: 'test workout',
-  observations: '',
-);
 
 final workoutPlan = WorkoutPlan(
   title: 'test workout',

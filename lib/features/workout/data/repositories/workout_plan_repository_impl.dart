@@ -1,10 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:injectable/injectable.dart';
 import 'package:squeezed_app/features/workout/domain/entities/workout_plan.dart';
 import 'package:squeezed_app/features/workout/domain/repositories/workout_plan_repository.dart';
 
 import '../../../../shared/utils/firestore_extensions.dart';
 
+@LazySingleton(as: WorkoutPlanRepository)
 class WorkoutPlanRepositoryImpl implements WorkoutPlanRepository {
   final FirebaseFirestore _firestore;
   final FirebaseAuth _firebaseAuth;

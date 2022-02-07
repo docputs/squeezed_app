@@ -1,6 +1,8 @@
+import 'package:injectable/injectable.dart';
 import 'package:squeezed_app/features/workout/domain/entities/workout_plan.dart';
 import 'package:squeezed_app/features/workout/domain/repositories/workout_plan_repository.dart';
 
+@lazySingleton
 class CreateWorkoutPlan {
   final WorkoutPlanRepository _repository;
 
