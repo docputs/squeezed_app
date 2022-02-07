@@ -10,13 +10,13 @@ class ExercisePlan with _$ExercisePlan {
 
   const factory ExercisePlan({
     required String id,
-    required ExerciseDetails exercise,
+    required ExerciseDetails details,
     required List<ExerciseSet> plannedSets,
   }) = _ExercisePlan;
 
-  String get name => exercise.name;
+  String get name => details.name;
 
-  String get targetMuscle => exercise.targetMuscle;
+  String get targetMuscle => details.targetMuscle;
 
   int get setsAmount => plannedSets.length;
 
@@ -30,11 +30,4 @@ class ExercisePlan with _$ExercisePlan {
       return plannedSets.first.reps.toString();
     }
   }
-}
-
-class ExercisePlanDTO {
-  // Nao usar o Exercise inteiro
-  final String exerciseId;
-
-  ExercisePlanDTO(this.exerciseId);
 }

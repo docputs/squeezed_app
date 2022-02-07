@@ -1,14 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:olympia_design/olympia_design.dart';
 import 'package:sliding_sheet/sliding_sheet.dart';
 import 'package:squeezed_app/app_router.gr.dart';
 import 'package:squeezed_app/features/workout/domain/entities/exercise_plan.dart';
 import 'package:squeezed_app/features/workout/ui/controllers/choose_exercises_controller.dart';
 import 'package:squeezed_app/features/workout/ui/widgets/selected_exercise_list_tile.dart';
 import 'package:squeezed_app/shared/app_container.dart';
-import 'package:squeezed_app/shared/res/app_colors.dart';
-import 'package:squeezed_app/widgets/custom_elevated_button.dart';
 
 class SelectedExercisesBottomSheetBody extends StatefulWidget {
   final SheetController? sheetController;

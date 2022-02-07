@@ -71,7 +71,7 @@ void main() {
     controller.addExercise(
       const ExercisePlan(
         id: '1',
-        exercise: ExerciseDetails(id: '2', name: 'Test', targetMuscle: 'test'),
+        details: ExerciseDetails(id: '2', name: 'Test', targetMuscle: 'test'),
         plannedSets: [],
       ),
     );
@@ -84,7 +84,7 @@ void main() {
     controller.addExercise(
       const ExercisePlan(
         id: '2',
-        exercise: ExerciseDetails(id: '3', name: 'Test 2', targetMuscle: 'test 2'),
+        details: ExerciseDetails(id: '3', name: 'Test 2', targetMuscle: 'test 2'),
         plannedSets: [],
       ),
     );

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:olympia_design/olympia_design.dart';
-import 'package:squeezed_app/features/workout/ui/controllers/create_workout_controller.dart';
-
-import 'package:squeezed_app/shared/view_models/weekday_view_model.dart';
+import 'package:squeezed_app/features/workout/ui/controllers/workout_plan_controller.dart';
 import 'package:squeezed_app/shared/res/constants.dart';
 import 'package:squeezed_app/shared/utils/date_time_generator.dart';
+import 'package:squeezed_app/shared/view_models/weekday_view_model.dart';
 
 class MultipleWeekdaySelector extends StatefulWidget {
   final WorkoutPlanController controller;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:squeezed_app/shared/res/app_colors.dart';
+import 'package:olympia_design/olympia_design.dart';
 import 'package:squeezed_app/shared/res/constants.dart';
 import 'package:squeezed_app/shared/utils/date_time_generator.dart';
 import 'package:squeezed_app/shared/view_models/weekday_view_model.dart';
@@ -44,6 +44,6 @@ class _SelectedWeekdaysDisplayState extends State<SelectedWeekdaysDisplay> {
 
   double _calculateWeekdayButtonWidth() {
     final pageSize = MediaQuery.of(context).size;
-    return (pageSize.width / DateTime.daysPerWeek) - Constants.defaultPadding;
+    return (pageSize.width / DateTime.daysPerWeek) - Paddings.small;
   }
 }

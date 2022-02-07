@@ -8,7 +8,6 @@ part of 'workout_plan_dto.dart';
 
 _$_WorkoutPlanDTO _$_$_WorkoutPlanDTOFromJson(Map<String, dynamic> json) {
   return _$_WorkoutPlanDTO(
-    id: json['id'] as String?,
     title: json['title'] as String,
     daysOfWeek:
         (json['daysOfWeek'] as List<dynamic>).map((e) => e as int).toSet(),
@@ -22,7 +21,6 @@ _$_WorkoutPlanDTO _$_$_WorkoutPlanDTOFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$_$_WorkoutPlanDTOToJson(_$_WorkoutPlanDTO instance) =>
     <String, dynamic>{
-      'id': instance.id,
       'title': instance.title,
       'daysOfWeek': instance.daysOfWeek.toList(),
       'exercises': instance.exercises,

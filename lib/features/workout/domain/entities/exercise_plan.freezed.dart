@@ -18,11 +18,11 @@ class _$ExercisePlanTearOff {
 
   _ExercisePlan call(
       {required String id,
-      required ExerciseDetails exercise,
+      required ExerciseDetails details,
       required List<ExerciseSet> plannedSets}) {
     return _ExercisePlan(
       id: id,
-      exercise: exercise,
+      details: details,
       plannedSets: plannedSets,
     );
   }
@@ -34,7 +34,7 @@ const $ExercisePlan = _$ExercisePlanTearOff();
 /// @nodoc
 mixin _$ExercisePlan {
   String get id => throw _privateConstructorUsedError;
-  ExerciseDetails get exercise => throw _privateConstructorUsedError;
+  ExerciseDetails get details => throw _privateConstructorUsedError;
   List<ExerciseSet> get plannedSets => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -48,9 +48,9 @@ abstract class $ExercisePlanCopyWith<$Res> {
           ExercisePlan value, $Res Function(ExercisePlan) then) =
       _$ExercisePlanCopyWithImpl<$Res>;
   $Res call(
-      {String id, ExerciseDetails exercise, List<ExerciseSet> plannedSets});
+      {String id, ExerciseDetails details, List<ExerciseSet> plannedSets});
 
-  $ExerciseDetailsCopyWith<$Res> get exercise;
+  $ExerciseDetailsCopyWith<$Res> get details;
 }
 
 /// @nodoc
@@ -64,7 +64,7 @@ class _$ExercisePlanCopyWithImpl<$Res> implements $ExercisePlanCopyWith<$Res> {
   @override
   $Res call({
     Object? id = freezed,
-    Object? exercise = freezed,
+    Object? details = freezed,
     Object? plannedSets = freezed,
   }) {
     return _then(_value.copyWith(
@@ -72,9 +72,9 @@ class _$ExercisePlanCopyWithImpl<$Res> implements $ExercisePlanCopyWith<$Res> {
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      exercise: exercise == freezed
-          ? _value.exercise
-          : exercise // ignore: cast_nullable_to_non_nullable
+      details: details == freezed
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
               as ExerciseDetails,
       plannedSets: plannedSets == freezed
           ? _value.plannedSets
@@ -84,9 +84,9 @@ class _$ExercisePlanCopyWithImpl<$Res> implements $ExercisePlanCopyWith<$Res> {
   }
 
   @override
-  $ExerciseDetailsCopyWith<$Res> get exercise {
-    return $ExerciseDetailsCopyWith<$Res>(_value.exercise, (value) {
-      return _then(_value.copyWith(exercise: value));
+  $ExerciseDetailsCopyWith<$Res> get details {
+    return $ExerciseDetailsCopyWith<$Res>(_value.details, (value) {
+      return _then(_value.copyWith(details: value));
     });
   }
 }
@@ -99,10 +99,10 @@ abstract class _$ExercisePlanCopyWith<$Res>
       __$ExercisePlanCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String id, ExerciseDetails exercise, List<ExerciseSet> plannedSets});
+      {String id, ExerciseDetails details, List<ExerciseSet> plannedSets});
 
   @override
-  $ExerciseDetailsCopyWith<$Res> get exercise;
+  $ExerciseDetailsCopyWith<$Res> get details;
 }
 
 /// @nodoc
@@ -118,7 +118,7 @@ class __$ExercisePlanCopyWithImpl<$Res> extends _$ExercisePlanCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? exercise = freezed,
+    Object? details = freezed,
     Object? plannedSets = freezed,
   }) {
     return _then(_ExercisePlan(
@@ -126,9 +126,9 @@ class __$ExercisePlanCopyWithImpl<$Res> extends _$ExercisePlanCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      exercise: exercise == freezed
-          ? _value.exercise
-          : exercise // ignore: cast_nullable_to_non_nullable
+      details: details == freezed
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
               as ExerciseDetails,
       plannedSets: plannedSets == freezed
           ? _value.plannedSets
@@ -142,19 +142,19 @@ class __$ExercisePlanCopyWithImpl<$Res> extends _$ExercisePlanCopyWithImpl<$Res>
 
 class _$_ExercisePlan extends _ExercisePlan {
   const _$_ExercisePlan(
-      {required this.id, required this.exercise, required this.plannedSets})
+      {required this.id, required this.details, required this.plannedSets})
       : super._();
 
   @override
   final String id;
   @override
-  final ExerciseDetails exercise;
+  final ExerciseDetails details;
   @override
   final List<ExerciseSet> plannedSets;
 
   @override
   String toString() {
-    return 'ExercisePlan(id: $id, exercise: $exercise, plannedSets: $plannedSets)';
+    return 'ExercisePlan(id: $id, details: $details, plannedSets: $plannedSets)';
   }
 
   @override
@@ -163,9 +163,9 @@ class _$_ExercisePlan extends _ExercisePlan {
         (other is _ExercisePlan &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.exercise, exercise) ||
+            (identical(other.details, details) ||
                 const DeepCollectionEquality()
-                    .equals(other.exercise, exercise)) &&
+                    .equals(other.details, details)) &&
             (identical(other.plannedSets, plannedSets) ||
                 const DeepCollectionEquality()
                     .equals(other.plannedSets, plannedSets)));
@@ -175,7 +175,7 @@ class _$_ExercisePlan extends _ExercisePlan {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(exercise) ^
+      const DeepCollectionEquality().hash(details) ^
       const DeepCollectionEquality().hash(plannedSets);
 
   @JsonKey(ignore: true)
@@ -187,14 +187,14 @@ class _$_ExercisePlan extends _ExercisePlan {
 abstract class _ExercisePlan extends ExercisePlan {
   const factory _ExercisePlan(
       {required String id,
-      required ExerciseDetails exercise,
+      required ExerciseDetails details,
       required List<ExerciseSet> plannedSets}) = _$_ExercisePlan;
   const _ExercisePlan._() : super._();
 
   @override
   String get id => throw _privateConstructorUsedError;
   @override
-  ExerciseDetails get exercise => throw _privateConstructorUsedError;
+  ExerciseDetails get details => throw _privateConstructorUsedError;
   @override
   List<ExerciseSet> get plannedSets => throw _privateConstructorUsedError;
   @override

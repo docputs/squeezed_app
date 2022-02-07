@@ -46,6 +46,8 @@ dependencies:
   mocktail: ^0.2.0
   equatable: ^2.0.3
   clock: ^1.1.0
+  fake_cloud_firestore: ^1.2.0
+  firebase_auth_mocks: ^0.8.2
 
 dev_dependencies:
   flutter_test:

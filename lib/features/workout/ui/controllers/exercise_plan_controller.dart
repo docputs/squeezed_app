@@ -35,7 +35,7 @@ abstract class _ExercisePlanControllerBase with Store {
 
   void initializeEditableExercisePlan(ExercisePlan newExercisePlan) {
     exercisePlan = newExercisePlan;
-    exerciseDetails = newExercisePlan.exercise;
+    exerciseDetails = newExercisePlan.details;
     initializeFieldsWithExercisePlan(newExercisePlan);
   }
 
@@ -94,7 +94,7 @@ abstract class _ExercisePlanControllerBase with Store {
   ExercisePlan _createExercisePlan() {
     return ExercisePlan(
       id: const Uuid().v1(),
-      exercise: exerciseDetails,
+      details: exerciseDetails,
       plannedSets: _generatePlannedSets(),
     );
   }

@@ -24,7 +24,7 @@ final workoutPlan = WorkoutPlan(
 final exercises = const [
   ExercisePlan(
     id: '1',
-    exercise: ExerciseDetails(
+    details: ExerciseDetails(
       id: '123',
       name: 'Supino reto',
       targetMuscle: 'Peito',

@@ -21,7 +21,7 @@ class _$WorkoutPlanDTOTearOff {
   const _$WorkoutPlanDTOTearOff();
 
   _WorkoutPlanDTO call(
-      {String? id,
+      {@JsonKey(ignore: true) String? id,
       required String title,
       required Set<int> daysOfWeek,
       required List<ExercisePlanDTO> exercises,
@@ -47,6 +47,7 @@ const $WorkoutPlanDTO = _$WorkoutPlanDTOTearOff();
 
 /// @nodoc
 mixin _$WorkoutPlanDTO {
+  @JsonKey(ignore: true)
   String? get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   Set<int> get daysOfWeek => throw _privateConstructorUsedError;
@@ -66,7 +67,7 @@ abstract class $WorkoutPlanDTOCopyWith<$Res> {
           WorkoutPlanDTO value, $Res Function(WorkoutPlanDTO) then) =
       _$WorkoutPlanDTOCopyWithImpl<$Res>;
   $Res call(
-      {String? id,
+      {@JsonKey(ignore: true) String? id,
       String title,
       Set<int> daysOfWeek,
       List<ExercisePlanDTO> exercises,
@@ -129,7 +130,7 @@ abstract class _$WorkoutPlanDTOCopyWith<$Res>
       __$WorkoutPlanDTOCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? id,
+      {@JsonKey(ignore: true) String? id,
       String title,
       Set<int> daysOfWeek,
       List<ExercisePlanDTO> exercises,
@@ -190,7 +191,7 @@ class __$WorkoutPlanDTOCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_WorkoutPlanDTO implements _WorkoutPlanDTO {
   const _$_WorkoutPlanDTO(
-      {this.id,
+      {@JsonKey(ignore: true) this.id,
       required this.title,
       required this.daysOfWeek,
       required this.exercises,
@@ -201,6 +202,7 @@ class _$_WorkoutPlanDTO implements _WorkoutPlanDTO {
       _$_$_WorkoutPlanDTOFromJson(json);
 
   @override
+  @JsonKey(ignore: true)
   final String? id;
   @override
   final String title;
@@ -263,7 +265,7 @@ class _$_WorkoutPlanDTO implements _WorkoutPlanDTO {
 
 abstract class _WorkoutPlanDTO implements WorkoutPlanDTO {
   const factory _WorkoutPlanDTO(
-      {String? id,
+      {@JsonKey(ignore: true) String? id,
       required String title,
       required Set<int> daysOfWeek,
       required List<ExercisePlanDTO> exercises,
@@ -274,6 +276,7 @@ abstract class _WorkoutPlanDTO implements WorkoutPlanDTO {
       _$_WorkoutPlanDTO.fromJson;
 
   @override
+  @JsonKey(ignore: true)
   String? get id => throw _privateConstructorUsedError;
   @override
   String get title => throw _privateConstructorUsedError;

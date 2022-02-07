@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:olympia_design/olympia_design.dart';
+import 'package:olympia_design/src/text_fields/custom_text_field.dart';
 import 'package:sliding_sheet/sliding_sheet.dart';
 import 'package:squeezed_app/features/workout/domain/entities/exercise_details.dart';
 import 'package:squeezed_app/features/workout/domain/entities/exercise_plan.dart';
@@ -9,12 +10,10 @@ import 'package:squeezed_app/features/workout/ui/controllers/choose_exercises_co
 import 'package:squeezed_app/features/workout/ui/controllers/search_exercise_controller.dart';
 import 'package:squeezed_app/features/workout/ui/widgets/exercise_option_tile.dart';
 import 'package:squeezed_app/features/workout/ui/widgets/muscle_filters.dart';
-import 'package:squeezed_app/features/workout/ui/widgets/selected_exercises_bottom_sheet_body.dart';
 import 'package:squeezed_app/shared/app_container.dart';
-import 'package:squeezed_app/shared/res/constants.dart';
 import 'package:squeezed_app/shared/res/messages.dart';
 import 'package:squeezed_app/widgets/app_scaffold.dart';
-import 'package:olympia_design/src/text_fields/custom_text_field.dart';
+import 'package:squeezed_app/widgets/custom_sliding_sheet_dialog.dart';
 
 import '../../../app_router.gr.dart';
 
@@ -75,7 +74,7 @@ class _ChooseExercisesPageState extends State<ChooseExercisesPage> {
 
   void _handleCustomTitleTap() {
     _unfocusSearchBar();
-    showSlidingBottomSheet(context, builder: (_) => CustomSlidingSheetDialog());
+    // showSlidingBottomSheet(context, builder: (_) => CustomSlidingSheetDialog());
   }
 
   Widget _buildPlainTitleText() {

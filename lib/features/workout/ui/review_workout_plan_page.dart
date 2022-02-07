@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:olympia_design/olympia_design.dart';
 import 'package:squeezed_app/features/workout/ui/controllers/review_workout_plan_controller.dart';
 import 'package:squeezed_app/features/workout/ui/view_models/create_workout_view_model.dart';
 import 'package:squeezed_app/features/workout/ui/widgets/exercise_plan_list_tile.dart';
 import 'package:squeezed_app/features/workout/ui/widgets/selected_weekdays_display.dart';
 import 'package:squeezed_app/shared/app_container.dart';
-import 'package:squeezed_app/shared/res/app_colors.dart';
 import 'package:squeezed_app/widgets/app_scaffold.dart';
 import 'package:squeezed_app/widgets/custom_section_header.dart';
 

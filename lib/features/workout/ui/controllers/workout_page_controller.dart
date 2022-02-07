@@ -59,7 +59,7 @@ final workoutPlan = WorkoutPlan(
 final exercises = const [
   ExercisePlan(
     id: '1',
-    exercise: ExerciseDetails(
+    details: ExerciseDetails(
       id: '123',
       name: 'Supino reto',
       targetMuscle: 'Peito',
@@ -72,7 +72,7 @@ final exercises = const [
   ),
   ExercisePlan(
     id: '2',
-    exercise: ExerciseDetails(
+    details: ExerciseDetails(
       id: '456',
       name: 'Supino inclinado',
       targetMuscle: 'Peito',
@@ -84,7 +84,7 @@ final exercises = const [
   ),
   ExercisePlan(
     id: '3',
-    exercise: ExerciseDetails(
+    details: ExerciseDetails(
       id: '789',
       name: 'Supino máquina',
       targetMuscle: 'Peito',
@@ -96,7 +96,7 @@ final exercises = const [
   ),
   ExercisePlan(
     id: '4',
-    exercise: ExerciseDetails(
+    details: ExerciseDetails(
       id: '789',
       name: 'Supino máquina',
       targetMuscle: 'Peito',
@@ -108,7 +108,7 @@ final exercises = const [
   ),
   ExercisePlan(
     id: '5',
-    exercise: ExerciseDetails(
+    details: ExerciseDetails(
       id: '789',
       name: 'Supino máquina',
       targetMuscle: 'Peito',
@@ -120,7 +120,7 @@ final exercises = const [
   ),
   ExercisePlan(
     id: '6',
-    exercise: ExerciseDetails(
+    details: ExerciseDetails(
       id: '789',
       name: 'Supino máquina',
       targetMuscle: 'Peito',
@@ -132,7 +132,7 @@ final exercises = const [
   ),
   ExercisePlan(
     id: '7',
-    exercise: ExerciseDetails(
+    details: ExerciseDetails(
       id: '789',
       name: 'Supino máquina',
       targetMuscle: 'Peito',
@@ -144,7 +144,7 @@ final exercises = const [
   ),
   ExercisePlan(
     id: '8',
-    exercise: ExerciseDetails(
+    details: ExerciseDetails(
       id: '789',
       name: 'Supino máquina',
       targetMuscle: 'Peito',
