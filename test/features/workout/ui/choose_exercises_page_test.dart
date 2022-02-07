@@ -1,3 +1,4 @@
+import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -5,7 +6,6 @@ import 'package:olympia_design/olympia_design.dart';
 import 'package:squeezed_app/features/workout/data/repositories/workout_plan_repository_impl.dart';
 import 'package:squeezed_app/features/workout/domain/entities/exercise_details.dart';
 import 'package:squeezed_app/features/workout/domain/entities/exercise_plan.dart';
-import 'package:squeezed_app/features/workout/domain/repositories/workout_plan_repository.dart';
 import 'package:squeezed_app/features/workout/domain/usecases/create_workout_plan.dart';
 import 'package:squeezed_app/features/workout/ui/choose_exercises_page.dart';
 import 'package:squeezed_app/features/workout/ui/controllers/choose_exercises_controller.dart';
@@ -15,7 +15,6 @@ import 'package:squeezed_app/features/workout/ui/widgets/exercise_option_tile.da
 import 'package:squeezed_app/features/workout/ui/widgets/muscle_filters.dart';
 import 'package:squeezed_app/shared/app_container.dart';
 import 'package:squeezed_app/shared/res/messages.dart';
-import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 
 import '../../../fixtures/user_fixtures.dart';
 
