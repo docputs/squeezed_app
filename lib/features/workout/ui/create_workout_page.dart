@@ -42,7 +42,7 @@ class CreateWorkoutPage extends StatelessWidget {
           Observer(
             builder: (_) => CustomElevatedButton(
               text: Messages.createWorkoutSubmitButtonText,
-              onPressed: controller.isFormValid ? () => controller.submitForm(context) : null,
+              onPressed: controller.isFormValid ? () => controller.submitForm() : null,
             ),
           ),
         ],

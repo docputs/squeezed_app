@@ -1,5 +1,3 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
 import 'package:squeezed_app/app_router.gr.dart';
@@ -15,8 +13,9 @@ class WorkoutPlanController = _WorkoutPlanControllerBase with _$WorkoutPlanContr
 
 abstract class _WorkoutPlanControllerBase extends WorkoutCreationBase with Store {
   final CreateWorkoutController creationController;
+  final AppRouter appRouter;
 
-  _WorkoutPlanControllerBase(this.creationController);
+  _WorkoutPlanControllerBase(this.creationController, this.appRouter);
 
   @observable
   ObservableSet<WeekdayViewModel> selectedWeekdays = ObservableSet();
@@ -42,9 +41,9 @@ abstract class _WorkoutPlanControllerBase extends WorkoutCreationBase with Store
   @computed
   bool get isFormValid => selectedWeekdays.isNotEmpty && workoutName.isNotEmpty;
 
-  void submitForm(BuildContext context) {
+  void submitForm() {
     assignValuesToWorkout();
-    AutoRouter.of(context).push(ChooseExercisesRoute());
+    appRouter.push(ChooseExercisesRoute());
   }
 
   void assignValuesToWorkout() {
