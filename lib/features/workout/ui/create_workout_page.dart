@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:olympia_design/olympia_design.dart';
-import 'package:olympia_design/src/text_fields/custom_text_field.dart';
 import 'package:squeezed_app/features/workout/ui/widgets/multiple_weekday_selector.dart';
 import 'package:squeezed_app/shared/app_container.dart';
 import 'package:squeezed_app/shared/res/messages.dart';

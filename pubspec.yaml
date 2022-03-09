@@ -26,36 +26,36 @@ dependencies:
   olympia_design:
     path: ./olympia_design
   cupertino_icons: ^1.0.4
-  auto_route: ^2.3.0
-  freezed_annotation: ^0.14.2
-  cloud_firestore: ^3.1.6
-  firebase_auth: ^3.3.5
-  firebase_core: ^1.11.0
+  auto_route: ^3.2.4
+  freezed_annotation: ^1.1.0
+  cloud_firestore: ^3.1.10
+  firebase_auth: ^3.3.9
+  firebase_core: ^1.13.1
   get_it: ^7.2.0
-  google_sign_in: ^5.2.3
+  google_sign_in: ^5.2.4
   injectable: ^1.5.3
-  shared_preferences: ^2.0.12
-  uuid: ^3.0.5
+  shared_preferences: ^2.0.13
+  uuid: ^3.0.6
   json_annotation: ^4.4.0
   font_awesome_flutter: ^9.2.0
-  flutter_mobx: ^2.0.2
+  flutter_mobx: ^2.0.4
   mobx: ^2.0.4
   flash: ^2.0.3+2
   intl: ^0.17.0
   sliding_sheet: ^0.5.2
-  mocktail: ^0.2.0
+  mocktail: ^0.3.0
   equatable: ^2.0.3
   clock: ^1.1.0
-  fake_cloud_firestore: ^1.2.0
+  fake_cloud_firestore: ^1.2.1
   firebase_auth_mocks: ^0.8.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   json_serializable: ^6.1.5
-  freezed: ^0.14.2
+  freezed: ^1.1.0
   injectable_generator: ^1.4.1
-  auto_route_generator: ^2.1.0
+  auto_route_generator: ^3.2.3
   build_runner: ^2.1.7
   mobx_codegen: ^2.0.2
 

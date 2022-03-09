@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'exercise_plan_dto.dart';
 
@@ -161,7 +162,7 @@ class _$_ExercisePlanDTO extends _ExercisePlanDTO {
       : super._();
 
   factory _$_ExercisePlanDTO.fromJson(Map<String, dynamic> json) =>
-      _$_$_ExercisePlanDTOFromJson(json);
+      _$$_ExercisePlanDTOFromJson(json);
 
   @override
   final String id;
@@ -203,7 +204,7 @@ class _$_ExercisePlanDTO extends _ExercisePlanDTO {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_ExercisePlanDTOToJson(this);
+    return _$$_ExercisePlanDTOToJson(this);
   }
 }
 
